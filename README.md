@@ -17,13 +17,13 @@ This is an app for collectors of vinyl records to keep track of their collection
 * Use active storage to store album cover images
 
 ## Wireframes
-![home page](/assets/wireframes/home)
-![collection page](/assets/wireframes/collection_page)
-![record details page](/assets/wireframes/record_details.png)
-![record form page](/assets/wireframes/record_form_page.png)
+![home page](assets/wireframes/home_page.png)
+![collection page](assets/wireframes/collection_page.png)
+![record details page](assets/wireframes/record_details_page.png)
+![record form page](assets/wireframes/record_form_page.png)
 
 ## ERD
-(/assets/p4-erd.ping)
+![ERD](assets/p4-erd.ping)
 
 ## React Component Hierarchy
 <App />
