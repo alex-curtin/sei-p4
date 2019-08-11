@@ -29,20 +29,20 @@ This is an app for collectors of vinyl records to keep track of their collection
 ![ERD](assets/p4-erd.png)
 
 ## React Component Hierarchy
-<App />
-	<Home /> Landing page to login/register, view your collection, or view user list
-	<Login/Register />
-		<LoginForm />
-		<RegisterForm />
-	<UsersList /> List of users
-  <UpdateUserInfo />
-  <RecordsList /> List of record in one user’s collection
-    <RecordForm /> Adds a record to your own collection
-  <RecordDetails /> Full details for a single record
-    <TrackList /> Track list for the record
-    <RecordForm /> Form to record edit details
-    <CommentsList /> Comments about the record, posted by users
-      <CommentForm /> For posting or editing comments
+* App
+	* Home - landing page to login/register, view your collection, or view user list
+	* Login/Register
+		* LoginForm
+		* RegisterForm
+	* UsersList - list of users
+  * UpdateUserInfo
+  * RecordsList - list of record in one user’s collection
+    * RecordForm - adds a record to your own collection
+  * RecordDetails - Full details for a single record
+    * TrackList - Track list for the record
+    * RecordForm - Form to record edit details
+    * CommentsList - Comments about the record, posted by users
+      * CommentForm - For posting or editing comments
 
 ## Aditional Technologies
 In addition to Rails and React, the project will use React-Router, React-Burger-Menu, and React-Modal
