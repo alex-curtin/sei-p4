@@ -26,7 +26,7 @@ This is an app for collectors of vinyl records to keep track of their collection
 ![record form page](assets/wireframes/record_form_page.png)
 
 ## ERD
-![ERD](https://imgur.com/LNPu6kn)
+![ERD](assets/p4-erd.png)
 
 ## React Component Hierarchy
 <App />
