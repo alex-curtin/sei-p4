@@ -1,11 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const UsersList = (props) => {
   return (
-    <div>
+    <div className="users-list">
       <h2>Users</h2>
       {props.users.map(user => (
-        <p key={user.id}>{user.username}</p>
+        <div key={user.id}>
+          <Link
+            to={`/users/${user.id}`}
+          >{user.username}</Link>
+          <p>{user.records.length} items in collection</p>
+        </div>
       ))}
     </div>
   )

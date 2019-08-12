@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
+import { Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import UserForm from './components/UserForm';
 import LoginForm from './components/LoginForm';
 import UsersList from './components/UsersList';
 import RecordsList from './components/RecordsList';
 import { registerUser, fetchUsers, loginUser, verifyToken } from './services/api';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -23,11 +25,10 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    const user = await verifyToken();
+    const user = verifyToken();
     const users = await fetchUsers();
     this.setState({
       users: users,
-      currentUser: user,
     })
   }
 
@@ -57,7 +58,7 @@ class App extends React.Component {
     }
     const user = await loginUser(data);
     this.setState({
-      currentUser: user.user,
+      currentUser: user,
       userFormData: {
         username: '',
         email: '',
@@ -79,6 +80,7 @@ class App extends React.Component {
       <div className="App">
         <NavBar
           handleLogOut={this.handleLogOut}
+          currentUser={this.state.currentUser}
         />
         <LoginForm
           formData={this.state.userFormData}
@@ -93,7 +95,16 @@ class App extends React.Component {
         <UsersList
           users={this.state.users}
         />
-        <RecordsList />
+        <Route
+          exact path='/users/:id'
+          render={(props) => (
+            <RecordsList
+              {...props}
+              user={this.state.users.find(user =>
+                user.id === parseInt(props.match.params.id))}
+            />
+          )}
+        />
       </div>
     );
   }

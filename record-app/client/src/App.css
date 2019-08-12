@@ -2,32 +2,68 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+button {
+  height: 4vh;
+  border: 1px solid black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button:hover {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+a:hover {
+  cursor: pointer;
+  color: grey;
+}
+
+/************* NAVBAR *********/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background: lightgray;
+  padding: 1vh 2vw;
+}
+
+.links {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/************ USERS LIST ***********/
+
+.users-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.users-list div {
+  margin-bottom: 1vh;
+  background: lightgrey;
+  padding: 1vh 1vw 0;
+  width: 30%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/************ RECORDS LIST ***********/
+
+.collection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.record {
+  width: 20%;
+}
+
+.collection img {
+  width: 100%;
 }

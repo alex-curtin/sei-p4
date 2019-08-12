@@ -3,12 +3,13 @@ import React from 'react'
 const NavBar = (props) => {
   return (
     <div className="navbar">
-      <p className="logo">APP</p>
+      <p className="logo">LOGO</p>
       <div className="links">
         <p>my collection</p>
         <p>browse</p>
-        <p>log in</p>
-        <button onClick={props.handleLogOut}>log out</button>
+        {props.currentUser ?
+          <button onClick={props.handleLogOut}>log out</button> :
+          <button>log in</button>}
       </div>
     </div>
   )
