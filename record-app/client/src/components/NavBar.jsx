@@ -7,7 +7,8 @@ const NavBar = (props) => {
       <div className="links">
         <p>my collection</p>
         <p>browse</p>
-        <p>login</p>
+        <p>log in</p>
+        <button onClick={props.handleLogOut}>log out</button>
       </div>
     </div>
   )

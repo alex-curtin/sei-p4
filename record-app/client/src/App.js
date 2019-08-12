@@ -17,7 +17,7 @@ class App extends React.Component {
         location: '',
         password: '',
       },
-      currentUser: '',
+      currentUser: null,
       users: [],
     }
   }
@@ -66,10 +66,19 @@ class App extends React.Component {
     })
   }
 
+  handleLogOut = () => {
+    localStorage.removeItem('jwt');
+    this.setState({
+      currentUser: null,
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <NavBar />
+        <NavBar
+          handleLogOut={this.handleLogOut}
+        />
         <LoginForm
           formData={this.state.userFormData}
           handleSubmit={this.handleLogin}
