@@ -49,10 +49,10 @@ This is an app for collectors of vinyl records to keep track of their collection
 In addition to Rails and React, the project will use React-Router, React-Burger-Menu, and React-Modal
 
 ## Timeline
-* Set up Rails back end with auth (Monday)
-* Create user components (index, show, create, edit) with full CRUD (Monday)
-* Create record components (index, show, create, edit) with full CRUD (Tuesday)
-* Create comment components (index, create, edit) with full CRUD (Tuesday)
-* Style app for desktop (Wednesday)
-* Style app for mobile (Wednesday)
-* Test deploy and debug (Thursday)
+* Set up Rails back end with auth (Monday, 8/12)
+* Create user components (index, show, create, edit) with full CRUD (Monday, 8/12)
+* Create record components (index, show, create, edit) with full CRUD (Tuesday, 8/13)
+* Create comment components (index, create, edit) with full CRUD (Tuesday, 8/13)
+* Style app for desktop (Wednesday, 8/14)
+* Style app for mobile (Wednesday, 8/14)
+* Test deploy and debug (Thursday, 8/15)
