@@ -10,7 +10,7 @@ This is an app for collectors of vinyl records to keep track of their collection
 * Users can post comments on records in any user’s collection and update   or delete comments
 
 ### Post-MVP
-* Add track listings
+* Users can add track listings, and add link to song (youtube, etc.)
 * Add a user profile page with links to records the user has commented on
 * Users can add a link to the store where they bought the record
 * Use third-party API to get album info
