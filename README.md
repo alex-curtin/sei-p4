@@ -24,6 +24,7 @@ This is an app for collectors of vinyl records to keep track of their collection
 ![record details page](assets/wireframes/record_details_page.png)
 ---
 ![record form page](assets/wireframes/record_form_page.png)
+---
 
 ## ERD
 ![ERD](assets/p4-erd.png)
@@ -46,3 +47,12 @@ This is an app for collectors of vinyl records to keep track of their collection
 
 ## Aditional Technologies
 In addition to Rails and React, the project will use React-Router, React-Burger-Menu, and React-Modal
+
+## Timeline
+* Set up Rails back end with auth (Monday)
+* Create user components (index, show, create, edit) with full CRUD (Monday)
+* Create record components (index, show, create, edit) with full CRUD (Tuesday)
+* Create comment components (index, create, edit) with full CRUD (Tuesday)
+* Style app for desktop (Wednesday)
+* Style app for mobile (Wednesday)
+* Test deploy and debug (Thursday)
