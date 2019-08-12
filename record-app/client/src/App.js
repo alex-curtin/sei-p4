@@ -6,7 +6,6 @@ import LoginForm from './components/LoginForm';
 import UsersList from './components/UsersList';
 import RecordsList from './components/RecordsList';
 import { createUser, fetchUsers, loginUser } from './services/api';
-import LoginForm from './components/LoginForm';
 
 class App extends React.Component {
   constructor(props) {
@@ -43,8 +42,9 @@ class App extends React.Component {
   handleUserSubmit = async (e) => {
     e.preventDefault();
     const user = await createUser(this.state.userFormData);
+    debugger;
     this.setState({
-      currentUser: user
+      currentUser: user,
     })
   }
 
@@ -56,7 +56,7 @@ class App extends React.Component {
     }
     const user = await loginUser(data);
     this.setState({
-      currentUser: user,
+      currentUser: user.user,
       userFormData: {
         username: '',
         email: '',

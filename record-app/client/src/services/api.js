@@ -11,7 +11,7 @@ const getToken = () => {
   api.defaults.headers.common.authorization = `Bearer ${token}`;
 }
 
-export const loginUser = async (logingData) => {
+export const loginUser = async (loginData) => {
   const res = await api.post('/auth/login', loginData);
   const { user, token } = res.data;
   return res.data;
