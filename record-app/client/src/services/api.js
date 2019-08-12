@@ -11,17 +11,42 @@ const getToken = () => {
   api.defaults.headers.common.authorization = `Bearer ${token}`;
 }
 
+const storeToken = (token) => {
+  localStorage.setItem('jwt', token);
+  api.defaults.headers.common.authorization = `Bearer ${token}`;
+};
+
 export const loginUser = async (loginData) => {
   const res = await api.post('/auth/login', loginData);
   const { user, token } = res.data;
-  return res.data;
+  storeToken(token);
+  return user;
 }
 
 export const registerUser = async (registerData) => {
-  const resp = await api.post('/users/', { user: registerData });
-  const token = resp.data.token;
-  return resp.data
+  const res = await api.post('/users/', { user: registerData });
+  const token = res.data.token;
+  return res.data
 }
+
+export const verifyToken = async () => {
+  const token = localStorage.getItem('jwt');
+  if (token) {
+    try {
+      const res = await api.get('/users/verify', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      debugger;
+      return res.data.user;
+    } catch (e) {
+      console.log(e.message);
+      console.log('invalid token');
+    }
+  }
+  else { console.log('user not logged in') };
+};
 
 ////////////////////USER API///////////////////////////////
 export const fetchUsers = async () => {
@@ -31,12 +56,6 @@ export const fetchUsers = async () => {
 
 export const fetchUser = async (id) => {
   const res = await api.get(`/users/${id}`);
-  return res.data;
-}
-
-export const createUser = async (data) => {
-  getToken();
-  const res = await api.post('/users', data);
   return res.data;
 }
 
