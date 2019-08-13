@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 import NavBar from './components/NavBar';
 import UserForm from './components/UserForm';
@@ -9,6 +9,7 @@ import LoginForm from './components/LoginForm';
 import UsersList from './components/UsersList';
 import RecordsList from './components/RecordsList';
 import RecordDetail from './components/RecordDetail';
+import RecordForm from './components/RecordForm';
 
 import { registerUser, fetchUsers, loginUser, verifyToken } from './services/api';
 
@@ -52,6 +53,7 @@ class App extends React.Component {
     this.setState({
       currentUser: user,
     })
+    this.props.history.push('/');
   }
 
   handleLogin = async (e) => {
@@ -70,6 +72,7 @@ class App extends React.Component {
         password: '',
       },
     })
+    this.props.history.push('/')
   }
 
   handleLogOut = () => {
@@ -86,12 +89,14 @@ class App extends React.Component {
           handleLogOut={this.handleLogOut}
           currentUser={this.state.currentUser}
         />
-        {!this.state.currentUser &&
-          <LoginForm
+        <Route
+          exact path='/users/login'
+          render={() => (<LoginForm
             formData={this.state.userFormData}
             handleSubmit={this.handleLogin}
             handleChange={this.handleUserFormChange}
-          />}
+          />)}
+        />
         <Route
           exact path='/users/register'
           render={() => (<UserForm
@@ -118,6 +123,17 @@ class App extends React.Component {
           )}
         />
         <Route
+          exact path='/users/:user_id/new_record'
+          render={(props) => (
+            <RecordForm
+              {...props}
+              user={this.state.users.find(user =>
+                user.id === parseInt(props.match.params.user_id))}
+              userId={props.match.params.user_id}
+            />
+          )}
+        />
+        <Route
           exact path='/users/:user_id/records/:id'
           render={(props) => (
             <RecordDetail
@@ -131,4 +147,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withRouter(App);

@@ -38,7 +38,6 @@ export const verifyToken = async () => {
           Authorization: `Bearer ${token}`
         }
       });
-      debugger;
       return res.data.user;
     } catch (e) {
       console.log(e.message);

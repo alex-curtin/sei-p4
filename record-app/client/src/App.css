@@ -44,6 +44,30 @@ a:hover {
   justify-content: space-between;
 }
 
+/************ LOGIN *****************/
+
+.login-form {
+  width: 40%;
+  height: 5vh;
+  margin: 0 auto;
+  padding: 5vh 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.login-form button {
+  height: 80%;
+  width: 10%;
+  border: 1px solid darkgrey;
+}
+
+.login-form input {
+  height: 75%;
+  width: 50%;
+  margin-right: 1vw;
+  border: 1px solid darkgrey;
+}
+
 /************ USERS LIST ***********/
 
 .users-list {

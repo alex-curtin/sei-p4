@@ -15,7 +15,10 @@ const NavBar = (props) => {
             <p>Hello {props.currentUser.username}</p>
             <button onClick={props.handleLogOut}>log out</button>
           </div> :
-          <button>log in</button>}
+          <Link to="/users/login">
+            <button>log in</button>
+          </Link>
+        }
       </div>
     </div>
   )

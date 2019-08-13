@@ -5,6 +5,9 @@ const RecordsList = (props) => {
   return (
     <div>
       <h3>{props.user.username}</h3>
+      <Link
+        to={`/users/${props.user.id}/new_record`}
+      ><b>+</b></Link>
       <div className="collection">
         {props.user.records.map(record => (
           <div key={record.id} className="record">
