@@ -37,6 +37,13 @@ a:hover {
   align-items: center;
 }
 
+.welcome {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /************ USERS LIST ***********/
 
 .users-list {

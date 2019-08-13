@@ -8,7 +8,7 @@ const UsersList = (props) => {
       {props.users.map(user => (
         <div key={user.id}>
           <Link
-            to={`/users/${user.id}`}
+            to={`/users/${user.id}/records`}
           >{user.username}</Link>
           <p>{user.records.length} items in collection</p>
         </div>

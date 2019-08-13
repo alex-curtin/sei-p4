@@ -1,11 +1,15 @@
 import React from 'react';
 import './App.css';
+
 import { Route } from 'react-router-dom';
+
 import NavBar from './components/NavBar';
 import UserForm from './components/UserForm';
 import LoginForm from './components/LoginForm';
 import UsersList from './components/UsersList';
 import RecordsList from './components/RecordsList';
+import RecordDetail from './components/RecordDetail';
+
 import { registerUser, fetchUsers, loginUser, verifyToken } from './services/api';
 
 
@@ -82,21 +86,29 @@ class App extends React.Component {
           handleLogOut={this.handleLogOut}
           currentUser={this.state.currentUser}
         />
-        <LoginForm
-          formData={this.state.userFormData}
-          handleSubmit={this.handleLogin}
-          handleChange={this.handleUserFormChange}
-        />
-        <UserForm
-          formData={this.state.userFormData}
-          handleSubmit={this.handleUserSubmit}
-          handleChange={this.handleUserFormChange}
-        />
-        <UsersList
-          users={this.state.users}
+        {!this.state.currentUser &&
+          <LoginForm
+            formData={this.state.userFormData}
+            handleSubmit={this.handleLogin}
+            handleChange={this.handleUserFormChange}
+          />}
+        <Route
+          exact path='/users/register'
+          render={() => (<UserForm
+            formData={this.state.userFormData}
+            handleSubmit={this.handleUserSubmit}
+            handleChange={this.handleUserFormChange}
+          />)}
         />
         <Route
-          exact path='/users/:id'
+          exact path='/users'
+          render={() => (
+            <UsersList
+              users={this.state.users}
+            />)}
+        />
+        <Route
+          exact path='/users/:id/records'
           render={(props) => (
             <RecordsList
               {...props}
@@ -104,6 +116,16 @@ class App extends React.Component {
                 user.id === parseInt(props.match.params.id))}
             />
           )}
+        />
+        <Route
+          exact path='/users/:user_id/records/:id'
+          render={(props) => (
+            <RecordDetail
+              {...props}
+              user={this.state.users.find(user =>
+                user.id === parseInt(props.match.params.user_id))}
+              recordId={props.match.params.id}
+            />)}
         />
       </div>
     );
