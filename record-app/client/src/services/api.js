@@ -26,6 +26,7 @@ export const loginUser = async (loginData) => {
 export const registerUser = async (registerData) => {
   const res = await api.post('/users/', { user: registerData });
   const token = res.data.token;
+  storeToken(token);
   return res.data
 }
 
@@ -51,13 +52,11 @@ export const fetchUser = async (id) => {
 }
 
 export const updateUser = async (id, data) => {
-  getToken();
   const res = await api.put(`/users/${id}`, data);
   return res.data;
 }
 
 export const deleteUser = async (id) => {
-  getToken();
   const res = await api.delete(`/users/${id}`);
   return res.data;
 }
@@ -75,22 +74,19 @@ export const fetchRecord = async (userId, id) => {
 }
 
 export const createRecord = async (data) => {
-  getToken();
   const userId = data.user_id;
   const res = await api.post(`/users/${userId}/records/`, data);
   return res.data;
 }
 
-export const updateRecord = async (data) => {
-  getToken();
+export const updateRecord = async (id, data) => {
+  debugger;
   const userId = data.user_id;
-  const id = data.id;
   const res = await api.put(`/users/${userId}/records/${id}`, data);
   return res.data;
 }
 
 export const deleteRecord = async (userId, id) => {
-  getToken();
   const res = await api.delete(`/users/${userId}/records/${id}`);
   return res.data;
 }
@@ -102,14 +98,12 @@ export const fetchComments = async (userId, recordId) => {
 }
 
 export const createComment = async (userId, data) => {
-  getToken();
   const recordId = data.record_id;
   const res = await api.post(`/users/${userId}/records/${recordId}/comments`, data);
   return res.data;
 }
 
 export const updateComment = async (userId, data) => {
-  getToken();
   const recordId = data.record_id;
   const id = data.id;
   const res = await api.put(`/users/${userId}/records/${recordId}/comments/${id}`, data);
@@ -117,7 +111,6 @@ export const updateComment = async (userId, data) => {
 }
 
 export const deleteComment = async (userId, recordId, id) => {
-  getToken();
   const res = await api.delete(`/users/${userId}/records/${recordId}/comments/${id}`);
   return res.data;
 }

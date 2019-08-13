@@ -11,7 +11,12 @@ import RecordsList from './components/RecordsList';
 import RecordDetail from './components/RecordDetail';
 import RecordForm from './components/RecordForm';
 
-import { registerUser, fetchUsers, loginUser, verifyToken } from './services/api';
+import {
+  registerUser, fetchUsers,
+  loginUser, verifyToken,
+  createRecord,
+  updateRecord,
+} from './services/api';
 
 
 class App extends React.Component {
@@ -82,6 +87,16 @@ class App extends React.Component {
     })
   }
 
+  handleCreateRecord = async (data) => {
+    const record = await createRecord(data);
+    this.props.history.goBack();
+  }
+
+  handleEditRecord = async (id, data) => {
+    const record = await updateRecord(id, data);
+    this.props.history.goBack();
+  }
+
   render() {
     return (
       <div className="App">
@@ -127,9 +142,21 @@ class App extends React.Component {
           render={(props) => (
             <RecordForm
               {...props}
+              handleSubmit={this.handleCreateRecord}
               user={this.state.users.find(user =>
                 user.id === parseInt(props.match.params.user_id))}
               userId={props.match.params.user_id}
+            />
+          )}
+        />
+        <Route
+          exact path='/users/:user_id/records/:id/edit'
+          render={(props) => (
+            <RecordForm
+              {...props}
+              handleSubmit={this.handleEditRecord}
+              user={this.state.users.find(user =>
+                user.id === parseInt(props.match.params.user_id))}
             />
           )}
         />

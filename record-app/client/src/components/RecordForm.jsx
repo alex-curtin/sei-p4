@@ -20,9 +20,21 @@ class RecordForm extends React.Component {
         description: '',
         img_url: '',
         user_id: this.props.userId,
-      }
+      },
+      record: null,
     }
   }
+
+  componentDidMount() {
+    const record = this.props.user.records.find(record =>
+      record.id === parseInt(this.props.match.params.id));
+    if (record) {
+      this.setState({
+        record: record,
+      })
+    }
+  }
+
 
   handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,16 +46,22 @@ class RecordForm extends React.Component {
     }))
   }
 
-  handleSubmit = async (e) => {
-    e.preventDefault();
-    const record = await createRecord(this.state.formData);
-    this.props.history.push(`/users/${this.props.user.id}/records`);
-  }
+
 
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        {this.props.match.params.id ?
+          <h2>EDIT RECORD</h2> :
+          <h2>ADD A RECORD</h2>}
+        <form
+          className="record-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            this.state.record ?
+              this.props.handleSubmit(this.state.record.id, this.state.formData) :
+              this.props.handleSubmit(this.state.formData);
+          }}>
           <input
             type="text"
             name="artist"

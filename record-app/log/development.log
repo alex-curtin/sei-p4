@@ -3877,3 +3877,982 @@ Completed 401 Unauthorized in 21ms (Views: 0.3ms | ActiveRecord: 0.0ms)
 Completed 200 OK in 56ms (Views: 48.0ms | ActiveRecord: 7.4ms)
 
 
+Started GET "/users/verify" for ::1 at 2019-08-13 13:22:38 -0400
+Started GET "/users" for ::1 at 2019-08-13 13:22:38 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 401 Unauthorized in 23ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (2.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 63ms (Views: 45.5ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 13:26:10 -0400
+Started GET "/users/verify" for ::1 at 2019-08-13 13:26:10 -0400
+Processing by UsersController#verify as HTML
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 18ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (2.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.6ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.7ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 275ms (Views: 264.3ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 13:38:18 -0400
+Started GET "/users/verify" for ::1 at 2019-08-13 13:38:18 -0400
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 7ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 51ms (Views: 44.5ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 13:38:40 -0400
+Started GET "/users/verify" for ::1 at 2019-08-13 13:38:40 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 19ms (Views: 16.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 13:39:35 -0400
+Started GET "/users" for ::1 at 2019-08-13 13:39:35 -0400
+Processing by UsersController#verify as HTML
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 18ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.6ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 49ms (Views: 38.9ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 13:40:28 -0400
+Started GET "/users/verify" for ::1 at 2019-08-13 13:40:28 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#verify as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Filter chain halted as :authorize_request rendered or redirected
+  ↳ app/controllers/users_controller.rb:7
+Completed 401 Unauthorized in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 30ms (Views: 24.5ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/users/4/records/" for ::1 at 2019-08-13 13:43:34 -0400
+Processing by RecordsController#create as 
+  Parameters: {"artist"=>"Scientist", "title"=>"Scientist Encounters Pac-Man", "year"=>"2012", "record_label"=>"Greensleeves", "cat_num"=>"GREL 46", "country"=>"United States", "speed"=>"33 rpm", "disc_condition"=>"VG+", "sleeve_condition"=>"VG+", "description"=>"", "img_url"=>"https://images-na.ssl-images-amazon.com/images/I/81NhshflY5L._SL1063_.jpg", "user_id"=>"4", "record"=>{"artist"=>"Scientist", "title"=>"Scientist Encounters Pac-Man", "year"=>"2012", "record_label"=>"Greensleeves", "cat_num"=>"GREL 46", "country"=>"United States", "format"=>"12\"", "speed"=>"33 rpm", "disc_condition"=>"VG+", "sleeve_condition"=>"VG+", "description"=>"", "img_url"=>"https://images-na.ssl-images-amazon.com/images/I/81NhshflY5L._SL1063_.jpg", "user_id"=>"4"}}
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/records_controller.rb:18
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:18
+  [1m[36mRecord Create (28.2ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Scientist"], ["title", "Scientist Encounters Pac-Man"], ["year", 2012], ["record_label", "Greensleeves"], ["cat_num", "GREL 46"], ["country", "United States"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG+"], ["description", ""], ["img_url", "https://images-na.ssl-images-amazon.com/images/I/81NhshflY5L._SL1063_.jpg"], ["user_id", 4], ["created_at", "2019-08-13 17:43:34.420935"], ["updated_at", "2019-08-13 17:43:34.420935"]]
+  ↳ app/controllers/records_controller.rb:18
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/records_controller.rb:18
+Completed 201 Created in 151ms (Views: 3.9ms | ActiveRecord: 35.4ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 13:43:44 -0400
+Started GET "/users" for ::1 at 2019-08-13 13:43:44 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 28ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (36.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (2.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 87ms (Views: 40.3ms | ActiveRecord: 40.6ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 13:46:27 -0400
+Started GET "/users/verify" for ::1 at 2019-08-13 13:46:27 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+  [1m[36mUser Load (8.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 401 Unauthorized in 10ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (3.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (2.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.6ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 285ms (Views: 248.9ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 13:48:03 -0400
+Started GET "/users/verify" for ::1 at 2019-08-13 13:48:03 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+  [1m[36mUser Load (8.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 401 Unauthorized in 6ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (3.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (2.6ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 74ms (Views: 50.1ms | ActiveRecord: 18.4ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 13:48:15 -0400
+Started GET "/users" for ::1 at 2019-08-13 13:48:15 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 21ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (22.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (2.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 230ms (Views: 198.0ms | ActiveRecord: 27.3ms)
+
+
+Started POST "/auth/login" for ::1 at 2019-08-13 14:04:04 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"username"=>"alex", "password"=>"[FILTERED]", "authentication"=>{"username"=>"alex", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alex"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4
+Completed 200 OK in 294ms (Views: 3.3ms | ActiveRecord: 28.2ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 14:04:13 -0400
+Started GET "/users" for ::1 at 2019-08-13 14:04:13 -0400
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 90ms (Views: 80.3ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 14:05:30 -0400
+Started GET "/users/verify" for ::1 at 2019-08-13 14:05:30 -0400
+Processing by UsersController#verify as HTML
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 34ms (Views: 31.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 14:19:26 -0400
+Started GET "/users" for ::1 at 2019-08-13 14:19:26 -0400
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 10ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 47ms (Views: 41.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 14:20:30 -0400
+Started GET "/users" for ::1 at 2019-08-13 14:20:30 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+  [1m[36mUser Load (16.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 401 Unauthorized in 16ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+
+
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.6ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.7ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 242ms (Views: 215.0ms | ActiveRecord: 24.2ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 14:25:40 -0400
+Started GET "/users/verify" for ::1 at 2019-08-13 14:25:40 -0400
+Processing by UsersController#verify as HTML
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 17ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.7ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 41ms (Views: 35.3ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 14:26:22 -0400
+Started GET "/users" for ::1 at 2019-08-13 14:26:22 -0400
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (3.0ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 220ms (Views: 210.9ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 14:26:35 -0400
+Started GET "/users" for ::1 at 2019-08-13 14:26:35 -0400
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 18ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (28.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 217ms (Views: 185.9ms | ActiveRecord: 30.5ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 14:45:23 -0400
+Started GET "/users" for ::1 at 2019-08-13 14:45:23 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 14ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (14.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 192ms (Views: 152.3ms | ActiveRecord: 38.0ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 14:45:44 -0400
+Started GET "/users" for ::1 at 2019-08-13 14:45:44 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.7ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 58ms (Views: 53.5ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 14:46:24 -0400
+Started GET "/users/verify" for ::1 at 2019-08-13 14:46:24 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 28ms (Views: 22.4ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/users/4/records/" for ::1 at 2019-08-13 14:48:34 -0400
+Processing by RecordsController#create as 
+  Parameters: {"artist"=>"Scientist", "title"=>"Scientist Meets The Space Invaders", "year"=>"1981", "record_label"=>"Greensleeves", "cat_num"=>"GREL 19", "country"=>"Jamaica", "speed"=>"33 rpm", "disc_condition"=>"G+", "sleeve_condition"=>"G+", "description"=>"1981 original", "img_url"=>"http://i.imgur.com/kOeAx6M.jpg", "user_id"=>"4", "record"=>{"artist"=>"Scientist", "title"=>"Scientist Meets The Space Invaders", "year"=>"1981", "record_label"=>"Greensleeves", "cat_num"=>"GREL 19", "country"=>"Jamaica", "format"=>"12\"", "speed"=>"33 rpm", "disc_condition"=>"G+", "sleeve_condition"=>"G+", "description"=>"1981 original", "img_url"=>"http://i.imgur.com/kOeAx6M.jpg", "user_id"=>"4"}}
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/records_controller.rb:18
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:18
+  [1m[36mRecord Create (22.7ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Scientist"], ["title", "Scientist Meets The Space Invaders"], ["year", 1981], ["record_label", "Greensleeves"], ["cat_num", "GREL 19"], ["country", "Jamaica"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "G+"], ["sleeve_condition", "G+"], ["description", "1981 original"], ["img_url", "http://i.imgur.com/kOeAx6M.jpg"], ["user_id", 4], ["created_at", "2019-08-13 18:48:34.989367"], ["updated_at", "2019-08-13 18:48:34.989367"]]
+  ↳ app/controllers/records_controller.rb:18
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/records_controller.rb:18
+Completed 201 Created in 83ms (Views: 3.0ms | ActiveRecord: 26.8ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 14:48:35 -0400
+Started GET "/users/verify" for ::1 at 2019-08-13 14:48:35 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#verify as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 9ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mRecord Load (1.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.6ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 38ms (Views: 31.6ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/users/" for ::1 at 2019-08-13 14:48:50 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 33ms (Views: 30.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 14:52:16 -0400
+Started GET "/users" for ::1 at 2019-08-13 14:52:17 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+  [1m[36mUser Load (25.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 401 Unauthorized in 24ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 132ms (Views: 84.7ms | ActiveRecord: 31.0ms)
+
+
+Started GET "/" for ::1 at 2019-08-13 14:52:26 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alexcurtin/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alexcurtin/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (21.8ms)
+Completed 200 OK in 83ms (Views: 71.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 14:52:31 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 30ms (Views: 27.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 14:52:40 -0400
+Started GET "/users" for ::1 at 2019-08-13 14:52:40 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (5.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 165ms (Views: 149.2ms | ActiveRecord: 11.3ms)
+
+
+Started POST "/users/4/records/" for ::1 at 2019-08-13 14:53:32 -0400
+Processing by RecordsController#create as 
+  Parameters: {"artist"=>"a", "title"=>"b", "year"=>"1975", "record_label"=>"c", "cat_num"=>"d", "country"=>"e", "speed"=>"33 rpm", "disc_condition"=>"M", "sleeve_condition"=>"M", "description"=>"F", "img_url"=>"g", "user_id"=>"4", "record"=>{"artist"=>"a", "title"=>"b", "year"=>"1975", "record_label"=>"c", "cat_num"=>"d", "country"=>"e", "format"=>"12\"", "speed"=>"33 rpm", "disc_condition"=>"M", "sleeve_condition"=>"M", "description"=>"F", "img_url"=>"g", "user_id"=>"4"}}
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/records_controller.rb:18
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:18
+  [1m[36mRecord Create (11.4ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "a"], ["title", "b"], ["year", 1975], ["record_label", "c"], ["cat_num", "d"], ["country", "e"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "M"], ["sleeve_condition", "M"], ["description", "F"], ["img_url", "g"], ["user_id", 4], ["created_at", "2019-08-13 18:53:32.590734"], ["updated_at", "2019-08-13 18:53:32.590734"]]
+  ↳ app/controllers/records_controller.rb:18
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/records_controller.rb:18
+Completed 201 Created in 60ms (Views: 2.9ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 14:53:32 -0400
+Started GET "/users/verify" for ::1 at 2019-08-13 14:53:32 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 401 Unauthorized in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.1ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (2.7ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 30ms (Views: 20.5ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 14:55:03 -0400
+Started GET "/users/verify" for ::1 at 2019-08-13 14:55:03 -0400
+Processing by UsersController#verify as HTML
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 36ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (2.1ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 96ms (Views: 47.7ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 14:55:09 -0400
+Started GET "/users" for ::1 at 2019-08-13 14:55:09 -0400
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 22ms (Views: 18.1ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/users/4/records/" for ::1 at 2019-08-13 14:55:46 -0400
+Processing by RecordsController#create as 
+  Parameters: {"artist"=>"F", "title"=>"F", "year"=>"1992", "record_label"=>"F", "cat_num"=>"F", "country"=>"F", "speed"=>"33 rpm", "disc_condition"=>"M", "sleeve_condition"=>"M", "description"=>"F", "img_url"=>"F", "user_id"=>"4", "record"=>{"artist"=>"F", "title"=>"F", "year"=>"1992", "record_label"=>"F", "cat_num"=>"F", "country"=>"F", "format"=>"12\"", "speed"=>"33 rpm", "disc_condition"=>"M", "sleeve_condition"=>"M", "description"=>"F", "img_url"=>"F", "user_id"=>"4"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/records_controller.rb:18
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:18
+  [1m[36mRecord Create (2.6ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "F"], ["title", "F"], ["year", 1992], ["record_label", "F"], ["cat_num", "F"], ["country", "F"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "M"], ["sleeve_condition", "M"], ["description", "F"], ["img_url", "F"], ["user_id", 4], ["created_at", "2019-08-13 18:55:46.102352"], ["updated_at", "2019-08-13 18:55:46.102352"]]
+  ↳ app/controllers/records_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/records_controller.rb:18
+Completed 201 Created in 17ms (Views: 1.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 14:55:53 -0400
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 14:55:53 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 26ms (Views: 21.9ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 14:58:06 -0400
+Started GET "/users" for ::1 at 2019-08-13 14:58:06 -0400
+Processing by UsersController#verify as HTML
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 24ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (4.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.6ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (2.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 109ms (Views: 88.9ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 14:58:12 -0400
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 14:58:12 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.7ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 101ms (Views: 99.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 15:02:01 -0400
+Started GET "/users" for ::1 at 2019-08-13 15:02:01 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 401 Unauthorized in 7ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+
+
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (3.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 73ms (Views: 49.3ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 15:03:06 -0400
+Started GET "/users/verify" for ::1 at 2019-08-13 15:03:06 -0400
+Processing by UsersController#verify as HTML
+Processing by UsersController#index as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 58ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (48.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (4.1ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 134ms (Views: 74.8ms | ActiveRecord: 54.6ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 15:03:10 -0400
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Started GET "/users" for ::1 at 2019-08-13 15:03:10 -0400
+Completed 401 Unauthorized in 4ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.1ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 29ms (Views: 24.1ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 15:04:16 -0400
+Started GET "/users/verify" for ::1 at 2019-08-13 15:04:16 -0400
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 10ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (2.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 93ms (Views: 74.2ms | ActiveRecord: 12.2ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 15:04:20 -0400
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 15:04:20 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.7ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 40ms (Views: 36.0ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 15:05:44 -0400
+Started GET "/users" for ::1 at 2019-08-13 15:05:44 -0400
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 15ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (14.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 91ms (Views: 68.6ms | ActiveRecord: 18.7ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 15:05:47 -0400
+Started GET "/users" for ::1 at 2019-08-13 15:05:47 -0400
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 95ms (Views: 89.3ms | ActiveRecord: 5.4ms)
+
+
+Started PUT "/users/undefined/records/12" for ::1 at 2019-08-13 15:06:08 -0400
+Processing by RecordsController#update as 
+  Parameters: {"artist"=>"FFFFFFF", "title"=>"", "year"=>"", "record_label"=>"", "cat_num"=>"FFFFFFFF", "country"=>"", "speed"=>"33 rpm", "disc_condition"=>"M", "sleeve_condition"=>"M", "description"=>"", "img_url"=>"", "user_id"=>"undefined", "id"=>"12", "record"=>{"artist"=>"FFFFFFF", "title"=>"", "year"=>"", "record_label"=>"", "cat_num"=>"FFFFFFFF", "country"=>"", "format"=>"12\"", "speed"=>"33 rpm", "disc_condition"=>"M", "sleeve_condition"=>"M", "description"=>"", "img_url"=>""}}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/users/undefined/records/12" for ::1 at 2019-08-13 15:07:03 -0400
+Processing by RecordsController#update as 
+  Parameters: {"artist"=>"FFFFFFF", "title"=>"", "year"=>"", "record_label"=>"", "cat_num"=>"FFFFFFFF", "country"=>"", "speed"=>"33 rpm", "disc_condition"=>"M", "sleeve_condition"=>"M", "description"=>"", "img_url"=>"", "user_id"=>"undefined", "id"=>"12", "record"=>{"artist"=>"FFFFFFF", "title"=>"", "year"=>"", "record_label"=>"", "cat_num"=>"FFFFFFFF", "country"=>"", "format"=>"12\"", "speed"=>"33 rpm", "disc_condition"=>"M", "sleeve_condition"=>"M", "description"=>"", "img_url"=>""}}
+  [1m[36mRecord Load (1.2ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/records_controller.rb:25
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:25
+  [1m[36mRecord Update (7.7ms)[0m  [1m[33mUPDATE "records" SET "artist" = $1, "title" = $2, "year" = $3, "record_label" = $4, "cat_num" = $5, "country" = $6, "description" = $7, "img_url" = $8, "updated_at" = $9 WHERE "records"."id" = $10[0m  [["artist", "FFFFFFF"], ["title", ""], ["year", nil], ["record_label", ""], ["cat_num", "FFFFFFFF"], ["country", ""], ["description", ""], ["img_url", ""], ["updated_at", "2019-08-13 19:07:03.729881"], ["id", 12]]
+  ↳ app/controllers/records_controller.rb:25
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/records_controller.rb:25
+Completed 200 OK in 89ms (Views: 1.5ms | ActiveRecord: 90.5ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-13 15:07:13 -0400
+Processing by UsersController#verify as HTML
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2019-08-13 15:07:13 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.7ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 56ms (Views: 52.0ms | ActiveRecord: 3.5ms)
+
+

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 class RecordDetail extends React.Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class RecordDetail extends React.Component {
           <p><span>Sleeve condition:</span> {record.sleeve_condition}</p>
         </div>
         <p><em>{record.description}</em></p>
+        <Link to={`/users/${record.user_id}/records/${record.id}/edit`}> edit record</Link>
       </div>
     )
   }
