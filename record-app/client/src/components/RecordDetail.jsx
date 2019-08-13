@@ -27,6 +27,10 @@ class RecordDetail extends React.Component {
         </div>
         <p><em>{record.description}</em></p>
         <Link to={`/users/${record.user_id}/records/${record.id}/edit`}> edit record</Link>
+        <button onClick={(e) => {
+          e.preventDefault();
+          this.props.handleDelete(this.props.user.id, record.id);
+        }}>delete record</button>
       </div>
     )
   }

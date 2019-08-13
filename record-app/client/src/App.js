@@ -16,6 +16,7 @@ import {
   loginUser, verifyToken,
   createRecord,
   updateRecord,
+  deleteRecord,
 } from './services/api';
 
 
@@ -97,6 +98,11 @@ class App extends React.Component {
     this.props.history.goBack();
   }
 
+  handleDeleteRecord = async (userId, id) => {
+    const record = await deleteRecord(userId, id);
+    this.props.history.goBack();
+  }
+
   render() {
     return (
       <div className="App">
@@ -165,6 +171,7 @@ class App extends React.Component {
           render={(props) => (
             <RecordDetail
               {...props}
+              handleDelete={this.handleDeleteRecord}
               user={this.state.users.find(user =>
                 user.id === parseInt(props.match.params.user_id))}
             />)}

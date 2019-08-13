@@ -80,7 +80,6 @@ export const createRecord = async (data) => {
 }
 
 export const updateRecord = async (id, data) => {
-  debugger;
   const userId = data.user_id;
   const res = await api.put(`/users/${userId}/records/${id}`, data);
   return res.data;

@@ -31,6 +31,21 @@ class RecordForm extends React.Component {
     if (record) {
       this.setState({
         record: record,
+        formData: {
+          artist: record.artist,
+          title: record.title,
+          year: record.year,
+          record_label: record.record_label,
+          cat_num: record.cat_num,
+          country: record.country,
+          format: record.format,
+          speed: record.speed,
+          disc_condition: record.disc_condition,
+          sleeve_condition: record.sleeve_condition,
+          description: record.description,
+          img_url: record.img_url,
+          user_id: this.props.userId,
+        },
       })
     }
   }
