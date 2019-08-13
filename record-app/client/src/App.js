@@ -124,7 +124,6 @@ class App extends React.Component {
               {...props}
               user={this.state.users.find(user =>
                 user.id === parseInt(props.match.params.user_id))}
-              recordId={props.match.params.id}
             />)}
         />
       </div>
