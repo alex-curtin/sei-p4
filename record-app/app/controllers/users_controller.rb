@@ -38,9 +38,15 @@ class UsersController < ApplicationController
 
   def verify
     begin
-      render json: @current_user
+      @user = {
+      id: @current_user[:id],
+      username: @current_user[:username],
+      email: @current_user[:email],
+      location: @current_user[:location]
+      }
+      render json: @user
     rescue
-    render json: {error: 'yes'} 
+      render json: {error: 'yes'} 
     end
   end
 

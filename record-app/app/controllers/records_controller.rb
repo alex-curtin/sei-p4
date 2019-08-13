@@ -1,5 +1,5 @@
 class RecordsController < ApplicationController
-  before_action :authorize_request, except: %i[index show]
+  before_action :authorize_request, except: %i[index show create]
   
   def index
     @user = User.find(params[:user_id])

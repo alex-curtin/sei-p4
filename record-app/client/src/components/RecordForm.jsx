@@ -13,11 +13,12 @@ class RecordForm extends React.Component {
         record_label: '',
         cat_num: '',
         country: '',
-        format: '',
-        speed: '',
-        disc_condition: '',
-        sleeve_condition: '',
+        format: '12"',
+        speed: '33 rpm',
+        disc_condition: 'M',
+        sleeve_condition: 'M',
         description: '',
+        img_url: '',
         user_id: this.props.userId,
       }
     }
@@ -27,7 +28,7 @@ class RecordForm extends React.Component {
     const { name, value } = e.target;
     this.setState(prevState => ({
       formData: {
-        ...prevState.userFormData,
+        ...prevState.formData,
         [name]: value,
       }
     }))
@@ -35,7 +36,7 @@ class RecordForm extends React.Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    const record = await createRecord(this.formData);
+    const record = await createRecord(this.state.formData);
     this.props.history.push(`/users/${this.props.user.id}/records`);
   }
 
@@ -85,16 +86,28 @@ class RecordForm extends React.Component {
             onChange={this.handleChange}
             placeholder="country"
           />
-          <select name="format">
+          <select
+            name="format"
+            onChange={this.handleChange}
+            value={this.state.formData.format}
+          >
             <option value='12"'>12"</option>
             <option value='7"'>7"</option>
             <option value='10"'>10"</option>
           </select>
-          <select name="speed">
+          <select
+            name="speed"
+            onChange={this.handleChange}
+            value={this.state.formData.speed}
+          >
             <option value='33 rpm'>33 rpm</option>
             <option value='45 rpm'>45 rpm</option>
           </select>
-          <select name="disc_condition">
+          <select
+            name="disc_condition"
+            onChange={this.handleChange}
+            value={this.state.formData.disc_condition}
+          >
             <option value='M'>M</option>
             <option value='NM'>NM</option>
             <option value='VG+'>VG+</option>
@@ -104,7 +117,11 @@ class RecordForm extends React.Component {
             <option value='F'>F</option>
             <option value='P'>P</option>
           </select>
-          <select name="sleeve_condition">
+          <select
+            name="sleeve_condition"
+            onChange={this.handleChange}
+            value={this.state.formData.sleeve_condition}
+          >
             <option value='M'>M</option>
             <option value='NM'>NM</option>
             <option value='VG+'>VG+</option>

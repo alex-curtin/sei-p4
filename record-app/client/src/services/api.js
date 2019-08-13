@@ -32,20 +32,12 @@ export const registerUser = async (registerData) => {
 export const verifyToken = async () => {
   const token = localStorage.getItem('jwt');
   if (token) {
-    try {
-      const res = await api.get('/users/verify', {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-      return res.data.user;
-    } catch (e) {
-      console.log(e.message);
-      console.log('invalid token');
-    }
+    api.defaults.headers.common.authorization = `Bearer ${token}`
+    const res = await api.get('/users/verify');
+    return res.data
   }
-  else { console.log('user not logged in') };
-};
+  return false;
+}
 
 ////////////////////USER API///////////////////////////////
 export const fetchUsers = async () => {
