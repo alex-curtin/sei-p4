@@ -13,7 +13,8 @@ const CommentForm = (props) => {
             value={props.formData.body}
             onChange={props.handleChange}
           />
-          <button>post</button>
+          <button>submit</button>
+          <button onClick={props.cancel}>cancel</button>
         </form>}
     </div>
   )

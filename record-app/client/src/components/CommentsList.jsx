@@ -13,6 +13,7 @@ const CommentsList = (props) => {
                 handleSubmit={props.handleSubmit}
                 formData={props.formData}
                 showForm={true}
+                cancel={props.cancel}
               /> :
               <div>
                 <p>{comment.body}</p>

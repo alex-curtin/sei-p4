@@ -94,6 +94,7 @@ class RecordDetail extends React.Component {
 
   editComment = (comment) => {
     this.setState({
+      showAddCommentForm: false,
       editId: comment.id,
       commentFormData: {
         body: comment.body,
@@ -113,6 +114,7 @@ class RecordDetail extends React.Component {
       comments: [...prevState.comments.filter(com => com.id !== id), comment],
       editId: null,
     }))
+    this.resetCommentForm();
   }
 
   handleDeleteComment = async (id) => {
@@ -133,6 +135,22 @@ class RecordDetail extends React.Component {
         record_id: this.props.match.params.id,
       }
     })
+  }
+
+  cancelAddComment = (e) => {
+    e.preventDefault();
+    this.setState({
+      showAddCommentForm: false,
+    })
+    this.resetCommentForm();
+  }
+
+  cancelEditComment = (e) => {
+    e.preventDefault();
+    this.setState({
+      editId: null
+    })
+    this.resetCommentForm();
   }
 
   render() {
@@ -168,6 +186,7 @@ class RecordDetail extends React.Component {
             handleSubmit={this.handleSubmitComment}
             formData={this.state.commentFormData}
             showForm={this.state.showAddCommentForm}
+            cancel={this.cancelAddComment}
           />
           <CommentsList
             showComments={this.state.showComments}
@@ -178,6 +197,7 @@ class RecordDetail extends React.Component {
             handleDelete={this.handleDeleteComment}
             editComment={this.editComment}
             editId={this.state.editId}
+            cancel={this.cancelEditComment}
           />
         </div>
     )
