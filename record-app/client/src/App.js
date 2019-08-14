@@ -88,16 +88,7 @@ class App extends React.Component {
   }
 
 
-  handleCreateRecord = async (data) => {
-    const record = await createRecord(data);
 
-    this.props.history.goBack();
-  }
-
-  handleEditRecord = async (id, data) => {
-    const record = await updateRecord(id, data);
-    this.props.history.goBack();
-  }
 
 
 
@@ -142,7 +133,7 @@ class App extends React.Component {
             />
           )}
         />
-        <Route
+        {/* <Route
           exact path='/users/:user_id/new_record'
           render={(props) => (
             <RecordForm
@@ -164,7 +155,7 @@ class App extends React.Component {
                 user.id === parseInt(props.match.params.user_id))}
             />
           )}
-        />
+        /> */}
         <Route
           exact path='/users/:user_id/records/:id'
           render={(props) => (

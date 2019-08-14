@@ -18,15 +18,14 @@ class RecordForm extends React.Component {
         sleeve_condition: 'M',
         description: '',
         img_url: '',
-        user_id: this.props.userId,
+        user_id: this.props.user.id,
       },
       record: null,
     }
   }
 
   componentDidMount() {
-    const record = this.props.user.records.find(record =>
-      record.id === parseInt(this.props.match.params.id));
+    const record = this.props.record;
     if (record) {
       this.setState({
         record: record,
@@ -59,20 +58,21 @@ class RecordForm extends React.Component {
     }))
   }
 
+  submit = (e) => {
+    e.preventDefault();
+    this.props.handleSubmit(this.state.formData);
+
+  }
+
   render() {
     return (
       <div>
-        {this.props.match.params.id ?
+        {this.props.isEdit ?
           <h2>EDIT RECORD</h2> :
           <h2>ADD A RECORD</h2>}
         <form
           className="record-form"
-          onSubmit={(e) => {
-            e.preventDefault();
-            this.state.record ?
-              this.props.handleSubmit(this.state.record.id, this.state.formData) :
-              this.props.handleSubmit(this.state.formData);
-          }}>
+          onSubmit={this.submit}>
           <input
             type="text"
             name="artist"
@@ -174,7 +174,7 @@ class RecordForm extends React.Component {
             onChange={this.handleChange}
             placeholder="image url"
           />
-          <button>submit record</button>
+          <button>submit</button>
         </form>
       </div>
     )

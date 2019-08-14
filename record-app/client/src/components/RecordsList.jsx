@@ -1,12 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { fetchRecords, deleteRecord } from '../services/api';
+import { Link, Route } from 'react-router-dom';
+import RecordForm from './RecordForm';
+import {
+  fetchRecords, deleteRecord,
+  createRecord, updateRecord
+} from '../services/api';
 
 class RecordsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       records: [],
+      showCreateForm: false,
     }
   }
 
@@ -24,32 +29,52 @@ class RecordsList extends React.Component {
     }))
   }
 
+  toggleForm = () => {
+    this.setState({
+      showCreateForm: true,
+    })
+  }
+
+  handleCreateRecord = async (data) => {
+    const record = await createRecord(data);
+    this.setState(prevState => ({
+      records: [...prevState.records, record],
+      showCreateForm: false,
+    }))
+  }
+
+
+
   render() {
     return (
-      <div>
-        {this.props.user &&
-          <div>
-            <h3>{this.props.user.username}</h3>
-            <Link
-              to={`/users/${this.props.user.id}/new_record`}
-            ><b>+</b></Link>
-            <div className="collection">
-              {this.state.records.map(record => (
-                <div key={record.id} className="record">
-                  <Link to={`/users/${record.user_id}/records/${record.id}`}>
-                    <img src={record.img_url} />
-                    <div>
-                      <p><b>{record.artist}</b></p>
-                      <p>{record.title}</p>
-                    </div>
-                  </Link>
-                  <button onClick={() => (this.handleDelete(record.user_id, record.id))
-                  }>X</button>
-                </div>
-              ))}
-            </div>
-          </div>}
-      </div>
+      this.state.showCreateForm ?
+        <RecordForm
+          handleSubmit={this.handleCreateRecord}
+          user={this.props.user}
+          isEdit={false}
+        /> :
+        <div>
+          {this.props.user &&
+            <div>
+              <h3>{this.props.user.username}</h3>
+              <button onClick={this.toggleForm}>+</button>
+              <div className="collection">
+                {this.state.records.map(record => (
+                  <div key={record.id} className="record">
+                    <Link to={`/users/${record.user_id}/records/${record.id}`}>
+                      <img src={record.img_url} />
+                      <div>
+                        <p><b>{record.artist}</b></p>
+                        <p>{record.title}</p>
+                      </div>
+                    </Link>
+                    <button onClick={() => (this.handleDelete(record.user_id, record.id))
+                    }>X</button>
+                  </div>
+                ))}
+              </div>
+            </div>}
+        </div>
     )
   }
 }
