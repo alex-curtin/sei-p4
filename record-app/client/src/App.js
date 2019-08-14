@@ -131,6 +131,7 @@ class App extends React.Component {
               user={this.state.users.find(user =>
                 user.id === parseInt(props.match.params.id))}
               records={this.state.records}
+              currentUser={this.state.currentUser}
             />
           )}
         />
@@ -141,6 +142,7 @@ class App extends React.Component {
               {...props}
               user={this.state.users.find(user =>
                 user.id === parseInt(props.match.params.user_id))}
+              currentUser={this.state.currentUser}
             />)}
         />
       </div>

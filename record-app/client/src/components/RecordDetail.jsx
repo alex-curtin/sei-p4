@@ -2,7 +2,8 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import RecordForm from './RecordForm';
 import CommentsList from './CommentsList';
-import { fetchRecord, updateRecord, fetchComments } from '../services/api';
+import CommentForm from './CommentForm';
+import { fetchRecord, updateRecord, fetchComments, createComment } from '../services/api';
 
 class RecordDetail extends React.Component {
   constructor(props) {
@@ -12,6 +13,11 @@ class RecordDetail extends React.Component {
       showEditForm: false,
       comments: [],
       showComments: false,
+      commentFormData: {
+        body: '',
+        user_id: this.props.currentUser.id,
+        record_id: this.props.match.params.id,
+      }
     }
   }
 
@@ -42,6 +48,29 @@ class RecordDetail extends React.Component {
     const user_id = this.props.match.params.user_id;
     const id = this.props.match.params.id;
     const comments = await fetchComments(user_id, id);
+    this.setState({
+      comments: comments,
+    })
+  }
+
+  handleChangeComment = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      commentFormData: {
+        ...prevState.commentFormData,
+        [name]: value
+      }
+    }))
+  }
+
+  handleSubmitComment = async (e) => {
+    e.preventDefault();
+    const userId = this.props.match.params.user_id;
+    const data = this.state.commentFormData;
+    const comment = await createComment(userId, data);
+    this.setState(prevState => ({
+      comments: [...prevState.comments, comment]
+    }))
   }
 
   render() {
@@ -71,8 +100,16 @@ class RecordDetail extends React.Component {
             <button onClick={this.toggleForm}>edit record</button>
             <button onClick={this.loadComments}>show comments</button>
           </div>
+          <CommentForm
+            handleChange={this.handleChangeComment}
+            handleSubmit={this.handleSubmitComment}
+            formData={this.state.commentFormData}
+          />
           <CommentsList
             showComments={this.state.showComments}
+            formData={this.state.commentFormData}
+            handleChange={this.handleChangeComment}
+            handleSubmit={this.handleSubmitComment}
           />
         </div>
     )
