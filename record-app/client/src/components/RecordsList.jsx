@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import RecordForm from './RecordForm';
 import {
   fetchRecords, deleteRecord,
@@ -22,6 +22,7 @@ class RecordsList extends React.Component {
     })
   }
 
+  //===============DELETE RECORD================//
   handleDelete = async (userId, id) => {
     const record = await deleteRecord(userId, id);
     this.setState(prevState => ({
@@ -29,6 +30,8 @@ class RecordsList extends React.Component {
     }))
   }
 
+
+  //====================CREATE RECORD=============//
   toggleForm = () => {
     this.setState({
       showCreateForm: true,
@@ -43,6 +46,13 @@ class RecordsList extends React.Component {
     }))
   }
 
+  cancelCreateRecord = (e) => {
+    e.preventDefault();
+    this.setState({
+      showCreateForm: false,
+    })
+  }
+
   render() {
     return (
       this.state.showCreateForm ?
@@ -50,6 +60,7 @@ class RecordsList extends React.Component {
           handleSubmit={this.handleCreateRecord}
           user={this.props.user}
           isEdit={false}
+          cancel={this.cancelCreateRecord}
         /> :
         <div>
           {(this.props.user) &&
@@ -77,4 +88,4 @@ class RecordsList extends React.Component {
   }
 }
 
-export default RecordsList;
+export default withRouter(RecordsList);

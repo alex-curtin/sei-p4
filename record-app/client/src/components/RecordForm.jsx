@@ -58,10 +58,12 @@ class RecordForm extends React.Component {
     }))
   }
 
+  //handleSubmit() is passed as a prop from either RecordsList
+  //or RecordDetail depending on whether this form is Creating
+  //or Updating a record
   submit = (e) => {
     e.preventDefault();
     this.props.handleSubmit(this.state.formData);
-
   }
 
   render() {
@@ -175,6 +177,7 @@ class RecordForm extends React.Component {
             placeholder="image url"
           />
           <button>submit</button>
+          <button onClick={this.props.cancel}>cancel</button>
         </form>
       </div>
     )

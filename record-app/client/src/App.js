@@ -9,13 +9,10 @@ import LoginForm from './components/LoginForm';
 import UsersList from './components/UsersList';
 import RecordsList from './components/RecordsList';
 import RecordDetail from './components/RecordDetail';
-import RecordForm from './components/RecordForm';
 
 import {
   registerUser, fetchUsers,
   loginUser, verifyToken,
-  createRecord, updateRecord,
-  deleteRecord, fetchRecords,
 } from './services/api';
 
 
@@ -87,11 +84,6 @@ class App extends React.Component {
       currentUser: null,
     })
   }
-
-
-
-
-
 
   render() {
     return (

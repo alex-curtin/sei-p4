@@ -33,6 +33,9 @@ class RecordDetail extends React.Component {
     })
   }
 
+
+  //=====================EDIT RECORD=========================//
+
   toggleForm = () => {
     this.setState({
       showEditForm: true,
@@ -46,6 +49,16 @@ class RecordDetail extends React.Component {
       record: record,
     })
   }
+
+  cancelEditRecord = (e) => {
+    e.preventDefault();
+    this.setState({
+      showEditForm: false,
+    })
+  }
+
+
+  //==================SHOW COMMENTS==========================//
 
   loadComments = async () => {
     const user_id = this.props.match.params.user_id;
@@ -61,6 +74,9 @@ class RecordDetail extends React.Component {
       showComments: true,
     })
   }
+
+
+  //========================ADD COMMENT========================//
 
   handleChangeComment = (e) => {
     const { name, value } = e.target;
@@ -92,6 +108,17 @@ class RecordDetail extends React.Component {
     this.resetCommentForm();
   }
 
+  cancelAddComment = (e) => {
+    e.preventDefault();
+    this.setState({
+      showAddCommentForm: false,
+    })
+    this.resetCommentForm();
+  }
+
+
+  //=====================EDIT COMMENT========================//
+
   editComment = (comment) => {
     this.setState({
       showAddCommentForm: false,
@@ -117,6 +144,17 @@ class RecordDetail extends React.Component {
     this.resetCommentForm();
   }
 
+  cancelEditComment = (e) => {
+    e.preventDefault();
+    this.setState({
+      editId: null
+    })
+    this.resetCommentForm();
+  }
+
+
+  //=====================DELETE COMMENT=========================//
+
   handleDeleteComment = async (id) => {
     const userId = this.props.match.params.user_id;
     const recordId = this.props.match.params.id;
@@ -126,6 +164,9 @@ class RecordDetail extends React.Component {
         com.id !== id)
     }))
   }
+
+
+  //====================HELPER FUNCTION======================//
 
   resetCommentForm = () => {
     this.setState({
@@ -137,22 +178,6 @@ class RecordDetail extends React.Component {
     })
   }
 
-  cancelAddComment = (e) => {
-    e.preventDefault();
-    this.setState({
-      showAddCommentForm: false,
-    })
-    this.resetCommentForm();
-  }
-
-  cancelEditComment = (e) => {
-    e.preventDefault();
-    this.setState({
-      editId: null
-    })
-    this.resetCommentForm();
-  }
-
   render() {
     return (
       this.state.showEditForm ?
@@ -161,6 +186,7 @@ class RecordDetail extends React.Component {
           user={this.props.user}
           record={this.state.record}
           isEdit={true}
+          cancel={this.cancelEditRecord}
         /> :
         this.state.record &&
         <div>
