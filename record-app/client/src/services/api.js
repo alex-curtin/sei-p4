@@ -102,9 +102,8 @@ export const createComment = async (userId, data) => {
   return res.data;
 }
 
-export const updateComment = async (userId, data) => {
+export const updateComment = async (userId, id, data) => {
   const recordId = data.record_id;
-  const id = data.id;
   const res = await api.put(`/users/${userId}/records/${recordId}/comments/${id}`, data);
   return res.data;
 }

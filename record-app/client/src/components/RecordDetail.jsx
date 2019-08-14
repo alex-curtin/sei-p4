@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import RecordForm from './RecordForm';
 import CommentsList from './CommentsList';
 import CommentForm from './CommentForm';
-import { fetchRecord, updateRecord, fetchComments, createComment, deleteComment } from '../services/api';
+import { fetchRecord, updateRecord, fetchComments, createComment, deleteComment, updateComment } from '../services/api';
 
 class RecordDetail extends React.Component {
   constructor(props) {
@@ -14,6 +14,7 @@ class RecordDetail extends React.Component {
       comments: [],
       showComments: false,
       showAddCommentForm: false,
+      editId: null,
       commentFormData: {
         body: '',
         user_id: this.props.currentUser.id,
@@ -74,7 +75,9 @@ class RecordDetail extends React.Component {
   toggleAddComment = () => {
     this.setState({
       showAddCommentForm: true,
+      editId: null,
     })
+    this.resetCommentForm();
   }
 
   handleSubmitComment = async (e) => {
@@ -84,10 +87,31 @@ class RecordDetail extends React.Component {
     const comment = await createComment(userId, data);
     this.setState(prevState => ({
       comments: [...prevState.comments, comment],
-      commentFormData: {
-        body: '',
-      },
       showComments: true,
+    }))
+    this.resetCommentForm();
+  }
+
+  editComment = (comment) => {
+    this.setState({
+      editId: comment.id,
+      commentFormData: {
+        body: comment.body,
+        user_id: this.props.currentUser.id,
+        record_id: this.props.match.params.id,
+      }
+    })
+  }
+
+  handleUpdateComment = async (e) => {
+    e.preventDefault();
+    const userId = this.props.match.params.user_id;
+    const id = this.state.editId;
+    const data = this.state.commentFormData;
+    const comment = await updateComment(userId, id, data);
+    this.setState(prevState => ({
+      comments: [...prevState.comments.filter(com => com.id !== id), comment],
+      editId: null,
     }))
   }
 
@@ -99,6 +123,16 @@ class RecordDetail extends React.Component {
       comments: prevState.comments.filter(com =>
         com.id !== id)
     }))
+  }
+
+  resetCommentForm = () => {
+    this.setState({
+      commentFormData: {
+        body: '',
+        user_id: this.props.currentUser.id,
+        record_id: this.props.match.params.id,
+      }
+    })
   }
 
   render() {
@@ -140,8 +174,10 @@ class RecordDetail extends React.Component {
             comments={this.state.comments}
             formData={this.state.commentFormData}
             handleChange={this.handleChangeComment}
-            handleSubmit={this.handleSubmitComment}
+            handleSubmit={this.handleUpdateComment}
             handleDelete={this.handleDeleteComment}
+            editComment={this.editComment}
+            editId={this.state.editId}
           />
         </div>
     )

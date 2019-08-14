@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     if @comment.update_attributes(comment_params)
-      render json: @comment, status: :ok
+      render json: @comment, include: :user, status: :ok
     end
   end
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import CommentForm from './CommentForm';
 
 const CommentsList = (props) => {
   return (
@@ -6,9 +7,20 @@ const CommentsList = (props) => {
       {props.showComments &&
         props.comments.map(comment => (
           <div className="comment" key={comment.id}>
-            <p>{comment.body}</p>
-            <p>by {comment.user.username}</p>
-            <button onClick={() => props.handleDelete(comment.id)}>delete</button>
+            {props.editId === comment.id ?
+              <CommentForm
+                handleChange={props.handleChange}
+                handleSubmit={props.handleSubmit}
+                formData={props.formData}
+                showForm={true}
+              /> :
+              <div>
+                <p>{comment.body}</p>
+                <p>by {comment.user.username}</p>
+                <button onClick={() => props.editComment(comment)}>edit</button>
+                <button onClick={() => props.handleDelete(comment.id)}>delete</button>
+              </div>
+            }
           </div>
         ))
       }
