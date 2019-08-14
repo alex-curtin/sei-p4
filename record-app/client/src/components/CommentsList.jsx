@@ -2,10 +2,10 @@ import React from 'react';
 
 const CommentsList = (props) => {
   return (
-    <div>
+    <div className="comments-list">
       {props.showComments &&
         props.comments.map(comment => (
-          <div key={comment.id}>
+          <div className="comment" key={comment.id}>
             <p>{comment.body}</p>
           </div>
         ))

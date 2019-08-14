@@ -2,11 +2,11 @@ import React from 'react';
 
 const CommentForm = (props) => {
   return (
-    <div>
+    <div className="comment-form">
       <form onSubmit={props.handleSubmit}>
-        <label htmlFor="comment" value="comment" />
+        <label htmlFor="body" value="body" />
         <textarea
-          name="comment"
+          name="body"
           cols="1"
           rows="10"
           value={props.formData.body}

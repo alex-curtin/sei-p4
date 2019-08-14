@@ -25,6 +25,7 @@ class RecordDetail extends React.Component {
     const user_id = this.props.match.params.user_id;
     const id = this.props.match.params.id;
     const record = await fetchRecord(user_id, id);
+    this.loadComments();
     this.setState({
       record: record,
     })
@@ -53,6 +54,12 @@ class RecordDetail extends React.Component {
     })
   }
 
+  toggleComments = () => {
+    this.setState({
+      showComments: true,
+    })
+  }
+
   handleChangeComment = (e) => {
     const { name, value } = e.target;
     this.setState(prevState => ({
@@ -69,7 +76,10 @@ class RecordDetail extends React.Component {
     const data = this.state.commentFormData;
     const comment = await createComment(userId, data);
     this.setState(prevState => ({
-      comments: [...prevState.comments, comment]
+      comments: [...prevState.comments, comment],
+      commentFormData: {
+        body: '',
+      }
     }))
   }
 
@@ -98,7 +108,7 @@ class RecordDetail extends React.Component {
             </div>
             <p><em>{this.state.record.description}</em></p>
             <button onClick={this.toggleForm}>edit record</button>
-            <button onClick={this.loadComments}>show comments</button>
+            <button onClick={this.toggleComments}>show comments</button>
           </div>
           <CommentForm
             handleChange={this.handleChangeComment}
@@ -107,6 +117,7 @@ class RecordDetail extends React.Component {
           />
           <CommentsList
             showComments={this.state.showComments}
+            comments={this.state.comments}
             formData={this.state.commentFormData}
             handleChange={this.handleChangeComment}
             handleSubmit={this.handleSubmitComment}

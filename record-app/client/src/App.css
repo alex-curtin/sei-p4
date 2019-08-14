@@ -133,3 +133,34 @@ a:hover {
   width: 40vw;
   height: 60vh;
 }
+
+/*************** COMMENTS **************/
+
+.comments-list {
+  border: 1px solid black;
+  width: 70%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.comment {
+  background: lightgrey;
+  width: 90%;
+  margin: 1vh auto;
+  padding: 1%;
+}
+
+/*************** COMMENT FORM ***********/
+
+.comment-form form {
+  border: 1px solid black;
+  background: lightgrey;
+  width: 70%;
+  height: 30vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 2%;
+}
