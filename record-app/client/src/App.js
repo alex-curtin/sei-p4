@@ -35,10 +35,11 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    const user = verifyToken();
+    const user = await verifyToken();
     const users = await fetchUsers();
     this.setState({
       users: users,
+      currentUser: user,
     })
   }
 
@@ -133,29 +134,6 @@ class App extends React.Component {
             />
           )}
         />
-        {/* <Route
-          exact path='/users/:user_id/new_record'
-          render={(props) => (
-            <RecordForm
-              {...props}
-              handleSubmit={this.handleCreateRecord}
-              user={this.state.users.find(user =>
-                user.id === parseInt(props.match.params.user_id))}
-              userId={props.match.params.user_id}
-            />
-          )}
-        />
-        <Route
-          exact path='/users/:user_id/records/:id/edit'
-          render={(props) => (
-            <RecordForm
-              {...props}
-              handleSubmit={this.handleEditRecord}
-              user={this.state.users.find(user =>
-                user.id === parseInt(props.match.params.user_id))}
-            />
-          )}
-        /> */}
         <Route
           exact path='/users/:user_id/records/:id'
           render={(props) => (

@@ -3,7 +3,7 @@ class AuthenticationController < ApplicationController
   def login
     @user = User.find_by_username(params[:username])
     if @user.authenticate(params[:password])
-      token = encode(user_id: @user_id, username: @user.username)
+      token = encode(id: @user.id, username: @user.username)
       render json: {token: token, user: @user}, status: :ok
     else
       render json: { error: 'unauthorized'}, status: :unauthorized
