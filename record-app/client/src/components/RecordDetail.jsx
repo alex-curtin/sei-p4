@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import RecordForm from './RecordForm';
 import CommentsList from './CommentsList';
 import CommentForm from './CommentForm';
-import { fetchRecord, updateRecord, fetchComments, createComment } from '../services/api';
+import { fetchRecord, updateRecord, fetchComments, createComment, deleteComment } from '../services/api';
 
 class RecordDetail extends React.Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class RecordDetail extends React.Component {
       showEditForm: false,
       comments: [],
       showComments: false,
+      showAddCommentForm: false,
       commentFormData: {
         body: '',
         user_id: this.props.currentUser.id,
@@ -70,6 +71,12 @@ class RecordDetail extends React.Component {
     }))
   }
 
+  toggleAddComment = () => {
+    this.setState({
+      showAddCommentForm: true,
+    })
+  }
+
   handleSubmitComment = async (e) => {
     e.preventDefault();
     const userId = this.props.match.params.user_id;
@@ -79,7 +86,18 @@ class RecordDetail extends React.Component {
       comments: [...prevState.comments, comment],
       commentFormData: {
         body: '',
-      }
+      },
+      showComments: true,
+    }))
+  }
+
+  handleDeleteComment = async (id) => {
+    const userId = this.props.match.params.user_id;
+    const recordId = this.props.match.params.id;
+    const comment = await deleteComment(userId, recordId, id);
+    this.setState(prevState => ({
+      comments: prevState.comments.filter(com =>
+        com.id !== id)
     }))
   }
 
@@ -109,11 +127,13 @@ class RecordDetail extends React.Component {
             <p><em>{this.state.record.description}</em></p>
             <button onClick={this.toggleForm}>edit record</button>
             <button onClick={this.toggleComments}>show comments</button>
+            <button onClick={this.toggleAddComment}>add comment</button>
           </div>
           <CommentForm
             handleChange={this.handleChangeComment}
             handleSubmit={this.handleSubmitComment}
             formData={this.state.commentFormData}
+            showForm={this.state.showAddCommentForm}
           />
           <CommentsList
             showComments={this.state.showComments}
@@ -121,6 +141,7 @@ class RecordDetail extends React.Component {
             formData={this.state.commentFormData}
             handleChange={this.handleChangeComment}
             handleSubmit={this.handleSubmitComment}
+            handleDelete={this.handleDeleteComment}
           />
         </div>
     )

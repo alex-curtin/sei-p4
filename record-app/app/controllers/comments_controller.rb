@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def index
     @record = Record.find(params[:record_id])
     @comments = Comment.where(record_id: @record.id)
-    render json: @comments, status: :ok
+    render json: @comments, include: :user, status: :ok
   end
 
   def show
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      render json: @comment, status: :created
+      render json: @comment, include: :user, status: :created
     end
   end
 
