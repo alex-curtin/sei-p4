@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { createRecord } from '../services/api';
 
 class RecordForm extends React.Component {
   constructor(props) {
@@ -50,7 +49,6 @@ class RecordForm extends React.Component {
     }
   }
 
-
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState(prevState => ({
@@ -60,8 +58,6 @@ class RecordForm extends React.Component {
       }
     }))
   }
-
-
 
   render() {
     return (

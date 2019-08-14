@@ -1,39 +1,42 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { fetchRecord } from '../services/api';
 
 class RecordDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      record: '',
     }
   }
 
+  async componentDidMount() {
+    const record = await fetchRecord(this.props.user.id, this.props.match.params.id)
+    this.setState({
+      record: record,
+    })
+  }
+
   render() {
-    const record = this.props.user.records.find(record =>
-      record.id === parseInt(this.props.match.params.id));
     return (
+      this.state.record &&
       <div className='record-detail'>
-        <img src={record.img_url} />
+        <img src={this.state.record.img_url} />
         <div className="record-info">
-          <h3><b>{record.artist}</b></h3>
-          <h4>{record.title}</h4>
-          <p><span>Record label:</span> {record.record_label} - {record.cat_num}</p>
-          <p><span>Year:</span> {record.year}</p>
-          <p><span>Country:</span> {record.country}</p>
-          <p><span>Format:</span> {record.format} | {record.speed}</p>
-          <p><span>Disc condition:</span> {record.disc_condition}</p>
-          <p><span>Sleeve condition:</span> {record.sleeve_condition}</p>
+          <h3><b>{this.state.record.artist}</b></h3>
+          <h4>{this.state.record.title}</h4>
+          <p><span>Record label:</span> {this.state.record.record_label} - {this.state.record.cat_num}</p>
+          <p><span>Year:</span> {this.state.record.year}</p>
+          <p><span>Country:</span> {this.state.record.country}</p>
+          <p><span>Format:</span> {this.state.record.format} | {this.state.record.speed}</p>
+          <p><span>Disc condition:</span> {this.state.record.disc_condition}</p>
+          <p><span>Sleeve condition:</span> {this.state.record.sleeve_condition}</p>
         </div>
-        <p><em>{record.description}</em></p>
-        <Link to={`/users/${record.user_id}/records/${record.id}/edit`}> edit record</Link>
-        <button onClick={(e) => {
-          e.preventDefault();
-          this.props.handleDelete(this.props.user.id, record.id);
-        }}>delete record</button>
+        <p><em>{this.state.record.description}</em></p>
+        <Link to={`/users/${this.state.record.user_id}/records/${this.state.record.id}/edit`}> edit record</Link>
       </div>
     )
   }
 }
 
-export default RecordDetail;
+export default withRouter(RecordDetail);

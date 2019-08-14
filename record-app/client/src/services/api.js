@@ -69,7 +69,7 @@ export const fetchRecords = async (userId) => {
 }
 
 export const fetchRecord = async (userId, id) => {
-  const res = await api.get(`/users/${id}/records/${id}`);
+  const res = await api.get(`/users/${userId}/records/${id}`);
   return res.data;
 }
 

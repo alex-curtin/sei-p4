@@ -14,9 +14,8 @@ import RecordForm from './components/RecordForm';
 import {
   registerUser, fetchUsers,
   loginUser, verifyToken,
-  createRecord,
-  updateRecord,
-  deleteRecord,
+  createRecord, updateRecord,
+  deleteRecord, fetchRecords,
 } from './services/api';
 
 
@@ -88,8 +87,10 @@ class App extends React.Component {
     })
   }
 
+
   handleCreateRecord = async (data) => {
     const record = await createRecord(data);
+
     this.props.history.goBack();
   }
 
@@ -98,10 +99,7 @@ class App extends React.Component {
     this.props.history.goBack();
   }
 
-  handleDeleteRecord = async (userId, id) => {
-    const record = await deleteRecord(userId, id);
-    this.props.history.goBack();
-  }
+
 
   render() {
     return (
@@ -140,6 +138,7 @@ class App extends React.Component {
               {...props}
               user={this.state.users.find(user =>
                 user.id === parseInt(props.match.params.id))}
+              records={this.state.records}
             />
           )}
         />
@@ -171,7 +170,6 @@ class App extends React.Component {
           render={(props) => (
             <RecordDetail
               {...props}
-              handleDelete={this.handleDeleteRecord}
               user={this.state.users.find(user =>
                 user.id === parseInt(props.match.params.user_id))}
             />)}
