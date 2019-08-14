@@ -16,7 +16,7 @@ class RecordsList extends React.Component {
   }
 
   async componentDidMount() {
-    const records = await fetchRecords(this.props.user.id);
+    const records = await fetchRecords(this.props.match.params.id);
     this.setState({
       records: records,
     })
@@ -43,8 +43,6 @@ class RecordsList extends React.Component {
     }))
   }
 
-
-
   render() {
     return (
       this.state.showCreateForm ?
@@ -54,7 +52,7 @@ class RecordsList extends React.Component {
           isEdit={false}
         /> :
         <div>
-          {this.props.user &&
+          {(this.props.user) &&
             <div>
               <h3>{this.props.user.username}</h3>
               <button onClick={this.toggleForm}>+</button>
