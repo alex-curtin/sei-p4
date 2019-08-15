@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import heroImg from '../assets/record-needle.jpg';
 
 const Home = (props) => {
   return (
     <div className="home-page">
-      <img className="hero-image" />
+      <img className="hero-img" src={heroImg} alt="thingy" />
       <div className="home-links">
         {props.currentUser ?
           <div>

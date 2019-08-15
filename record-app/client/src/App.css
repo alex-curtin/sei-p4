@@ -8,11 +8,15 @@ button {
   height: 4vh;
   min-width: 60px;
   border: 1px solid darkgrey;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 button:hover {
   cursor: pointer;
+}
+
+button:active {
+  background: lightgray;
 }
 
 a {
@@ -30,8 +34,10 @@ a:hover {
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background: lightgray;
   padding: 1vh 2vw;
+  max-height: 100px;
 }
 
 .links {
@@ -46,6 +52,30 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+/******************HOME*********************/
+
+.home-page {
+  margin: 10vh auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  box-sizing: border-box;
+  font-size: 1.5vw;
+}
+
+.hero-img {
+  width: 50%;
+  max-width: 500px;
+}
+
+.home-links {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /*************USER FORM**************/
