@@ -12,7 +12,7 @@ const NavBar = (props) => {
           <Link to={`/users/${props.currentUser.id}/records`}>my collection</Link>}
         <Link
           to="/users"
-        >browse</Link>
+        >browse collections</Link>
         {props.currentUser ?
           <div className="welcome">
             <p>Hello {props.currentUser.username}</p>

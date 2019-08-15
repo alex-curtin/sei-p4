@@ -3,6 +3,7 @@ import './App.css';
 
 import { Route, withRouter } from 'react-router-dom';
 
+import Home from './components/Home';
 import NavBar from './components/NavBar';
 import UserForm from './components/UserForm';
 import LoginForm from './components/LoginForm';
@@ -60,9 +61,10 @@ class App extends React.Component {
     if (user.isAxiosError) {
       this.handleErrors(user.response.data);
     } else {
-      this.setState({
+      this.setState(prevState => ({
         currentUser: user,
-      })
+        users: [...prevState.users, user]
+      }))
       this.resetUserFormData();
       this.props.history.push('/');
     }
@@ -126,6 +128,12 @@ class App extends React.Component {
           currentUser={this.state.currentUser}
         />
         <Route
+          exact path="/"
+          render={() => <Home
+            currentUser={this.state.currentUser}
+          />}
+        />
+        <Route
           exact path='/users/login'
           render={() => (<LoginForm
             formData={this.state.userFormData}
@@ -142,22 +150,24 @@ class App extends React.Component {
             error={this.state.error}
           />)}
         />
-        <Route
-          exact path='/users/update'
+        {/* <Route
+          exact path='/users/:id/update'
           render={() => (<UserForm
             formData={this.state.userFormData}
             handleSubmit={this.handleUserUpdate}
             handleChange={this.handleUserFormChange}
             user={this.state.currentUser}
           />)}
-        />
+        /> */}
         <Route
           exact path='/users'
           render={() => (
             <UsersList
               users={this.state.users}
+              currentUser={this.state.currentUser}
             />)}
         />
+
         <Route
           exact path='/users/:id/records'
           render={(props) => (

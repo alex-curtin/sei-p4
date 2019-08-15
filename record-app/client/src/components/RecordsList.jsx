@@ -20,6 +20,10 @@ class RecordsList extends React.Component {
     this.setState({
       records: records,
     })
+    this.props.location.state &&
+      this.setState({
+        showCreateForm: this.props.location.state.showCreateForm,
+      })
   }
 
   async componentDidUpdate() {
