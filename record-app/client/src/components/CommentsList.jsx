@@ -18,8 +18,11 @@ const CommentsList = (props) => {
               <div>
                 <p>{comment.body}</p>
                 <p>by {comment.user.username}</p>
-                <button onClick={() => props.editComment(comment)}>edit</button>
-                <button onClick={() => props.handleDelete(comment.id)}>delete</button>
+                {props.currentUser.id === comment.user_id &&
+                  <div>
+                    <button onClick={() => props.editComment(comment)}>edit</button>
+                    <button onClick={() => props.handleDelete(comment.id)}>delete</button>
+                  </div>}
               </div>
             }
           </div>

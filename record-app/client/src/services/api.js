@@ -27,7 +27,7 @@ export const registerUser = async (registerData) => {
   const res = await api.post('/users/', { user: registerData });
   const token = res.data.token;
   storeToken(token);
-  return res.data
+  return res.data.user;
 }
 
 export const verifyToken = async () => {

@@ -56,6 +56,7 @@ class App extends React.Component {
     this.setState({
       currentUser: user,
     })
+    this.resetUserFormData();
     this.props.history.push('/');
   }
 
@@ -68,13 +69,8 @@ class App extends React.Component {
     const user = await loginUser(data);
     this.setState({
       currentUser: user,
-      userFormData: {
-        username: '',
-        email: '',
-        location: '',
-        password: '',
-      },
     })
+    this.resetUserFormData();
     this.props.history.push('/')
   }
 
@@ -82,6 +78,17 @@ class App extends React.Component {
     localStorage.removeItem('jwt');
     this.setState({
       currentUser: null,
+    })
+  }
+
+  resetUserFormData = () => {
+    this.setState({
+      userFormData: {
+        username: '',
+        email: '',
+        location: '',
+        password: '',
+      },
     })
   }
 
@@ -106,6 +113,15 @@ class App extends React.Component {
             formData={this.state.userFormData}
             handleSubmit={this.handleUserSubmit}
             handleChange={this.handleUserFormChange}
+          />)}
+        />
+        <Route
+          exact path='/users/update'
+          render={() => (<UserForm
+            formData={this.state.userFormData}
+            handleSubmit={this.handleUserUpdate}
+            handleChange={this.handleUserFormChange}
+            user={this.state.currentUser}
           />)}
         />
         <Route

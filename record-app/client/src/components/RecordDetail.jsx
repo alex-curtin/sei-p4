@@ -104,6 +104,7 @@ class RecordDetail extends React.Component {
     this.setState(prevState => ({
       comments: [...prevState.comments, comment],
       showComments: true,
+      showAddCommentForm: false,
     }))
     this.resetCommentForm();
   }
@@ -191,21 +192,27 @@ class RecordDetail extends React.Component {
         this.state.record &&
         <div>
           <div className='record-detail'>
-            <img src={this.state.record.img_url} />
-            <div className="record-info">
-              <h3><b>{this.state.record.artist}</b></h3>
-              <h4>{this.state.record.title}</h4>
-              <p><span>Record label:</span> {this.state.record.record_label} - {this.state.record.cat_num}</p>
-              <p><span>Year:</span> {this.state.record.year}</p>
-              <p><span>Country:</span> {this.state.record.country}</p>
-              <p><span>Format:</span> {this.state.record.format} | {this.state.record.speed}</p>
-              <p><span>Disc condition:</span> {this.state.record.disc_condition}</p>
-              <p><span>Sleeve condition:</span> {this.state.record.sleeve_condition}</p>
+            <div className="img-details-container">
+              <img src={this.state.record.img_url} />
+              <div className="record-info">
+                <h3><b>{this.state.record.artist}</b></h3>
+                <h4>{this.state.record.title}</h4>
+                <p><span>Record label:</span> {this.state.record.record_label} - {this.state.record.cat_num}</p>
+                <p><span>Year:</span> {this.state.record.year}</p>
+                <p><span>Country:</span> {this.state.record.country}</p>
+                <p><span>Format:</span> {this.state.record.format} | {this.state.record.speed}</p>
+                <p><span>Disc condition:</span> {this.state.record.disc_condition}</p>
+                <p><span>Sleeve condition:</span> {this.state.record.sleeve_condition}</p>
+              </div>
             </div>
             <p><em>{this.state.record.description}</em></p>
-            <button onClick={this.toggleForm}>edit record</button>
-            <button onClick={this.toggleComments}>show comments</button>
-            <button onClick={this.toggleAddComment}>add comment</button>
+            <div className="record-form-buttons">
+              {(this.props.currentUser.id === parseInt(this.props.match.params.user_id)) &&
+                < button onClick={this.toggleForm}>edit record</button>}
+              <button onClick={this.toggleComments}>show comments</button>
+              {this.props.currentUser &&
+                <button onClick={this.toggleAddComment}>add comment</button>}
+            </div>
           </div>
           <CommentForm
             handleChange={this.handleChangeComment}
@@ -224,8 +231,9 @@ class RecordDetail extends React.Component {
             editComment={this.editComment}
             editId={this.state.editId}
             cancel={this.cancelEditComment}
+            currentUser={this.props.currentUser}
           />
-        </div>
+        </div >
     )
   }
 }
