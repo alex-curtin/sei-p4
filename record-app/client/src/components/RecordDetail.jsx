@@ -17,8 +17,8 @@ class RecordDetail extends React.Component {
       editId: null,
       commentFormData: {
         body: '',
-        user_id: this.props.currentUser.id,
-        record_id: this.props.match.params.id,
+        user_id: '',
+        record_id: '',
       }
     }
   }
@@ -47,6 +47,7 @@ class RecordDetail extends React.Component {
     this.setState({
       showEditForm: false,
       record: record,
+
     })
   }
 
@@ -189,34 +190,35 @@ class RecordDetail extends React.Component {
           isEdit={true}
           cancel={this.cancelEditRecord}
         /> :
-        this.state.record &&
+
         <div>
-          <div className='record-detail'>
-            <div className="img-details-container">
-              <img src={this.state.record.img_url} />
-              <div className="record-info">
-                <Link
-                  to={`/users/${this.props.match.params.user_id}/records`}
-                >from {this.props.user.username}'s collection</Link>
-                <h3><b>{this.state.record.artist}</b></h3>
-                <h4>{this.state.record.title}</h4>
-                <p><span>Record label:</span> {this.state.record.record_label} - {this.state.record.cat_num}</p>
-                <p><span>Year:</span> {this.state.record.year}</p>
-                <p><span>Country:</span> {this.state.record.country}</p>
-                <p><span>Format:</span> {this.state.record.format} | {this.state.record.speed}</p>
-                <p><span>Disc condition:</span> {this.state.record.disc_condition}</p>
-                <p><span>Sleeve condition:</span> {this.state.record.sleeve_condition}</p>
+          {this.props.user &&
+            <div className='record-detail'>
+              <div className="img-details-container">
+                <img src={this.state.record.img_url} />
+                <div className="record-info">
+                  <Link
+                    to={`/users/${this.props.match.params.user_id}/records`}
+                  >from {this.props.user.username}'s collection</Link>
+                  <h3><b>{this.state.record.artist}</b></h3>
+                  <h4>{this.state.record.title}</h4>
+                  <p><span>Record label:</span> {this.state.record.record_label} - {this.state.record.cat_num}</p>
+                  <p><span>Year:</span> {this.state.record.year}</p>
+                  <p><span>Country:</span> {this.state.record.country}</p>
+                  <p><span>Format:</span> {this.state.record.format} | {this.state.record.speed}</p>
+                  <p><span>Disc condition:</span> {this.state.record.disc_condition}</p>
+                  <p><span>Sleeve condition:</span> {this.state.record.sleeve_condition}</p>
+                </div>
               </div>
-            </div>
-            <p><em>{this.state.record.description}</em></p>
-            <div className="record-form-buttons">
-              {(this.props.currentUser.id === parseInt(this.props.match.params.user_id)) &&
-                < button onClick={this.toggleForm}>edit record</button>}
-              <button onClick={this.toggleComments}>show comments</button>
-              {this.props.currentUser &&
-                <button onClick={this.toggleAddComment}>add comment</button>}
-            </div>
-          </div>
+              <p><em>{this.state.record.description}</em></p>
+              <div className="record-form-buttons">
+                {(this.props.currentUser && this.props.currentUser.id === parseInt(this.props.match.params.user_id)) &&
+                  < button onClick={this.toggleForm}>edit record</button>}
+                <button onClick={this.toggleComments}>show comments</button>
+                {this.props.currentUser &&
+                  <button onClick={this.toggleAddComment}>add comment</button>}
+              </div>
+            </div>}
           <CommentForm
             handleChange={this.handleChangeComment}
             handleSubmit={this.handleSubmitComment}
@@ -236,6 +238,7 @@ class RecordDetail extends React.Component {
             cancel={this.cancelEditComment}
             currentUser={this.props.currentUser}
           />
+
         </div >
     )
   }

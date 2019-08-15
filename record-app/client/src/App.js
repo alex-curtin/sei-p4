@@ -71,7 +71,7 @@ class App extends React.Component {
       currentUser: user,
     })
     this.resetUserFormData();
-    this.props.history.push('/')
+    this.props.history.push('/');
   }
 
   handleLogOut = () => {
@@ -138,7 +138,6 @@ class App extends React.Component {
               {...props}
               user={this.state.users.find(user =>
                 user.id === parseInt(props.match.params.id))}
-              records={this.state.records}
               currentUser={this.state.currentUser}
             />
           )}

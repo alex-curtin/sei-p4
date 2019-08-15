@@ -22,6 +22,10 @@ class RecordsList extends React.Component {
     })
   }
 
+  async componentDidUpdate() {
+
+  }
+
   //===============DELETE RECORD================//
   handleDelete = async (userId, id) => {
     const record = await deleteRecord(userId, id);
@@ -66,7 +70,7 @@ class RecordsList extends React.Component {
           {(this.props.user) &&
             <div>
               <h3>{this.props.user.username}'s Collection</h3>
-              {this.props.currentUser.id === parseInt(this.props.match.params.id) &&
+              {(this.props.currentUser && this.props.currentUser.id === parseInt(this.props.match.params.id)) &&
                 <button onClick={this.toggleForm}>add a record</button>}
               <div className="collection">
                 {this.state.records.map(record => (
@@ -78,7 +82,7 @@ class RecordsList extends React.Component {
                         <p className="list-title">{record.title}</p>
                       </div>
                     </Link>
-                    {this.props.currentUser.id === parseInt(this.props.match.params.id) &&
+                    {(this.props.currentUser && this.props.currentUser.id === parseInt(this.props.match.params.id)) &&
                       <button onClick={() => (this.handleDelete(record.user_id, record.id))
                       }>remove from collection</button>}
                   </div>

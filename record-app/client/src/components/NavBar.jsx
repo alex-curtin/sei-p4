@@ -6,7 +6,9 @@ const NavBar = (props) => {
     <div className="navbar">
       <p className="logo">LOGO</p>
       <div className="links">
-        <p>my collection</p>
+        <Link to={props.currentUser ?
+          `/users/${props.currentUser.id}/records` :
+          '/users/login'}>my collection</Link>
         <Link
           to="/users"
         >browse</Link>
