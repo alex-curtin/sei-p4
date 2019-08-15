@@ -24,10 +24,14 @@ export const loginUser = async (loginData) => {
 }
 
 export const registerUser = async (registerData) => {
-  const res = await api.post('/users/', { user: registerData });
-  const token = res.data.token;
-  storeToken(token);
-  return res.data.user;
+  try {
+    const res = await api.post('/users/', { user: registerData });
+    const token = res.data.token;
+    storeToken(token);
+    return res.data.user;
+  } catch (e) {
+    return e;
+  }
 }
 
 export const verifyToken = async () => {

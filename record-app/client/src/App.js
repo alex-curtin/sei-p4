@@ -26,6 +26,7 @@ class App extends React.Component {
         location: '',
         password: '',
       },
+      error: null,
       currentUser: null,
       users: [],
     }
@@ -40,6 +41,7 @@ class App extends React.Component {
     })
   }
 
+  //==============LOGIN/REGISTER==================//
   handleUserFormChange = (e) => {
     const { name, value } = e.target;
     this.setState(prevState => ({
@@ -50,16 +52,39 @@ class App extends React.Component {
     }))
   }
 
+  //=================REGISTER====================//
   handleUserSubmit = async (e) => {
     e.preventDefault();
+
     const user = await registerUser(this.state.userFormData);
-    this.setState({
-      currentUser: user,
-    })
-    this.resetUserFormData();
-    this.props.history.push('/');
+    if (user.isAxiosError) {
+      this.handleErrors(user.response.data);
+    } else {
+      this.setState({
+        currentUser: user,
+      })
+      this.resetUserFormData();
+      this.props.history.push('/');
+    }
   }
 
+  handleErrors = (e) => {
+    let error = 'error';
+    if (e.password) {
+      error = `password ${e.password[0]}`
+    }
+    else if (e.username) {
+      error = `username ${e.username[0]}`
+    }
+    else if (e.email) {
+      error = `email ${e.email[0]}`
+    }
+    this.setState({
+      error: error,
+    })
+  }
+
+  //==================LOGIN======================//
   handleLogin = async (e) => {
     e.preventDefault();
     const data = {
@@ -74,6 +99,7 @@ class App extends React.Component {
     this.props.history.push('/');
   }
 
+  //=====================LOGOUT======================//
   handleLogOut = () => {
     localStorage.removeItem('jwt');
     this.setState({
@@ -113,6 +139,7 @@ class App extends React.Component {
             formData={this.state.userFormData}
             handleSubmit={this.handleUserSubmit}
             handleChange={this.handleUserFormChange}
+            error={this.state.error}
           />)}
         />
         <Route

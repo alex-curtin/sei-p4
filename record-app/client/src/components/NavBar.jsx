@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 const NavBar = (props) => {
   return (
     <div className="navbar">
-      <p className="logo">LOGO</p>
+      <Link
+        to='/'
+        className="logo">APP NAME</Link>
       <div className="links">
-        <Link to={props.currentUser ?
-          `/users/${props.currentUser.id}/records` :
-          '/users/login'}>my collection</Link>
+        {props.currentUser &&
+          <Link to={`/users/${props.currentUser.id}/records`}>my collection</Link>}
         <Link
           to="/users"
         >browse</Link>
