@@ -193,11 +193,11 @@ class RecordDetail extends React.Component {
 
         <div>
           {this.props.user &&
-            <div className='record-detail'>
+            <div className="record-details">
               <div className="img-details-container">
-                <img src={this.state.record.img_url} />
+                <img className="record-details-img" src={this.state.record.img_url} />
                 <div className="record-info">
-                  <Link
+                  <Link className="record-details-username"
                     to={`/users/${this.props.match.params.user_id}/records`}
                   >from {this.props.user.username}'s collection</Link>
                   <h3><b>{this.state.record.artist}</b></h3>
@@ -210,7 +210,7 @@ class RecordDetail extends React.Component {
                   <p><span>Sleeve condition:</span> {this.state.record.sleeve_condition}</p>
                 </div>
               </div>
-              <p><em>{this.state.record.description}</em></p>
+              <p className="record-details-description"><em>{this.state.record.description}</em></p>
               <div className="record-form-buttons">
                 {(this.props.currentUser && this.props.currentUser.id === parseInt(this.state.record.user_id)) &&
                   < button onClick={this.toggleForm}>edit record</button>}

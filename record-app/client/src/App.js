@@ -150,15 +150,6 @@ class App extends React.Component {
             error={this.state.error}
           />)}
         />
-        {/* <Route
-          exact path='/users/:id/update'
-          render={() => (<UserForm
-            formData={this.state.userFormData}
-            handleSubmit={this.handleUserUpdate}
-            handleChange={this.handleUserFormChange}
-            user={this.state.currentUser}
-          />)}
-        /> */}
         <Route
           exact path='/users'
           render={() => (

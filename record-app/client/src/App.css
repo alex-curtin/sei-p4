@@ -8,6 +8,7 @@ button {
   height: 4vh;
   min-width: 60px;
   border: 1px solid darkgrey;
+  background: white;
   border-radius: 3px;
 }
 
@@ -81,6 +82,9 @@ a:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 2vw;
+  box-sizing: border-box;
+  padding-left: 2vw;
 }
 
 /*************USER FORM**************/
@@ -202,25 +206,31 @@ a:hover {
 
 /*********** RECORD DETAILS *************/
 
-.record-detail {
-  width: 70%;
+.record-details {
   margin: 5vh auto;
-  background: rgb(228, 228, 228);
+  border: 2px solid lightgrey;
+  width: 70%;
+}
+
+.record-details-username {
+  color: rgb(89, 89, 89);
 }
 
 .img-details-container {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
-
-.record-detail img {
+.record-details-img {
   width: 50%;
   max-width: 450px;
-  
 }
 
 .record-info {
+  box-sizing: border-box;
+  padding-top: 3vw;
+  padding-left: 2vw;
   width: 50%;
   text-align: left;
   font-size: 1.3vw;
@@ -231,11 +241,21 @@ a:hover {
   color: rgb(89, 89, 89);
 }
 
+.record-details-description {
+  margin: 0;
+  padding: 10px 0 15px;;
+  box-sizing: border-box;
+  background: lightgrey;
+  width: 100%;
+  word-wrap: break-word;
+  font-size: 1.3vw;
+}
+
 .record-form-buttons {
-  margin: 10px auto;
-  width: 50%;
+  background: lightgray;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 /************** RECORD FORM *********/
