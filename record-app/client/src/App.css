@@ -165,24 +165,33 @@ a:hover {
 
 /************ RECORDS LIST ***********/
 
+.collection-title {
+  font-size: 3vw;
+  margin: 3vh 0;
+}
+
 .collection {
   display: flex;
+  flex-direction: row;
+  flex-flow: row-wrap;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
 .record {
   width: 20%;
+  min-width: 200px;
+  
 }
 
 .collection img {
   width: 100%;
-  min-width: 200px;
 }
 
 .list-artist {
   font-weight: bolder;
   margin: 0;
+  font-size: 1.3vw;
 }
 
 .list-title {

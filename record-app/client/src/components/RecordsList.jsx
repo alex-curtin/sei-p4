@@ -72,8 +72,8 @@ class RecordsList extends React.Component {
         /> :
         <div>
           {(this.props.user) &&
-            <div>
-              <h3>{this.props.user.username}'s Collection</h3>
+            <div className="collection-page">
+              <p className="collection-title">{this.props.user.username}'s Collection</p>
               {(this.props.currentUser && this.props.currentUser.id === parseInt(this.props.match.params.id)) &&
                 <button onClick={this.toggleForm}>add a record</button>}
               <div className="collection">
