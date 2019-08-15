@@ -6,7 +6,9 @@
 
 button {
   height: 4vh;
-  border: 1px solid black;
+  min-width: 60px;
+  border: 1px solid darkgrey;
+  border-radius: 2px;
 }
 
 button:hover {
@@ -119,6 +121,18 @@ a:hover {
 
 .collection img {
   width: 100%;
+  min-width: 200px;
+}
+
+.list-artist {
+  font-weight: bolder;
+  margin: 0;
+}
+
+.list-title {
+  margin: 5px 0 10px;
+  font-weight: 400;
+  color: rgb(52, 52, 52);
 }
 
 /*********** RECORD DETAILS *************/
@@ -173,7 +187,6 @@ a:hover {
 /*************** COMMENTS **************/
 
 .comments-list {
-  border: 1px solid black;
   width: 70%;
   margin: 0 auto;
   box-sizing: border-box;
@@ -184,6 +197,18 @@ a:hover {
   width: 90%;
   margin: 1vh auto;
   padding: 1%;
+}
+
+.comment-username {
+  font-size: small;
+  color: darkgreen;
+}
+
+.comment-buttons {
+  margin: 0 auto;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
 }
 
 /*************** COMMENT FORM ***********/
@@ -200,3 +225,5 @@ a:hover {
   box-sizing: border-box;
   padding: 2%;
 }
+
+

@@ -65,20 +65,22 @@ class RecordsList extends React.Component {
         <div>
           {(this.props.user) &&
             <div>
-              <h3>{this.props.user.username}</h3>
-              <button onClick={this.toggleForm}>+</button>
+              <h3>{this.props.user.username}'s Collection</h3>
+              {this.props.currentUser.id === parseInt(this.props.match.params.id) &&
+                <button onClick={this.toggleForm}>add a record</button>}
               <div className="collection">
                 {this.state.records.map(record => (
                   <div key={record.id} className="record">
                     <Link to={`/users/${record.user_id}/records/${record.id}`}>
                       <img src={record.img_url} />
                       <div>
-                        <p><b>{record.artist}</b></p>
-                        <p>{record.title}</p>
+                        <p className="list-artist">{record.artist}</p>
+                        <p className="list-title">{record.title}</p>
                       </div>
                     </Link>
-                    <button onClick={() => (this.handleDelete(record.user_id, record.id))
-                    }>X</button>
+                    {this.props.currentUser.id === parseInt(this.props.match.params.id) &&
+                      <button onClick={() => (this.handleDelete(record.user_id, record.id))
+                      }>remove from collection</button>}
                   </div>
                 ))}
               </div>
