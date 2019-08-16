@@ -26,6 +26,17 @@ class RecordsList extends React.Component {
       })
   }
 
+  async componentDidUpdate(prevProps) {
+    if (this.props.user && prevProps.user) {
+      if (this.props.user.id != prevProps.user.id) {
+        const records = await fetchRecords(this.props.match.params.id);
+        this.setState({
+          records: records,
+        })
+      }
+    }
+  }
+
 
 
   //===============DELETE RECORD================//
