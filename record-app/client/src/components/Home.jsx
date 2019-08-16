@@ -1,8 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import heroImg from '../assets/record-needle.jpg';
-import turntable from '../assets/turntable.png';
-import Turntable from './Turntable';
 
 const Home = (props) => {
   return (
@@ -23,7 +20,7 @@ const Home = (props) => {
             <p>or <Link to={`/users`}>view other people's collections</Link></p>
           </div> :
           <div>
-            <p>welcome to whatever this app for vinyl record collectors is called</p>
+            <p>welcome to <b>record zoo</b></p>
             <p><Link to="/users/login">log in</Link> or <Link>register</Link> to get started</p>
             <p>or <Link to={`/users`}>view other people's collections</Link></p>
           </div>

@@ -26,9 +26,7 @@ class RecordsList extends React.Component {
       })
   }
 
-  async componentDidUpdate() {
 
-  }
 
   //===============DELETE RECORD================//
   handleDelete = async (userId, id) => {

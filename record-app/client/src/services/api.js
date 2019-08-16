@@ -17,10 +17,14 @@ const storeToken = (token) => {
 };
 
 export const loginUser = async (loginData) => {
-  const res = await api.post('/auth/login', loginData);
-  const { user, token } = res.data;
-  storeToken(token);
-  return user;
+  try {
+    const res = await api.post('/auth/login', loginData);
+    const { user, token } = res.data;
+    storeToken(token);
+    return user;
+  } catch (e) {
+    return e;
+  }
 }
 
 export const registerUser = async (registerData) => {

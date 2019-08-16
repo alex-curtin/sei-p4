@@ -28,6 +28,7 @@ class App extends React.Component {
         password: '',
       },
       registerErrors: [],
+      loginError: false,
       currentUser: null,
       users: [],
     }
@@ -58,7 +59,7 @@ class App extends React.Component {
     e.preventDefault();
     const user = await registerUser(this.state.userFormData);
     if (user.isAxiosError) {
-      this.handleErrors(user.response.data);
+      this.handleRegisterErrors(user.response.data);
     } else {
       this.setState(prevState => ({
         currentUser: user,
@@ -70,7 +71,7 @@ class App extends React.Component {
     }
   }
 
-  handleErrors = (e) => {
+  handleRegisterErrors = (e) => {
     const errors = [];
     if (e.username) {
       e.username.forEach(err =>
@@ -97,11 +98,22 @@ class App extends React.Component {
       password: this.state.userFormData.password,
     }
     const user = await loginUser(data);
+    if (user.isAxiosError) {
+      this.handleLoginErrors();
+    } else {
+      this.setState({
+        currentUser: user,
+        loginError: false,
+      })
+      this.resetUserFormData();
+      this.props.history.push('/');
+    }
+  }
+
+  handleLoginErrors = () => {
     this.setState({
-      currentUser: user,
+      loginError: true,
     })
-    this.resetUserFormData();
-    this.props.history.push('/');
   }
 
   //=====================LOGOUT======================//
@@ -142,6 +154,7 @@ class App extends React.Component {
             formData={this.state.userFormData}
             handleSubmit={this.handleLogin}
             handleChange={this.handleUserFormChange}
+            loginError={this.state.loginError}
           />)}
         />
         <Route

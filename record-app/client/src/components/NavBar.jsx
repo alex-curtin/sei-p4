@@ -9,7 +9,7 @@ const NavBar = (props) => {
         <Link
           to='/'
         ><img className="logo" src={turntable} alt="logo" /></Link>
-        <p>APP NAME</p>
+        <p>record zoo</p>
       </div>
       <div className="links">
         {props.currentUser &&

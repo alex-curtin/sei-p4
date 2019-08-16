@@ -117,7 +117,6 @@ class RecordForm extends React.Component {
             onChange={this.handleChange}
             placeholder="country"
           />
-          {/* <div className="record-form-dropdowns"> */}
           <label htmlFor="format">size
           <select
               name="format"
@@ -167,7 +166,6 @@ class RecordForm extends React.Component {
               <option value='F'>F</option>
               <option value='P'>P</option>
             </select></label>
-          {/* </div> */}
           <input
             type="text"
             name="description"

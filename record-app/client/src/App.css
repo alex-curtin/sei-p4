@@ -20,7 +20,7 @@ button:hover {
 }
 
 button:active {
-  background: lightgray;
+  background: lightgrey;
 }
 
 a {
@@ -31,7 +31,8 @@ a {
 
 a:hover {
   cursor: pointer;
-  color: grey;
+  color: darkgrey;
+  opacity: 0.9;
 }
 
 /************* NAVBAR *********/
@@ -39,7 +40,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: lightgray;
+  background: lightgrey;
   padding: 1vh 2.5vw;
   max-height: 100px;
   font-size: 1.5vw;
@@ -48,7 +49,7 @@ a:hover {
 .navbar-left {
   width: 18%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   font-size: 2vw;
 }
@@ -107,6 +108,7 @@ a:hover {
   max-width: 400px;
   margin: 10px auto;
   padding-bottom: 20px;
+  box-shadow: 1px 1px 2px;
 }
 
 .user-form form {
@@ -129,6 +131,11 @@ a:hover {
 
 /************ LOGIN *****************/
 
+.login-page {
+  display: flex;
+  flex-direction: column;
+}
+
 .login-form {
   width: 40%;
   height: 5vh;
@@ -138,6 +145,7 @@ a:hover {
   justify-content: space-around;
   background: darkgrey;
   padding: 50px;
+  box-shadow: 1px 1px 2px;
 }
 
 .login-form button {
@@ -176,7 +184,7 @@ a:hover {
 }
 
 .collection-size {
-  color: darkslategray;
+  color: darkblue;
   font-size: 12px;
 }
 
@@ -204,7 +212,7 @@ a:hover {
 }
 
 .collection-page {
-  border: 5px solid darkgray;
+  border: 5px solid darkgrey;
   margin: 30px auto;
   width: 80%;
 }
@@ -232,6 +240,7 @@ a:hover {
 
 .collection img {
   width: 100%;
+  box-shadow: 2px 2px 2px;
 }
 
 .list-artist {
@@ -243,7 +252,7 @@ a:hover {
 .list-title {
   margin: 5px 0 10px;
   font-weight: 400;
-  color: rgb(52, 52, 52);
+  opacity: 0.7;
 }
 
 /*********** RECORD DETAILS *************/
@@ -294,10 +303,12 @@ a:hover {
 }
 
 .record-form-buttons {
-  background: lightgray;
+  background: lightgrey;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  box-sizing: border-box;
+  padding: 10px 30%;
 }
 
 /************** RECORD FORM *********/
@@ -352,7 +363,7 @@ a:hover {
 
 .comment-username {
   font-size: small;
-  color: darkslategray;
+  color: darkblue;
 }
 
 .comment-buttons {
@@ -447,14 +458,8 @@ a:hover {
 /************** RECORD FORM 500 *********/
 
 .record-form {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   width: 60vw;
   height: 100vh;
-  background: lightgrey;
-  padding: 30px;
 }
 
 .record-form label {

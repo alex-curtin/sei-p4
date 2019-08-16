@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const LoginForm = (props) => {
   return (
-    <div>
+    <div className="login-page">
       <h2>log in</h2>
       <form
         className="login-form"
@@ -24,6 +24,9 @@ const LoginForm = (props) => {
         />
         <button>log in</button>
       </form>
+      {props.loginError &&
+        <p className="errors">incorrect username or password</p>
+      }
       <p>or <Link to='/users/register'>register</Link></p>
     </div>
   )
