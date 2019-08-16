@@ -33,8 +33,10 @@ const UserForm = (props) => {
           onChange={props.handleChange}
           placeholder="password"
         />
-        {props.error &&
-          <p className="errors">{props.error}</p>
+        {props.errors &&
+          <div className="errors">{props.errors.map(e =>
+            <p key={e}>{e}</p>
+          )}</div>
         }
         <button>submit</button>
       </form>

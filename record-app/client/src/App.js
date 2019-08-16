@@ -27,7 +27,7 @@ class App extends React.Component {
         location: '',
         password: '',
       },
-      error: null,
+      errors: [],
       currentUser: null,
       users: [],
     }
@@ -56,14 +56,14 @@ class App extends React.Component {
   //=================REGISTER====================//
   handleUserSubmit = async (e) => {
     e.preventDefault();
-
     const user = await registerUser(this.state.userFormData);
     if (user.isAxiosError) {
       this.handleErrors(user.response.data);
     } else {
       this.setState(prevState => ({
         currentUser: user,
-        users: [...prevState.users, user]
+        users: [...prevState.users, user],
+        errors: []
       }))
       this.resetUserFormData();
       this.props.history.push('/');
@@ -71,18 +71,21 @@ class App extends React.Component {
   }
 
   handleErrors = (e) => {
-    let error = 'error';
+    const errors = [];
+    if (e.username) {
+      e.username.forEach(err =>
+        errors.push(`username ${err}`))
+    }
     if (e.password) {
-      error = `password ${e.password[0]}`
+      e.password.forEach(err =>
+        errors.push(`password ${err}`))
     }
-    else if (e.username) {
-      error = `username ${e.username[0]}`
-    }
-    else if (e.email) {
-      error = `email ${e.email[0]}`
+    if (e.email) {
+      e.email.forEach(err =>
+        errors.push(`email ${err}`))
     }
     this.setState({
-      error: error,
+      errors: errors,
     })
   }
 
@@ -147,7 +150,7 @@ class App extends React.Component {
             formData={this.state.userFormData}
             handleSubmit={this.handleUserSubmit}
             handleChange={this.handleUserFormChange}
-            error={this.state.error}
+            errors={this.state.errors}
           />)}
         />
         <Route
