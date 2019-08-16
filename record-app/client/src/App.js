@@ -27,7 +27,7 @@ class App extends React.Component {
         location: '',
         password: '',
       },
-      errors: [],
+      registerErrors: [],
       currentUser: null,
       users: [],
     }
@@ -63,7 +63,7 @@ class App extends React.Component {
       this.setState(prevState => ({
         currentUser: user,
         users: [...prevState.users, user],
-        errors: []
+        registerErrors: []
       }))
       this.resetUserFormData();
       this.props.history.push('/');
@@ -85,7 +85,7 @@ class App extends React.Component {
         errors.push(`email ${err}`))
     }
     this.setState({
-      errors: errors,
+      registerErrors: errors,
     })
   }
 
@@ -150,7 +150,7 @@ class App extends React.Component {
             formData={this.state.userFormData}
             handleSubmit={this.handleUserSubmit}
             handleChange={this.handleUserFormChange}
-            errors={this.state.errors}
+            errors={this.state.registerErrors}
           />)}
         />
         <Route

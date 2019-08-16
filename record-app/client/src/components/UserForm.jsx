@@ -3,7 +3,7 @@ import React from 'react'
 const UserForm = (props) => {
   return (
     <div className="user-form">
-      <h2>REGISTER</h2>
+      <h2>register</h2>
       <form onSubmit={props.handleSubmit}>
         <input
           type="text"
