@@ -71,9 +71,10 @@ class RecordDetail extends React.Component {
   }
 
   toggleComments = () => {
-    this.setState({
-      showComments: true,
-    })
+    this.setState(prevState => ({
+      showComments: !prevState.showComments,
+    }))
+
   }
 
 
@@ -214,7 +215,11 @@ class RecordDetail extends React.Component {
               <div className="record-form-buttons">
                 {(this.props.currentUser && this.props.currentUser.id === parseInt(this.state.record.user_id)) &&
                   < button onClick={this.toggleForm}>edit record</button>}
-                <button onClick={this.toggleComments}>show comments</button>
+                {this.state.comments[0] &&
+                  <button onClick={this.toggleComments}>{
+                    this.state.showComments ?
+                      'hide comments' :
+                      'show comments'}</button>}
                 {this.props.currentUser &&
                   <button onClick={this.toggleAddComment}>add comment</button>}
               </div>

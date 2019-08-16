@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   
   def index
     @record = Record.find(params[:record_id])
-    @comments = Comment.where(record_id: @record.id)
+    @comments = Comment.where(record_id: @record.id).order(created_at: :asc)
     render json: @comments, include: :user, status: :ok
   end
 

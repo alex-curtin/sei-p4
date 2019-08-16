@@ -18,7 +18,7 @@ const CommentsList = (props) => {
               <div>
                 <p className="comment-body">{comment.body}</p>
                 <p className="comment-username">by {comment.user.username}</p>
-                {props.currentUser.id === comment.user_id &&
+                {(props.currentUser && props.currentUser.id === comment.user_id) &&
                   <div className="comment-buttons">
                     <button onClick={() => props.editComment(comment)}>edit</button>
                     <button onClick={() => props.handleDelete(comment.id)}>delete</button>
