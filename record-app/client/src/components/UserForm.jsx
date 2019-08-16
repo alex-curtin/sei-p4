@@ -34,7 +34,7 @@ const UserForm = (props) => {
           placeholder="password"
         />
         {props.error &&
-          <p className="error">{props.error}</p>
+          <p className="errors">{props.error}</p>
         }
         <button>submit</button>
       </form>

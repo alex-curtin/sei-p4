@@ -58954,3 +58954,828 @@ Completed 200 OK in 56ms (Views: 9.7ms | ActiveRecord: 45.0ms)
 Completed 200 OK in 69ms (Views: 61.6ms | ActiveRecord: 6.6ms)
 
 
+Started GET "/users/1" for ::1 at 2019-08-15 22:17:53 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:56
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+Completed 200 OK in 8ms (Views: 2.0ms | ActiveRecord: 0.8ms)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (162.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "record-app_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (138.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "record-app_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (365.9ms)[0m  [1m[35mCREATE DATABASE "record-app_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (262.2ms)[0m  [1m[35mCREATE DATABASE "record-app_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying, "user_id" bigint, "record_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_record_id" ON "comments"  ("record_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_user_id" ON "comments"  ("user_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "records" CASCADE[0m
+  ↳ db/schema.rb:28
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "records" ("id" bigserial primary key, "artist" character varying, "title" character varying, "year" integer, "record_label" character varying, "cat_num" character varying, "country" character varying, "format" character varying, "speed" character varying, "disc_condition" character varying, "sleeve_condition" character varying, "description" character varying, "img_url" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:28
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX  "index_records_on_user_id" ON "records"  ("user_id")[0m
+  ↳ db/schema.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:47
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "location" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:47
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "comments" ADD CONSTRAINT "fk_rails_7f7b1ed962"
+FOREIGN KEY ("record_id")
+  REFERENCES "records" ("id")
+[0m
+  ↳ db/schema.rb:56
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "comments" ADD CONSTRAINT "fk_rails_03de2dc08c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/schema.rb:57
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "records" ADD CONSTRAINT "fk_rails_9ba3ba9afc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/schema.rb:58
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190812150557)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190812144841),
+(20190812145240);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-08-16 02:18:41.888378"], ["updated_at", "2019-08-16 02:18:41.888378"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying, "user_id" bigint, "record_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_record_id" ON "comments"  ("record_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_user_id" ON "comments"  ("user_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "records" CASCADE[0m
+  ↳ db/schema.rb:28
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "records" ("id" bigserial primary key, "artist" character varying, "title" character varying, "year" integer, "record_label" character varying, "cat_num" character varying, "country" character varying, "format" character varying, "speed" character varying, "disc_condition" character varying, "sleeve_condition" character varying, "description" character varying, "img_url" character varying, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:28
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_records_on_user_id" ON "records"  ("user_id")[0m
+  ↳ db/schema.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:47
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "location" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:47
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "comments" ADD CONSTRAINT "fk_rails_7f7b1ed962"
+FOREIGN KEY ("record_id")
+  REFERENCES "records" ("id")
+[0m
+  ↳ db/schema.rb:56
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "comments" ADD CONSTRAINT "fk_rails_03de2dc08c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/schema.rb:57
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "records" ADD CONSTRAINT "fk_rails_9ba3ba9afc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/schema.rb:58
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190812150557)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190812144841),
+(20190812145240);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-08-16 02:18:41.944784"], ["updated_at", "2019-08-16 02:18:41.944784"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2019-08-16 02:18:41.947185"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jefftherecordguy"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jeff@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "location", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "jefftherecordguy"], ["email", "jeff@email.com"], ["location", "Dallas, TX"], ["password_digest", "$2a$12$6YZn5r59Z4NDY.MuC1fa7ulu.WCNNes8GlAwjj3LZDQ8721N9dSHK"], ["created_at", "2019-08-16 02:18:42.184779"], ["updated_at", "2019-08-16 02:18:42.184779"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "terry"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "terry@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:10
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "location", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "terry"], ["email", "terry@email.com"], ["location", "Houston, TX"], ["password_digest", "$2a$12$ZAbwwLQ5vd6nRpy4hT7wJeXvi4nbewElM5srV5RnNED2Xb3f9VDw6"], ["created_at", "2019-08-16 02:18:42.384707"], ["updated_at", "2019-08-16 02:18:42.384707"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "vinyldude2001"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "vinyldude2001@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "location", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "vinyldude2001"], ["email", "vinyldude2001@email.com"], ["location", "Austin, TX"], ["password_digest", "$2a$12$6tC0K0laigFlQwk7LzDBdukb3MFios9Vt4AKXNV387kobpup5eUxC"], ["created_at", "2019-08-16 02:18:42.578891"], ["updated_at", "2019-08-16 02:18:42.578891"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alex"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "alex@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "location", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "alex"], ["email", "alex@email.com"], ["location", "New York, NY"], ["password_digest", "$2a$12$R0PU9x8StyQinBaW1TQtrOx/YuchULtuMNj8GYuwBunjEVb4yk1iq"], ["created_at", "2019-08-16 02:18:42.774735"], ["updated_at", "2019-08-16 02:18:42.774735"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mRecord Create (0.7ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Creedence Clearwater Revival"], ["title", "Bayou Country"], ["year", 1969], ["record_label", "Fantasy"], ["cat_num", "8387"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "  "], ["img_url", "https://upload.wikimedia.org/wikipedia/en/3/37/Creedence_Clearwater_Revival_-_Bayou_Country.jpg"], ["user_id", 1], ["created_at", "2019-08-16 02:18:42.801886"], ["updated_at", "2019-08-16 02:18:42.801886"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Creedence Clearwater Revival"], ["title", "Cosmo's Factory"], ["year", 1970], ["record_label", "Fantasy"], ["cat_num", "8402"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "  "], ["img_url", "https://upload.wikimedia.org/wikipedia/en/4/42/Creedence_Clearwater_Revival_-_Cosmo%27s_Factory.jpg"], ["user_id", 1], ["created_at", "2019-08-16 02:18:42.804676"], ["updated_at", "2019-08-16 02:18:42.804676"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Creedence Clearwater Revival"], ["title", "Green River"], ["year", 1969], ["record_label", "Fantasy"], ["cat_num", "8393"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "  "], ["img_url", "https://upload.wikimedia.org/wikipedia/en/0/04/Creedence_Clearwater_Revival_-_Green_River.jpg"], ["user_id", 1], ["created_at", "2019-08-16 02:18:42.806804"], ["updated_at", "2019-08-16 02:18:42.806804"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Creedence Clearwater Revival"], ["title", "Willy and The Poor Boys"], ["year", 1969], ["record_label", "Fantasy"], ["cat_num", "8397"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "  "], ["img_url", "https://upload.wikimedia.org/wikipedia/en/8/85/Willy_and_the_poor_boys.jpg"], ["user_id", 1], ["created_at", "2019-08-16 02:18:42.808739"], ["updated_at", "2019-08-16 02:18:42.808739"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Creedence Clearwater Revival"], ["title", "Creedence Clearwater Revival"], ["year", 1968], ["record_label", "Fantasy"], ["cat_num", "8382"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "  "], ["img_url", "https://upload.wikimedia.org/wikipedia/en/b/b6/Creedence_Clearwater_Revival_-_Creedence_Clearwater_Revival.jpg"], ["user_id", 1], ["created_at", "2019-08-16 02:18:42.810644"], ["updated_at", "2019-08-16 02:18:42.810644"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Creedence Clearwater Revival"], ["title", "Bayou Country"], ["year", 1969], ["record_label", "Fantasy"], ["cat_num", "8387"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "  "], ["img_url", "https://upload.wikimedia.org/wikipedia/en/3/37/Creedence_Clearwater_Revival_-_Bayou_Country.jpg"], ["user_id", 2], ["created_at", "2019-08-16 02:18:42.812613"], ["updated_at", "2019-08-16 02:18:42.812613"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Creedence Clearwater Revival"], ["title", "Cosmo's Factory"], ["year", 1970], ["record_label", "Fantasy"], ["cat_num", "8402"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "  "], ["img_url", "https://upload.wikimedia.org/wikipedia/en/4/42/Creedence_Clearwater_Revival_-_Cosmo%27s_Factory.jpg"], ["user_id", 2], ["created_at", "2019-08-16 02:18:42.814470"], ["updated_at", "2019-08-16 02:18:42.814470"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Creedence Clearwater Revival"], ["title", "Green River"], ["year", 1969], ["record_label", "Fantasy"], ["cat_num", "8393"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "  "], ["img_url", "https://upload.wikimedia.org/wikipedia/en/0/04/Creedence_Clearwater_Revival_-_Green_River.jpg"], ["user_id", 2], ["created_at", "2019-08-16 02:18:42.816347"], ["updated_at", "2019-08-16 02:18:42.816347"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Creedence Clearwater Revival"], ["title", "Willy and The Poor Boys"], ["year", 1969], ["record_label", "Fantasy"], ["cat_num", "8397"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "  "], ["img_url", "https://upload.wikimedia.org/wikipedia/en/8/85/Willy_and_the_poor_boys.jpg"], ["user_id", 2], ["created_at", "2019-08-16 02:18:42.818182"], ["updated_at", "2019-08-16 02:18:42.818182"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mRecord Create (0.5ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Creedence Clearwater Revival"], ["title", "Creedence Clearwater Revival"], ["year", 1968], ["record_label", "Fantasy"], ["cat_num", "8382"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "  "], ["img_url", "https://upload.wikimedia.org/wikipedia/en/b/b6/Creedence_Clearwater_Revival_-_Creedence_Clearwater_Revival.jpg"], ["user_id", 2], ["created_at", "2019-08-16 02:18:42.820078"], ["updated_at", "2019-08-16 02:18:42.820078"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:25
+  [1m[36mRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Creedence Clearwater Revival"], ["title", "Bayou Country"], ["year", 1969], ["record_label", "Fantasy"], ["cat_num", "8387"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "  "], ["img_url", "https://upload.wikimedia.org/wikipedia/en/3/37/Creedence_Clearwater_Revival_-_Bayou_Country.jpg"], ["user_id", 3], ["created_at", "2019-08-16 02:18:42.822543"], ["updated_at", "2019-08-16 02:18:42.822543"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:26
+  [1m[36mRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Creedence Clearwater Revival"], ["title", "Cosmo's Factory"], ["year", 1970], ["record_label", "Fantasy"], ["cat_num", "8402"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "  "], ["img_url", "https://upload.wikimedia.org/wikipedia/en/4/42/Creedence_Clearwater_Revival_-_Cosmo%27s_Factory.jpg"], ["user_id", 3], ["created_at", "2019-08-16 02:18:42.824462"], ["updated_at", "2019-08-16 02:18:42.824462"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Creedence Clearwater Revival"], ["title", "Green River"], ["year", 1969], ["record_label", "Fantasy"], ["cat_num", "8393"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "  "], ["img_url", "https://upload.wikimedia.org/wikipedia/en/0/04/Creedence_Clearwater_Revival_-_Green_River.jpg"], ["user_id", 3], ["created_at", "2019-08-16 02:18:42.826230"], ["updated_at", "2019-08-16 02:18:42.826230"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Creedence Clearwater Revival"], ["title", "Willy and The Poor Boys"], ["year", 1969], ["record_label", "Fantasy"], ["cat_num", "8397"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "  "], ["img_url", "https://upload.wikimedia.org/wikipedia/en/8/85/Willy_and_the_poor_boys.jpg"], ["user_id", 3], ["created_at", "2019-08-16 02:18:42.838591"], ["updated_at", "2019-08-16 02:18:42.838591"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Creedence Clearwater Revival"], ["title", "Creedence Clearwater Revival"], ["year", 1968], ["record_label", "Fantasy"], ["cat_num", "8382"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "  "], ["img_url", "https://upload.wikimedia.org/wikipedia/en/b/b6/Creedence_Clearwater_Revival_-_Creedence_Clearwater_Revival.jpg"], ["user_id", 3], ["created_at", "2019-08-16 02:18:42.842151"], ["updated_at", "2019-08-16 02:18:42.842151"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Scientist"], ["title", "Scientist Meets The Space Invaders"], ["year", 2010], ["record_label", "Greensleeves"], ["cat_num", "GREL 19"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG+"], ["description", "  "], ["img_url", "http://i.imgur.com/kOeAx6M.jpg"], ["user_id", 4], ["created_at", "2019-08-16 02:18:42.845236"], ["updated_at", "2019-08-16 02:18:42.845236"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:31
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:32
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Scientist"], ["title", "Scientist Encounters Pac-Man"], ["year", 2012], ["record_label", "Greensleeves"], ["cat_num", "GREL 46"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG+"], ["description", "  "], ["img_url", "https://images-na.ssl-images-amazon.com/images/I/81NhshflY5L._SL1063_.jpg"], ["user_id", 4], ["created_at", "2019-08-16 02:18:42.849057"], ["updated_at", "2019-08-16 02:18:42.849057"]]
+  ↳ db/seeds.rb:32
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:32
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:33
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "The Fall"], ["title", "Perverted By Language"], ["year", 1983], ["record_label", "Rough Trade"], ["cat_num", "ROUGH 62"], ["country", "UK"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG+"], ["description", "  "], ["img_url", "https://cdn.shopify.com/s/files/1/0219/8812/products/SV127_web_1024x1024.jpg?v=1490983271"], ["user_id", 4], ["created_at", "2019-08-16 02:18:42.852589"], ["updated_at", "2019-08-16 02:18:42.852589"]]
+  ↳ db/seeds.rb:33
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Swell Maps"], ["title", "A Trip To Marineville"], ["year", 1979], ["record_label", "Rough Trade"], ["cat_num", "ROUGH 2"], ["country", "UK"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG+"], ["description", "with original bonus 7\""], ["img_url", "https://img.discogs.com/Z_7btnMwJV7d_A4em3_S9osYL84=/fit-in/600x597/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-802562-1352280409-8936.jpeg.jpg"], ["user_id", 4], ["created_at", "2019-08-16 02:18:42.855648"], ["updated_at", "2019-08-16 02:18:42.855648"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "David Bowie"], ["title", "The Man Who Sold The World"], ["year", 1970], ["record_label", "Mercury"], ["cat_num", "SR-61325"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "...bootleg :( "], ["img_url", "https://img.discogs.com/GlrBkuxbP9lE0AUrGLQ29eyzEwY=/fit-in/600x599/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-710468-1475029886-8513.jpeg.jpg"], ["user_id", 4], ["created_at", "2019-08-16 02:18:42.858302"], ["updated_at", "2019-08-16 02:18:42.858302"]]
+  ↳ db/seeds.rb:35
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:35
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mRecord Create (0.4ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Television"], ["title", "Marquee Moon"], ["year", 1977], ["record_label", "Elektra"], ["cat_num", "7E-1098"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "European pressing in US sleeve, for some reason"], ["img_url", "https://img.discogs.com/bZH3R0Is0qkJqbmwyDS5TjGg-HM=/fit-in/589x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-2838321-1303340982.jpeg.jpg"], ["user_id", 4], ["created_at", "2019-08-16 02:18:42.862130"], ["updated_at", "2019-08-16 02:18:42.862130"]]
+  ↳ db/seeds.rb:36
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:37
+  [1m[36mRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Bee Gees"], ["title", "Odessa"], ["year", 1969], ["record_label", "ATCO"], ["cat_num", "SD 2-702"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "Original double LP version in velvet sleeve"], ["img_url", "https://img.discogs.com/S8dTJbLdOQpCf3EIhUTREH_d6w4=/fit-in/600x588/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-1930742-1382814336-5426.jpeg.jpg"], ["user_id", 4], ["created_at", "2019-08-16 02:18:42.865494"], ["updated_at", "2019-08-16 02:18:42.865494"]]
+  ↳ db/seeds.rb:37
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:38
+  [1m[36mRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Michael Nesmith & The First National Band"], ["title", "Magnetic South"], ["year", 1970], ["record_label", "RCA Victor"], ["cat_num", "LSP-4371"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG+"], ["description", ""], ["img_url", "https://ia802301.us.archive.org/22/items/mbid-2edf44dc-dd93-4167-9c00-c03e2cbe9078/mbid-2edf44dc-dd93-4167-9c00-c03e2cbe9078-22193710690.jpg"], ["user_id", 4], ["created_at", "2019-08-16 02:18:42.868402"], ["updated_at", "2019-08-16 02:18:42.868402"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:39
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Moby Grape"], ["title", "Moby Grape"], ["year", 1967], ["record_label", "Columbia"], ["cat_num", "CL 2698"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG"], ["sleeve_condition", "G+"], ["description", "Mono pressing with the infamous \"finger cover\""], ["img_url", "https://ia803003.us.archive.org/3/items/mbid-fd9a6095-bc44-4032-86ca-e42d900e7943/mbid-fd9a6095-bc44-4032-86ca-e42d900e7943-5504426725.jpg"], ["user_id", 4], ["created_at", "2019-08-16 02:18:42.871006"], ["updated_at", "2019-08-16 02:18:42.871006"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:40
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:40
+  [1m[36mRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Black Sabbath"], ["title", "Black Sabbath"], ["year", 1970], ["record_label", "Warner Bros"], ["cat_num", "WS 1871"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG"], ["sleeve_condition", "VG"], ["description", ""], ["img_url", "https://ia800509.us.archive.org/16/items/mbid-069dc077-63e4-3ee8-903b-0dd53cf555bf/mbid-069dc077-63e4-3ee8-903b-0dd53cf555bf-10533954155.jpg"], ["user_id", 4], ["created_at", "2019-08-16 02:18:42.873657"], ["updated_at", "2019-08-16 02:18:42.873657"]]
+  ↳ db/seeds.rb:40
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:40
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:41
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:41
+  [1m[36mRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "The Misfits"], ["title", "Static Age"], ["year", 1997], ["record_label", "Caroline"], ["cat_num", "CAROL 7520-1"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "NM"], ["sleeve_condition", "VG+"], ["description", ""], ["img_url", "https://img.discogs.com/A7Wd03C5CdTQOEpdr5xIuHESLrg=/fit-in/600x599/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-489145-1264605053.jpeg.jpg"], ["user_id", 4], ["created_at", "2019-08-16 02:18:42.876214"], ["updated_at", "2019-08-16 02:18:42.876214"]]
+  ↳ db/seeds.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:41
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Prince Jammy"], ["title", "Computerised Dub"], ["year", 2012], ["record_label", "Greensleeves"], ["cat_num", "GREL 92"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "NM"], ["sleeve_condition", "VG+"], ["description", ""], ["img_url", "https://img.discogs.com/IslwGgq_J9bezb3_vfqDWZ7DtIE=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-4316284-1362000185-8978.jpeg.jpg"], ["user_id", 4], ["created_at", "2019-08-16 02:18:42.878418"], ["updated_at", "2019-08-16 02:18:42.878418"]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:43
+  [1m[36mRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Doris Norton"], ["title", "Personal Computer"], ["year", 2018], ["record_label", "Mannequin"], ["cat_num", "MNQ 120"], ["country", "Germany"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "NM"], ["sleeve_condition", "NM"], ["description", "Reissue"], ["img_url", "https://img.discogs.com/cDyldwfBLKTtY3FLJjHxCN-8dvY=/fit-in/600x606/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-11895306-1524308109-2471.png.jpg"], ["user_id", 4], ["created_at", "2019-08-16 02:18:42.880511"], ["updated_at", "2019-08-16 02:18:42.880511"]]
+  ↳ db/seeds.rb:43
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:44
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Willaim Onyeabor"], ["title", "Atomic Bomb"], ["year", 2015], ["record_label", "Luaka Bop"], ["cat_num", "LBLP5033"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "NM"], ["sleeve_condition", "NM"], ["description", "Reissue"], ["img_url", "https://img.discogs.com/Zrt4RLijsfZEm3lDgwqoMqWrMQw=/fit-in/600x600/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-7776882-1448551091-9094.jpeg.jpg"], ["user_id", 4], ["created_at", "2019-08-16 02:18:42.882659"], ["updated_at", "2019-08-16 02:18:42.882659"]]
+  ↳ db/seeds.rb:44
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:44
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:45
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:45
+  [1m[36mRecord Create (0.5ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Rolling Stones"], ["title", "Their Satanic Majesties Request"], ["year", 1967], ["record_label", "London"], ["cat_num", "NPS-2"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG+"], ["description", "Lenticular cover"], ["img_url", "https://ia802508.us.archive.org/24/items/mbid-b172010e-9ba9-4d80-a8f2-9142ce94ed8b/mbid-b172010e-9ba9-4d80-a8f2-9142ce94ed8b-14746340139.jpg"], ["user_id", 4], ["created_at", "2019-08-16 02:18:42.884484"], ["updated_at", "2019-08-16 02:18:42.884484"]]
+  ↳ db/seeds.rb:45
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:45
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:46
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:46
+  [1m[36mRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "records" ("artist", "title", "year", "record_label", "cat_num", "country", "format", "speed", "disc_condition", "sleeve_condition", "description", "img_url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["artist", "Creedence Clearwater Revival"], ["title", "Bayou Country"], ["year", 1969], ["record_label", "Fantasy"], ["cat_num", "8387"], ["country", "US"], ["format", "12\""], ["speed", "33 rpm"], ["disc_condition", "VG+"], ["sleeve_condition", "VG"], ["description", "  "], ["img_url", "https://upload.wikimedia.org/wikipedia/en/3/37/Creedence_Clearwater_Revival_-_Bayou_Country.jpg"], ["user_id", 4], ["created_at", "2019-08-16 02:18:42.886799"], ["updated_at", "2019-08-16 02:18:42.886799"]]
+  ↳ db/seeds.rb:46
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:46
+Started GET "/users/" for ::1 at 2019-08-15 22:19:07 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alexcurtin/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 53ms (Views: 39.7ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/users" for ::1 at 2019-08-15 22:19:16 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.6ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.7ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 20ms (Views: 17.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-15 22:19:19 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4/records/17" for ::1 at 2019-08-15 22:19:38 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"user_id"=>"4", "id"=>"17"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:11
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:12
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4/records/17/comments" for ::1 at 2019-08-15 22:19:38 -0400
+Processing by CommentsController#index as HTML
+  Parameters: {"user_id"=>"4", "record_id"=>"17"}
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."record_id" = $1[0m  [["record_id", 17]]
+  ↳ app/controllers/comments_controller.rb:7
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-15 22:19:42 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2/records" for ::1 at 2019-08-15 22:19:48 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1/records" for ::1 at 2019-08-15 22:19:51 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/2/records" for ::1 at 2019-08-15 22:19:58 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.1ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-15 22:20:01 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/auth/login" for ::1 at 2019-08-15 22:20:13 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"username"=>"alex", "password"=>"[FILTERED]", "authentication"=>{"username"=>"alex", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alex"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4
+Completed 200 OK in 200ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-15 22:20:16 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/4/records/29" for ::1 at 2019-08-15 22:20:20 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"user_id"=>"4", "id"=>"29"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:11
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:12
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/4/records/29/comments" for ::1 at 2019-08-15 22:20:20 -0400
+Processing by CommentsController#index as HTML
+  Parameters: {"user_id"=>"4", "record_id"=>"29"}
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."record_id" = $1[0m  [["record_id", 29]]
+  ↳ app/controllers/comments_controller.rb:7
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-15 22:20:27 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/4/records/30" for ::1 at 2019-08-15 22:20:28 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"user_id"=>"4", "id"=>"30"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:11
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:12
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/4/records/30/comments" for ::1 at 2019-08-15 22:20:28 -0400
+Processing by CommentsController#index as HTML
+  Parameters: {"user_id"=>"4", "record_id"=>"30"}
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."record_id" = $1[0m  [["record_id", 30]]
+  ↳ app/controllers/comments_controller.rb:7
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-15 22:20:31 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/4/records/27" for ::1 at 2019-08-15 22:20:32 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"user_id"=>"4", "id"=>"27"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:11
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:12
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/4/records/27/comments" for ::1 at 2019-08-15 22:20:33 -0400
+Processing by CommentsController#index as HTML
+  Parameters: {"user_id"=>"4", "record_id"=>"27"}
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."record_id" = $1[0m  [["record_id", 27]]
+  ↳ app/controllers/comments_controller.rb:7
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-15 22:20:35 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/4/records/21" for ::1 at 2019-08-15 22:20:37 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"user_id"=>"4", "id"=>"21"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:11
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:12
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4/records/21/comments" for ::1 at 2019-08-15 22:20:37 -0400
+Processing by CommentsController#index as HTML
+  Parameters: {"user_id"=>"4", "record_id"=>"21"}
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."record_id" = $1[0m  [["record_id", 21]]
+  ↳ app/controllers/comments_controller.rb:7
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-15 22:20:39 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4/records/23" for ::1 at 2019-08-15 22:20:41 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"user_id"=>"4", "id"=>"23"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:11
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:12
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4/records/23/comments" for ::1 at 2019-08-15 22:20:41 -0400
+Processing by CommentsController#index as HTML
+  Parameters: {"user_id"=>"4", "record_id"=>"23"}
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."record_id" = $1[0m  [["record_id", 23]]
+  ↳ app/controllers/comments_controller.rb:7
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-15 22:20:43 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/4/records/20" for ::1 at 2019-08-15 22:20:45 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"user_id"=>"4", "id"=>"20"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:11
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:12
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/4/records/20/comments" for ::1 at 2019-08-15 22:20:45 -0400
+Processing by CommentsController#index as HTML
+  Parameters: {"user_id"=>"4", "record_id"=>"20"}
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."record_id" = $1[0m  [["record_id", 20]]
+  ↳ app/controllers/comments_controller.rb:7
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-15 22:20:49 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/4/records/18" for ::1 at 2019-08-15 22:20:51 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"user_id"=>"4", "id"=>"18"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:11
+  [1m[36mRecord Load (0.1ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:12
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/4/records/18/comments" for ::1 at 2019-08-15 22:20:51 -0400
+Processing by CommentsController#index as HTML
+  Parameters: {"user_id"=>"4", "record_id"=>"18"}
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."record_id" = $1[0m  [["record_id", 18]]
+  ↳ app/controllers/comments_controller.rb:7
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-15 22:20:54 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/auth/login" for ::1 at 2019-08-15 22:21:07 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"username"=>"alex", "password"=>"[FILTERED]", "authentication"=>{"username"=>"alex", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alex"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4
+Completed 401 Unauthorized in 194ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/" for ::1 at 2019-08-15 22:21:13 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"username"=>"alex", "email"=>"", "location"=>"", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alex"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:17
+Completed 422 Unprocessable Entity in 202ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for ::1 at 2019-08-15 22:23:06 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.7ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.6ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 20ms (Views: 15.3ms | ActiveRecord: 4.1ms)
+
+

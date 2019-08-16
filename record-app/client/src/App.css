@@ -119,6 +119,10 @@ a:hover {
   align-items: center;
 }
 
+.errors {
+  color: red;
+}
+
 /************ LOGIN *****************/
 
 .login-form {
