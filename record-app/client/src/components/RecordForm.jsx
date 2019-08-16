@@ -70,8 +70,8 @@ class RecordForm extends React.Component {
     return (
       <div>
         {this.props.isEdit ?
-          <h2>EDIT RECORD</h2> :
-          <h2>ADD A RECORD</h2>}
+          <h2>edit record</h2> :
+          <h2>add a record</h2>}
         <form
           className="record-form"
           onSubmit={this.submit}>
@@ -117,51 +117,57 @@ class RecordForm extends React.Component {
             onChange={this.handleChange}
             placeholder="country"
           />
+          {/* <div className="record-form-dropdowns"> */}
+          <label htmlFor="format">size
           <select
-            name="format"
-            onChange={this.handleChange}
-            value={this.state.formData.format}
-          >
-            <option value='12"'>12"</option>
-            <option value='7"'>7"</option>
-            <option value='10"'>10"</option>
-          </select>
+              name="format"
+              onChange={this.handleChange}
+              value={this.state.formData.format}
+            >
+              <option value='12"'>12"</option>
+              <option value='7"'>7"</option>
+              <option value='10"'>10"</option>
+            </select></label>
+          <label htmlFor="speed">speed
           <select
-            name="speed"
-            onChange={this.handleChange}
-            value={this.state.formData.speed}
-          >
-            <option value='33 rpm'>33 rpm</option>
-            <option value='45 rpm'>45 rpm</option>
-          </select>
+              name="speed"
+              onChange={this.handleChange}
+              value={this.state.formData.speed}
+            >
+              <option value='33 rpm'>33 rpm</option>
+              <option value='45 rpm'>45 rpm</option>
+            </select></label>
+          <label htmlFor="disc_condition">disc condition
           <select
-            name="disc_condition"
-            onChange={this.handleChange}
-            value={this.state.formData.disc_condition}
-          >
-            <option value='M'>M</option>
-            <option value='NM'>NM</option>
-            <option value='VG+'>VG+</option>
-            <option value='VG'>VG</option>
-            <option value='G+'>G+</option>
-            <option value='G'>G</option>
-            <option value='F'>F</option>
-            <option value='P'>P</option>
-          </select>
+              name="disc_condition"
+              onChange={this.handleChange}
+              value={this.state.formData.disc_condition}
+            >
+              <option value='M'>M</option>
+              <option value='NM'>NM</option>
+              <option value='VG+'>VG+</option>
+              <option value='VG'>VG</option>
+              <option value='G+'>G+</option>
+              <option value='G'>G</option>
+              <option value='F'>F</option>
+              <option value='P'>P</option>
+            </select></label>
+          <label htmlFor="sleeve_condition">sleeve condition
           <select
-            name="sleeve_condition"
-            onChange={this.handleChange}
-            value={this.state.formData.sleeve_condition}
-          >
-            <option value='M'>M</option>
-            <option value='NM'>NM</option>
-            <option value='VG+'>VG+</option>
-            <option value='VG'>VG</option>
-            <option value='G+'>G+</option>
-            <option value='G'>G</option>
-            <option value='F'>F</option>
-            <option value='P'>P</option>
-          </select>
+              name="sleeve_condition"
+              onChange={this.handleChange}
+              value={this.state.formData.sleeve_condition}
+            >
+              <option value='M'>M</option>
+              <option value='NM'>NM</option>
+              <option value='VG+'>VG+</option>
+              <option value='VG'>VG</option>
+              <option value='G+'>G+</option>
+              <option value='G'>G</option>
+              <option value='F'>F</option>
+              <option value='P'>P</option>
+            </select></label>
+          {/* </div> */}
           <input
             type="text"
             name="description"

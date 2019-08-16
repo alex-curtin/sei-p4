@@ -60066,3 +60066,767 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 1.3ms)
 
 
+Started GET "/users/1/records" for ::1 at 2019-08-15 22:47:51 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/3/records" for ::1 at 2019-08-15 22:47:54 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3/records/11" for ::1 at 2019-08-15 22:47:55 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"user_id"=>"3", "id"=>"11"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:11
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:12
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/3/records/11/comments" for ::1 at 2019-08-15 22:47:55 -0400
+Processing by CommentsController#index as HTML
+  Parameters: {"user_id"=>"3", "record_id"=>"11"}
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."record_id" = $1[0m  [["record_id", 11]]
+  ↳ app/controllers/comments_controller.rb:7
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/auth/login" for ::1 at 2019-08-16 05:59:15 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"username"=>"alex", "password"=>"[FILTERED]", "authentication"=>{"username"=>"alex", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alex"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4
+Completed 200 OK in 207ms (Views: 1.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/3/records" for ::1 at 2019-08-16 05:59:19 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 12ms (Views: 6.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/3/records/13" for ::1 at 2019-08-16 05:59:35 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"user_id"=>"3", "id"=>"13"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:11
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:12
+Completed 200 OK in 5ms (Views: 0.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/3/records/13/comments" for ::1 at 2019-08-16 05:59:35 -0400
+Processing by CommentsController#index as HTML
+  Parameters: {"user_id"=>"3", "record_id"=>"13"}
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5
+  [1m[36mComment Load (1.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."record_id" = $1[0m  [["record_id", 13]]
+  ↳ app/controllers/comments_controller.rb:7
+Completed 200 OK in 6ms (Views: 2.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/4/records/13" for ::1 at 2019-08-16 05:59:44 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"user_id"=>"4", "id"=>"13"}
+Started GET "/users/verify" for ::1 at 2019-08-16 05:59:44 -0400
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:11
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:12
+Completed 200 OK in 16ms (Views: 0.8ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/users/4/records/13/comments" for ::1 at 2019-08-16 05:59:44 -0400
+Processing by CommentsController#index as HTML
+  Parameters: {"user_id"=>"4", "record_id"=>"13"}
+  [1m[36mRecord Load (2.0ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5
+Processing by UsersController#verify as HTML
+  [1m[36mComment Load (4.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."record_id" = $1[0m  [["record_id", 13]]
+  ↳ app/controllers/comments_controller.rb:7
+Completed 200 OK in 11ms (Views: 2.1ms | ActiveRecord: 6.6ms)
+
+
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 05:59:44 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 98ms (Views: 95.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/5/records/13" for ::1 at 2019-08-16 05:59:55 -0400
+Started GET "/users/verify" for ::1 at 2019-08-16 05:59:55 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"13"}
+Processing by UsersController#verify as HTML
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:11
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 200 OK in 30ms (Views: 0.3ms | ActiveRecord: 6.2ms)
+
+
+  [1m[36mRecord Load (20.2ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:12
+Completed 200 OK in 39ms (Views: 3.2ms | ActiveRecord: 23.2ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 05:59:56 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+Started GET "/users/5/records/13/comments" for ::1 at 2019-08-16 05:59:56 -0400
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+Processing by CommentsController#index as HTML
+  Parameters: {"user_id"=>"5", "record_id"=>"13"}
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (7.8ms)[0m  [1m[34mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/comments_controller.rb:5
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mComment Load (5.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."record_id" = $1[0m  [["record_id", 13]]
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/comments_controller.rb:7
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 21ms (Views: 4.4ms | ActiveRecord: 13.3ms)
+
+
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 87ms (Views: 80.4ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-16 05:59:59 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1/records" for ::1 at 2019-08-16 06:00:03 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.1ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-16 06:00:35 -0400
+Started GET "/users/verify" for ::1 at 2019-08-16 06:00:35 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+Processing by UsersController#verify as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mRecord Load (2.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+Completed 200 OK in 9ms (Views: 1.1ms | ActiveRecord: 3.2ms)
+
+
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 22ms (Views: 15.4ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 06:00:35 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.1ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 25ms (Views: 21.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-16 06:24:34 -0400
+Started GET "/users/verify" for ::1 at 2019-08-16 06:24:34 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+Processing by UsersController#verify as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+Completed 200 OK in 9ms (Views: 1.0ms | ActiveRecord: 2.5ms)
+
+
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 24ms (Views: 8.3ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 06:24:34 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 47ms (Views: 44.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-16 06:24:48 -0400
+Started GET "/users/verify" for ::1 at 2019-08-16 06:24:48 -0400
+Processing by RecordsController#index as HTML
+Processing by UsersController#verify as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  ↳ app/controllers/records_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 06:24:48 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.6ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 19ms (Views: 16.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-16 06:24:51 -0400
+Started GET "/users/verify" for ::1 at 2019-08-16 06:24:51 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+Processing by UsersController#verify as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 06:24:51 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 21ms (Views: 18.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-16 06:25:41 -0400
+Started GET "/users/verify" for ::1 at 2019-08-16 06:25:41 -0400
+Processing by RecordsController#index as HTML
+Processing by UsersController#verify as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  ↳ app/controllers/records_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 10ms (Views: 6.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 06:25:41 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 22ms (Views: 20.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-16 06:28:42 -0400
+Started GET "/users/verify" for ::1 at 2019-08-16 06:28:42 -0400
+Processing by RecordsController#index as HTML
+Processing by UsersController#verify as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (9.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  ↳ app/controllers/records_controller.rb:5
+Completed 200 OK in 39ms (Views: 1.1ms | ActiveRecord: 9.9ms)
+
+
+  [1m[36mRecord Load (4.6ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 55ms (Views: 16.9ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 06:28:43 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 23ms (Views: 20.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-16 06:29:03 -0400
+Started GET "/users/verify" for ::1 at 2019-08-16 06:29:03 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+Processing by UsersController#verify as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 06:29:03 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 42ms (Views: 40.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-16 06:30:41 -0400
+Started GET "/users/verify" for ::1 at 2019-08-16 06:30:41 -0400
+Processing by RecordsController#index as HTML
+Processing by UsersController#verify as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 9ms (Views: 5.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 06:30:41 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.4ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.6ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 40ms (Views: 37.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-16 06:31:47 -0400
+Started GET "/users/4/records" for ::1 at 2019-08-16 06:31:47 -0400
+Processing by UsersController#verify as HTML
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  ↳ app/controllers/application_controller.rb:19
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mRecord Load (2.7ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 28ms (Views: 21.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 06:31:47 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 48ms (Views: 46.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-16 06:32:19 -0400
+Started GET "/users/verify" for ::1 at 2019-08-16 06:32:19 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+Processing by UsersController#verify as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mRecord Load (1.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 06:32:19 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-16 06:32:39 -0400
+Started GET "/users/verify" for ::1 at 2019-08-16 06:32:39 -0400
+Processing by RecordsController#index as HTML
+Processing by UsersController#verify as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  ↳ app/controllers/records_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 06:32:39 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-16 06:34:00 -0400
+Started GET "/users/verify" for ::1 at 2019-08-16 06:34:00 -0400
+Processing by RecordsController#index as HTML
+Processing by UsersController#verify as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 200 OK in 6ms (Views: 1.6ms | ActiveRecord: 0.5ms)
+
+
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.7ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 13ms (Views: 5.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 06:34:00 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.1ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 22ms (Views: 20.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-16 06:35:21 -0400
+Started GET "/users/verify" for ::1 at 2019-08-16 06:35:21 -0400
+Processing by RecordsController#index as HTML
+Processing by UsersController#verify as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  ↳ app/controllers/records_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 06:35:21 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.7ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (1.0ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 24ms (Views: 19.5ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/users/verify" for ::1 at 2019-08-16 06:38:36 -0400
+Started GET "/users/4/records" for ::1 at 2019-08-16 06:38:36 -0400
+Processing by RecordsController#index as HTML
+Processing by UsersController#verify as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  ↳ app/controllers/records_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mRecord Load (1.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 10ms (Views: 6.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 06:38:36 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.6ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-16 06:38:58 -0400
+Started GET "/users/verify" for ::1 at 2019-08-16 06:38:58 -0400
+Processing by RecordsController#index as HTML
+Processing by UsersController#verify as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  ↳ app/controllers/records_controller.rb:5
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mRecord Load (0.8ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 18ms (Views: 14.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 06:38:58 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.6ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-16 06:40:20 -0400
+Processing by RecordsController#index as HTML
+Started GET "/users/verify" for ::1 at 2019-08-16 06:40:20 -0400
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/records_controller.rb:5
+Processing by UsersController#verify as HTML
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 1.3ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 06:40:20 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/4/records" for ::1 at 2019-08-16 06:41:52 -0400
+Started GET "/users/verify" for ::1 at 2019-08-16 06:41:52 -0400
+Processing by UsersController#verify as HTML
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"4"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+  ↳ app/controllers/records_controller.rb:5
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/records_controller.rb:7
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for ::1 at 2019-08-16 06:41:52 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.9ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.3ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:7
+Completed 200 OK in 25ms (Views: 22.5ms | ActiveRecord: 2.4ms)
+
+
