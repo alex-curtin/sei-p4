@@ -13,8 +13,10 @@ const CommentForm = (props) => {
             value={props.formData.body}
             onChange={props.handleChange}
           />
-          <button>submit</button>
-          <button onClick={props.cancel}>cancel</button>
+          <div className="comment-form-buttons">
+            <button>submit</button>
+            <button onClick={props.cancel}>cancel</button>
+          </div>
         </form>}
     </div>
   )

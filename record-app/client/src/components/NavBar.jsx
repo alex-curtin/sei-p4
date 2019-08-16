@@ -5,9 +5,12 @@ import turntable from '../assets/turntable.png';
 const NavBar = (props) => {
   return (
     <div className="navbar">
-      <Link
-        to='/'
-      ><img className="logo" src={turntable} alt="logo" /></Link>
+      <div className="navbar-left">
+        <Link
+          to='/'
+        ><img className="logo" src={turntable} alt="logo" /></Link>
+        <p>APP NAME</p>
+      </div>
       <div className="links">
         {props.currentUser &&
           <Link to={`/users/${props.currentUser.id}/records`}>my collection</Link>}

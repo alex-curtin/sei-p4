@@ -23,8 +23,8 @@ const Home = (props) => {
             <p>or <Link to={`/users`}>view other people's collections</Link></p>
           </div> :
           <div>
-            <p>Welcome to whatever this app for vinyl record collectors is called</p>
-            <p><Link to="/users/login">Log In</Link> or <Link>Register</Link> to get started</p>
+            <p>welcome to whatever this app for vinyl record collectors is called</p>
+            <p><Link to="/users/login">log in</Link> or <Link>register</Link> to get started</p>
             <p>or <Link to={`/users`}>view other people's collections</Link></p>
           </div>
         }

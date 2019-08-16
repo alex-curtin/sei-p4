@@ -6,10 +6,13 @@
 
 button {
   height: 4vh;
+  min-height: 30px;
   min-width: 60px;
+  max-width: 120px;
   border: 1px solid darkgrey;
   background: white;
   border-radius: 3px;
+  box-shadow: .5px .5px 1px;
 }
 
 button:hover {
@@ -37,13 +40,22 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   background: lightgray;
-  padding: 1vh 2vw;
+  padding: 1vh 2.5vw;
   max-height: 100px;
   font-size: 1.5vw;
 }
 
+.navbar-left {
+  width: 18%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2vw;
+}
+
 .logo {
-  width: 70px;
+  width: 6vw;
+  max-width: 70px;
 }
 
 .links {
@@ -145,22 +157,24 @@ a:hover {
   justify-content: space-around;
   align-items: center;
   background: lightgrey;
-  padding: 1vh 2.5vw;
+  padding: 2% 2% 1%;
   box-sizing: border-box;
-  width: 30%;
-  max-width: 300px;
+  width: 50%;
+  max-width: 400px;
   height: 80px;
-  font-size: 1.3vw;
+  font-size: 16px;
 }
 
 .collection-size {
   color: darkslategray;
-  font-size: 1vw;
+  font-size: 12px;
 }
 
 .record-icon {
-  width: 50px;
-  height: 50px;
+  width: 50%;
+  height: 50%;
+  min-width: 40px;
+  min-height: 40px;
 }
 
 .record-icon:hover {
@@ -169,9 +183,26 @@ a:hover {
 
 /************ RECORDS LIST ***********/
 
+.collection-top {
+  background: darkgrey;
+  margin-bottom: 4vh;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.collection-page {
+  border: 5px solid darkgray;
+  margin: 30px auto;
+  width: 80%;
+}
+
 .collection-title {
+  margin: 0;
   font-size: 3vw;
-  margin: 3vh 0;
+  width: 100%;
 }
 
 .collection {
@@ -180,12 +211,13 @@ a:hover {
   flex-flow: row-wrap;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin-bottom: 4vh;
 }
 
 .record {
   width: 20%;
   min-width: 200px;
-  
+  margin: 1vw;
 }
 
 .collection img {
@@ -195,7 +227,7 @@ a:hover {
 .list-artist {
   font-weight: bolder;
   margin: 0;
-  font-size: 1.3vw;
+  font-size: 16px;
 }
 
 .list-title {
@@ -286,22 +318,23 @@ a:hover {
 
 .comment-username {
   font-size: small;
-  color: darkgreen;
+  color: darkslategray;
 }
 
 .comment-buttons {
   margin: 0 auto;
   width: 50%;
-  display: flex;
-  justify-content: space-around;
+}
+
+.comment button {
+  margin-left: 1vw;
 }
 
 /*************** COMMENT FORM ***********/
 
 .comment-form form {
-  border: 1px solid black;
   background: lightgrey;
-  width: 70%;
+  width: 64.5%;
   height: 30vh;
   margin: 0 auto;
   display: flex;
@@ -312,3 +345,119 @@ a:hover {
 }
 
 
+.comment-form button {
+  display: inline;
+  max-width: 100px;
+  margin-left: 1vw;
+}
+
+
+
+@media only screen and (max-width: 500px) {
+
+
+  button {
+    height: 5vh;
+    width: 10vw;
+  }
+
+  /************* NAVBAR 500px*************/
+.navbar {
+  padding: 1vh 2.5vw;
+  max-height: 100px;
+  font-size: 1.5vw;
+}
+
+.navbar-left {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  font-size: 3vw;
+}
+
+.logo {
+  width: 8vw;
+}
+
+.links {
+  width: 70%;
+}
+
+  /******************HOME 500px*********************/
+
+.home-page {
+  margin: 3vh auto;
+  flex-direction: column;
+  width: 90%;
+}
+
+.hero-img {
+  width: 40%;
+}
+
+.home-links {
+  width: 60%;
+  font-size: 3vw;
+  padding-left: 0;
+}
+
+/************ USERS LIST 500px ***********/
+
+
+.users-list-item {
+  margin-bottom: 1vh;
+  padding: 2% 2% 2%;
+  width: 70%;
+}
+
+/*********** RECORD DETAILS 500 *************/
+
+.record-details {
+  margin: 3vh auto;
+  width: 70%;
+}
+
+.img-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.record-details-img {
+  width: 100%;
+}
+
+.record-info {
+  padding-top: 2vw;
+  padding-left: 1vw;
+  width: 70%;
+  font-size: 2.5vw;
+}
+
+.record-info span {
+  font-size: 2.2vw;
+}
+
+.record-details-description {
+  font-size: 2.2vw;
+}
+
+/*************** COMMENTS 500px **************/
+
+.comments-list {
+  width: 77%;
+}
+
+/*************** COMMENT FORM ***********/
+
+.comment-form form {
+  width: 70.8%;
+  height: 20vh;
+}
+
+.comment-form button {
+  margin-top: 1vh;
+}
+
+}
