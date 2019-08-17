@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, Route, withRouter } from 'react-router-dom';
 import RecordForm from './RecordForm';
 import {
   fetchRecords, deleteRecord,
@@ -16,10 +16,11 @@ class RecordsList extends React.Component {
   }
 
   async componentDidMount() {
-    const records = await fetchRecords(this.props.match.params.id);
-    this.setState({
-      records: records,
-    })
+    // const records = await fetchRecords(this.props.match.params.id);
+    // this.setState({
+    //   records: records,
+    // })
+    this.props.loadRecords(this.props.match.params.id);
     this.props.location.state &&
       this.setState({
         showCreateForm: this.props.location.state.showCreateForm,
@@ -84,11 +85,12 @@ class RecordsList extends React.Component {
             <div className="collection-page">
               <div className="collection-top">
                 <p className="collection-title">{this.props.user.username}'s collection</p>
-                {(this.props.currentUser && this.props.currentUser.id === parseInt(this.props.match.params.id)) &&
-                  <button onClick={this.toggleForm}>add a record</button>}
+                {/* {(this.props.currentUser && this.props.currentUser.id === parseInt(this.props.match.params.id)) &&
+                  <button onClick={this.toggleForm}>add a record</button>} */}
+                <Link to={`/users/${this.props.currentUser.id}/new_record`}>TEST</Link>
               </div>
               <div className="collection">
-                {this.state.records.map(record => (
+                {this.props.records.map(record => (
                   <div key={record.id} className="record">
                     <Link to={`/users/${record.user_id}/records/${record.id}`}>
                       <div className="record-img-container">

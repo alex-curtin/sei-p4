@@ -18,7 +18,7 @@ class RecordForm extends React.Component {
         sleeve_condition: 'M',
         description: '',
         img_url: '',
-        user_id: this.props.user.id,
+        user_id: this.props.match.params.id,
       },
       record: null,
     }
@@ -64,6 +64,13 @@ class RecordForm extends React.Component {
   submit = (e) => {
     e.preventDefault();
     this.props.handleSubmit(this.state.formData);
+  }
+
+  cancel = (e) => {
+    e.preventDefault();
+    this.props.isEdit ?
+      this.props.history.push(`/`) :
+      this.props.history.push(`/users/${this.props.match.params.id}/records`)
   }
 
   render() {
@@ -181,7 +188,7 @@ class RecordForm extends React.Component {
             placeholder="image url"
           />
           <button>submit</button>
-          <button onClick={this.props.cancel}>cancel</button>
+          <button onClick={this.cancel}>cancel</button>
         </form>
       </div>
     )

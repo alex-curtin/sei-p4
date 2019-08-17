@@ -10,10 +10,12 @@ import LoginForm from './components/LoginForm';
 import UsersList from './components/UsersList';
 import RecordsList from './components/RecordsList';
 import RecordDetail from './components/RecordDetail';
+import RecordForm from './components/RecordForm';
 
 import {
   registerUser, fetchUsers,
   loginUser, verifyToken,
+  fetchRecords, createRecord,
 } from './services/api';
 
 
@@ -31,6 +33,7 @@ class App extends React.Component {
       loginError: false,
       currentUser: null,
       users: [],
+      records: [],
     }
   }
 
@@ -122,6 +125,24 @@ class App extends React.Component {
     })
   }
 
+  //================ SHOW RECORDS ===================//
+  loadRecords = async (data) => {
+    const records = await fetchRecords(data);
+    this.setState({
+      records: records,
+    })
+  }
+
+  //=============== CREATE RECORD ==================//
+  handleCreateRecord = async (data) => {
+    const record = await createRecord(data);
+    this.setState(prevState => ({
+      records: [...prevState.records, record],
+      showCreateForm: false,
+    }))
+    this.props.history.push(`/users/${this.state.currentUser.id}/records`)
+  }
+
   render() {
     return (
       <div className="App">
@@ -161,7 +182,6 @@ class App extends React.Component {
               currentUser={this.state.currentUser}
             />)}
         />
-
         <Route
           exact path='/users/:id/records'
           render={(props) => (
@@ -170,6 +190,19 @@ class App extends React.Component {
               user={this.state.users.find(user =>
                 user.id === parseInt(props.match.params.id))}
               currentUser={this.state.currentUser}
+              records={this.state.records}
+              loadRecords={this.loadRecords}
+            />
+          )}
+        />
+        <Route
+          exact path='/users/:id/new_record/'
+          render={(props) => (
+            <RecordForm
+              {...props}
+              user={this.state.currentUser}
+              isEdit={false}
+              handleSubmit={this.handleCreateRecord}
             />
           )}
         />
