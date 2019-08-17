@@ -103,7 +103,7 @@ class RecordsList extends React.Component {
                       </div>
                     </Link>
                     {(this.props.currentUser && this.props.currentUser.id === parseInt(this.props.match.params.id)) &&
-                      <button onClick={() => (this.handleDelete(record.user_id, record.id))
+                      <button onClick={() => (this.props.handleDelete(record.user_id, record.id))
                       }>delete</button>}
                   </div>
                 ))}

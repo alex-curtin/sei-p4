@@ -16,6 +16,7 @@ import {
   registerUser, fetchUsers,
   loginUser, verifyToken,
   fetchRecords, createRecord,
+  deleteRecord,
 } from './services/api';
 
 
@@ -143,6 +144,14 @@ class App extends React.Component {
     this.props.history.push(`/users/${this.state.currentUser.id}/records`)
   }
 
+  //================= DELETE RECORD ===============//
+  handleDeleteRecord = async (userId, id) => {
+    const record = await deleteRecord(userId, id);
+    this.setState(prevState => ({
+      records: prevState.records.filter(rec => rec.id !== id)
+    }))
+  }
+
   render() {
     return (
       <div className="App">
@@ -192,6 +201,7 @@ class App extends React.Component {
               currentUser={this.state.currentUser}
               records={this.state.records}
               loadRecords={this.loadRecords}
+              handleDelete={this.handleDeleteRecord}
             />
           )}
         />
