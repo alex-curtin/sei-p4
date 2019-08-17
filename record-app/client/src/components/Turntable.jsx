@@ -1,10 +1,12 @@
 import React from 'react'
 
-export default function Turntable() {
+export default function Turntable(props) {
   return (
     <div>
-      <div className="turntable">
+      <div className={`turntable  ${props.size}`}>
         <div className="tt-base">
+          <div className="knob-1"></div>
+          <div className="knob-2"></div>
           <div className="tt-arm">
             <div className="tt-arm-1"></div>
             <div className="tt-arm-2"></div>

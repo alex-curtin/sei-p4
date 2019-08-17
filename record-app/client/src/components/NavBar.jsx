@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import turntable from '../assets/turntable.png';
+import Turntable from './Turntable';
 
 const NavBar = (props) => {
   return (
