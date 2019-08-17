@@ -69,7 +69,7 @@ class RecordForm extends React.Component {
   cancel = (e) => {
     e.preventDefault();
     this.props.isEdit ?
-      this.props.history.push(`/`) :
+      this.props.cancel() :
       this.props.history.push(`/users/${this.props.match.params.id}/records`)
   }
 

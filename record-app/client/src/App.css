@@ -206,6 +206,7 @@ a:hover {
   border: 5px solid darkgrey;
   margin: 30px auto;
   width: 80%;
+  border-radius: 30px;
 }
 
 .collection-top {
@@ -215,12 +216,15 @@ a:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 2% 3.5% 0;
+  border-radius: 20px 20px 0 0; 
 }
 
 .collection-title {
   margin: 0;
-  font-size: 3vw;
+  font-size: 36px;
   width: 100%;
 }
 
@@ -265,8 +269,6 @@ a:hover {
   box-shadow: 2px 2px 2px;
   position: relative;
 }
-
-
 
 .list-artist {
   font-weight: bolder;
@@ -471,7 +473,7 @@ a:hover {
   box-sizing: border-box;
   border: 1px solid black;
   background: black;
-  border-radius: 100%;
+  border-radius: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -487,7 +489,7 @@ a:hover {
   border-bottom: 1px dotted grey;
   border-left: 1px hidden transparent;
   border-right: 1px hidden transparent;
-  border-radius: 100%;
+  border-radius: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -497,7 +499,8 @@ a:hover {
   width: 55%;
   height: 56.8%;
   background: tomato;
-  border-radius: 100%;
+  border-radius: 56%;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -508,7 +511,7 @@ a:hover {
   width: 8%;
   height: 8%;
   background: black;
-  border-radius: 100px;
+  border-radius: 50%;
 }
 
 .tt-arm {
@@ -528,11 +531,11 @@ a:hover {
 
 .tt-arm-1 {
   border: 5px solid black;
-  border-radius: 20%;
+  border-radius: 50%;
   background: silver;
-  width: 45%;
+  width: 50%;
   height: 12%;
-  box-shadow: 2px 2px 3px #555;  
+  box-shadow: 2px 2px 5px #555;  
 }
 
 .tt-arm-2 {
@@ -567,7 +570,7 @@ a:hover {
     transform: rotate(35deg);
   }
   50% {
-    transform: rotate(35.5deg) scale(1.002);
+    transform: rotate(35.5deg) scale(1.005);
   }
 }
 

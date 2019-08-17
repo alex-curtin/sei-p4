@@ -5,18 +5,12 @@ import Turntable from './Turntable';
 const Home = (props) => {
   return (
     <div className="home-page">
-      {/* <img className="hero-img" src='https://media.giphy.com/media/KwwRlMDSTdbIA/giphy.gif' alt="thingy" /> */}
       <Turntable />
       <div className="home-links">
         {props.currentUser ?
           <div>
-            <p>Welcome {props.currentUser.username}!</p>
-            <p><Link to={{
-              pathname: `/users/${props.currentUser.id}/records`,
-              state: {
-                showCreateForm: true
-              }
-            }}
+            <p>welcome {props.currentUser.username}!</p>
+            <p><Link to={`/users/${props.currentUser.id}/new_record`}
             >add a record</Link> to your collection,</p>
             <p>view <Link to={`/users/${props.currentUser.id}/records`}>your collection</Link></p>
             <p>or <Link to={`/users`}>view other people's collections</Link></p>

@@ -37,9 +37,9 @@ class RecordDetail extends React.Component {
   //=====================EDIT RECORD=========================//
 
   toggleForm = () => {
-    this.setState({
-      showEditForm: true,
-    })
+    this.setState(prevState => ({
+      showEditForm: !prevState.showEditForm,
+    }))
   }
 
   handleEditRecord = async (data) => {
@@ -51,8 +51,7 @@ class RecordDetail extends React.Component {
     })
   }
 
-  cancelEditRecord = (e) => {
-    e.preventDefault();
+  cancelEditRecord = () => {
     this.setState({
       showEditForm: false,
     })
@@ -74,7 +73,6 @@ class RecordDetail extends React.Component {
     this.setState(prevState => ({
       showComments: !prevState.showComments,
     }))
-
   }
 
 
@@ -243,7 +241,6 @@ class RecordDetail extends React.Component {
             cancel={this.cancelEditComment}
             currentUser={this.props.currentUser}
           />
-
         </div >
     )
   }
