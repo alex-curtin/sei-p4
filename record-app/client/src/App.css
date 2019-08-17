@@ -76,7 +76,7 @@ a:hover {
 /******************HOME*********************/
 
 .home-page {
-  margin: 10vh auto;
+  margin: 3vh auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -202,6 +202,12 @@ a:hover {
 
 /************ RECORDS LIST ***********/
 
+.collection-page {
+  border: 5px solid darkgrey;
+  margin: 30px auto;
+  width: 80%;
+}
+
 .collection-top {
   background: darkgrey;
   margin-bottom: 4vh;
@@ -210,12 +216,6 @@ a:hover {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-}
-
-.collection-page {
-  border: 5px solid darkgrey;
-  margin: 30px auto;
-  width: 80%;
 }
 
 .collection-title {
@@ -234,15 +234,39 @@ a:hover {
 }
 
 .record {
-  width: 20%;
+  width: 18%;
   min-width: 200px;
   margin: 1vw;
 }
 
+.record-img-container {
+  width: 100%;
+  height: 64.6%;
+  position: relative;
+  margin-bottom: 4%;
+}
+
+.record-disc {
+  width: 95%;
+  height: 95%;
+  background: black;
+  border-radius: 100%;
+  position: absolute;
+  top: 1%;
+}
+
+.record-img-container:hover > .record-disc {
+  left: 20%;
+}
+
 .collection img {
+  z-index: 5;
   width: 100%;
   box-shadow: 2px 2px 2px;
+  position: relative;
 }
+
+
 
 .list-artist {
   font-weight: bolder;
@@ -401,8 +425,8 @@ a:hover {
 /************TURNTABLE ANIMATION************/
 
 .turntable {
-  width: 35vw;
-  height: 35vw;
+  width: 40vw;
+  height: 40vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -412,19 +436,20 @@ a:hover {
   background: url('./assets/wood.jpg');
   width: 80%;
   height: 60%;
-  border: 8px solid black;
+  border: 5px solid black;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   justify-content: space-around;
   position: relative;
-  box-shadow: 5px 5px 15px #555;
+  box-shadow: 3px 3px 12px #555;
 }
 
 .knob-1, .knob-2 {
-  width: 1vw;
-  height: 1vw;
-  border: 3px solid black;
+  width: 2vw;
+  height: 2vw;
+  box-sizing: border-box;
+  border: 5px solid black;
   border-radius: 100%;
   position: absolute;
   bottom: 6%;
@@ -443,6 +468,8 @@ a:hover {
 .tt-disc {
   width: 69.75%;
   height: 93%;
+  box-sizing: border-box;
+  border: 1px solid black;
   background: black;
   border-radius: 100%;
   display: flex;
@@ -452,33 +479,14 @@ a:hover {
   animation: rotate 2s infinite linear;
 }
 
-.tt-ring-1 {
+.tt-ring {
   width: 80%;
   height: 80%;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.tt-ring-2 {
-  width: 80%;
-  height: 80%;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.tt-ring-3 {
-  width: 80%;
-  height: 80%;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
+  box-sizing: border-box;
+  border-top: 1px dotted grey;
+  border-bottom: 1px dotted grey;
+  border-left: 1px hidden transparent;
+  border-right: 1px hidden transparent;
   border-radius: 100%;
   display: flex;
   justify-content: center;
@@ -486,10 +494,10 @@ a:hover {
 }
 
 .tt-center {
-  width: 50%;
-  height: 50%;
+  width: 55%;
+  height: 56.8%;
   background: tomato;
-  border-radius: 100px;
+  border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -506,8 +514,9 @@ a:hover {
 .tt-arm {
   height: 85%;
   width: 15%;
-  margin-left: 1%;
+  margin-left: 3%;
   margin-bottom: 2%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -521,16 +530,16 @@ a:hover {
   border: 5px solid black;
   border-radius: 20%;
   background: silver;
-  width: 60%;
-  height: 14%;
+  width: 45%;
+  height: 12%;
   box-shadow: 2px 2px 3px #555;  
 }
 
 .tt-arm-2 {
-  border: 3px solid black;
+  border: 2px solid black;
   background: #b0b0b0;
-  width: 12%;
-  height: 60%;
+  width: 10%;
+  height: 62%;
   box-shadow: 2px 2px 3px #555;
 }
 
@@ -538,12 +547,11 @@ a:hover {
   border: 2px solid silver;
   border-radius: 15%;
   background: silver;
-  width: 37%;
-  height: 14%;
+  width: 30%;
+  height: 12%;
   transform: skewX(-15deg);
   margin-right: 15%;
 }
-
 
 @keyframes rotate {
   from {
@@ -563,7 +571,7 @@ a:hover {
   }
 }
 
-
+/***********************MEDIA QUERIES****************/
 
 @media only screen and (max-width: 500px) {
 

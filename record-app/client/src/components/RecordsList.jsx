@@ -91,8 +91,11 @@ class RecordsList extends React.Component {
                 {this.state.records.map(record => (
                   <div key={record.id} className="record">
                     <Link to={`/users/${record.user_id}/records/${record.id}`}>
-                      <img src={record.img_url} alt={record.title} />
-                      <div>
+                      <div className="record-img-container">
+                        <img src={record.img_url} alt={record.title} />
+                        <div className="record-disc"></div>
+                      </div>
+                      <div className="record-artist-title">
                         <p className="list-artist">{record.artist}</p>
                         <p className="list-title">{record.title}</p>
                       </div>
