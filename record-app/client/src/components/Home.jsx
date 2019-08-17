@@ -21,7 +21,7 @@ const Home = (props) => {
           </div> :
           <div>
             <p>welcome to <b>record zoo</b></p>
-            <p><Link to="/users/login">log in</Link> or <Link>register</Link> to get started</p>
+            <p><Link to="/users/login">log in</Link> or <Link to="/users/register">register</Link> to get started</p>
             <p>or <Link to={`/users`}>view other people's collections</Link></p>
           </div>
         }

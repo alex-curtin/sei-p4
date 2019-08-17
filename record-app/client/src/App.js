@@ -72,21 +72,8 @@ class App extends React.Component {
   }
 
   handleRegisterErrors = (e) => {
-    const errors = [];
-    if (e.username) {
-      e.username.forEach(err =>
-        errors.push(`username ${err}`))
-    }
-    if (e.password) {
-      e.password.forEach(err =>
-        errors.push(`password ${err}`))
-    }
-    if (e.email) {
-      e.email.forEach(err =>
-        errors.push(`email ${err}`))
-    }
     this.setState({
-      registerErrors: errors,
+      registerErrors: [...e],
     })
   }
 
