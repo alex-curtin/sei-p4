@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Turntable from './Turntable';
 
 const Home = (props) => {
   return (
     <div className="home-page">
-      <img className="hero-img" src='https://media.giphy.com/media/KwwRlMDSTdbIA/giphy.gif' alt="thingy" />
+      {/* <img className="hero-img" src='https://media.giphy.com/media/KwwRlMDSTdbIA/giphy.gif' alt="thingy" /> */}
+      <Turntable />
       <div className="home-links">
         {props.currentUser ?
           <div>

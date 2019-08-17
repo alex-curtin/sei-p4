@@ -277,7 +277,6 @@ a:hover {
 
 .record-details-img {
   width: 50%;
-  max-width: 450px;
 }
 
 .record-info {
@@ -396,6 +395,149 @@ a:hover {
   display: inline;
   max-width: 100px;
   margin-left: 1vw;
+}
+
+
+.turntable {
+  width: 35vw;
+  height: 35vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tt-base {
+  width: 80%;
+  height: 60%;
+  border: 8px solid black;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.tt-disc {
+  width: 69.75%;
+  height: 93%;
+  background: black;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  animation: rotate 2s infinite linear;
+}
+
+.tt-ring-1 {
+  width: 80%;
+  height: 80%;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tt-ring-2 {
+  width: 80%;
+  height: 80%;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tt-ring-3 {
+  width: 80%;
+  height: 80%;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tt-center {
+  width: 50%;
+  height: 50%;
+  background: white;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.tt-spindle {
+  width: 8%;
+  height: 8%;
+  background: black;
+  border-radius: 100px;
+}
+
+.tt-arm {
+  height: 80%;
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: rotate(30deg);
+  transform-origin: top left;
+  z-index: 10;
+  position: relative;
+  animation: skate 2s infinite linear;
+}
+
+.tt-arm-1 {
+  border: 5px solid black;
+  border-radius: 20%;
+  background: white;
+  width: 60%;
+  height: 14%;
+  z-index: 11;
+  position: relative;
+}
+
+.tt-arm-2 {
+  border: 3px solid black;
+  background: white;
+  width: 20%;
+  height: 60%;
+  z-index: 12;
+  position: relative;
+}
+
+.tt-arm-3 {
+  border: 2px solid white;
+  border-radius: 15%;
+  background: white;
+  width: 35%;
+  height: 14%;
+  transform: skewX(-15deg);
+  margin-right: 15%;
+  z-index: 15;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes skate {
+  0%, 100% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(30.5deg) scale(1.002);
+  }
 }
 
 
