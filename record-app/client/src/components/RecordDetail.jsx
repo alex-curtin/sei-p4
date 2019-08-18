@@ -193,12 +193,13 @@ class RecordDetail extends React.Component {
         <div>
           {this.props.user &&
             <div className="record-details">
+              <div className="box"></div>
               <div className="img-details-container">
                 <img className="record-details-img" src={this.state.record.img_url} alt={this.state.record.title} />
                 <div className="record-info">
                   <Link className="record-details-username"
                     to={`/users/${this.props.match.params.user_id}/records`}
-                  >from {this.props.user.username}'s collection</Link>
+                  ><p>from {this.props.user.username}'s collection</p></Link>
                   <h3><b>{this.state.record.artist}</b></h3>
                   <h4>{this.state.record.title}</h4>
                   <p><span>Record label:</span> {this.state.record.record_label} - {this.state.record.cat_num}</p>

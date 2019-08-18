@@ -12,7 +12,7 @@ button {
   border: 1px solid darkgrey;
   background: white;
   border-radius: 3px;
-  box-shadow: .5px .5px 1px;
+  box-shadow: .5px .5px;
 }
 
 button:hover {
@@ -270,6 +270,10 @@ a:hover {
   position: relative;
 }
 
+.record-artist-title {
+
+}
+
 .list-artist {
   font-weight: bolder;
   margin: 0;
@@ -285,33 +289,54 @@ a:hover {
 /*********** RECORD DETAILS *************/
 
 .record-details {
-  margin: 5vh auto;
-  border: 2px solid lightgrey;
-  box-shadow: 1px 1px 2px;
-  width: 70%;
+  margin: 5vh 18%;
+  width: 60%;
+  padding-top: 2vh;
+  position: relative;
+}
+
+.box {
+  width: 40vw;
+  height: 34vw;
+  border-radius: 10px;
+  /* background: #ddd; */
+  border: 10px solid #ddd;
+  box-sizing: border-box;
+  position: absolute;
+  top: 16%;
+  left: 35%;
 }
 
 .record-details-username {
-  color: rgb(89, 89, 89);
+  color: #595959;
 }
 
 .img-details-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
+  transform: skew(8deg);
 }
 
 .record-details-img {
+  transform: skew(-8deg);
+  border: 10px solid #ddd;
+  border-radius: 10px;
   width: 50%;
 }
 
 .record-info {
   box-sizing: border-box;
-  padding-top: 3vw;
-  padding-left: 2vw;
-  width: 50%;
+  padding-top: 2vw;
+  width: 40%;
   text-align: left;
   font-size: 1.3vw;
+}
+
+.record-info p, .record-info h3, 
+.record-info h4 {
+  transform: skew(-8deg);
 }
 
 .record-info span {
@@ -320,22 +345,25 @@ a:hover {
 }
 
 .record-details-description {
-  margin: 0;
-  padding: 10px 0 15px;;
+  margin: 0 20%;
+  padding: 10px 0 15px;
   box-sizing: border-box;
-  background: lightgrey;
   width: 100%;
   word-wrap: break-word;
   font-size: 1.3vw;
+  position: relative;
+  z-index: 5;
 }
 
 .record-form-buttons {
-  background: lightgrey;
   width: 100%;
   display: flex;
   justify-content: space-around;
   box-sizing: border-box;
   padding: 10px 30%;
+  margin-left: 20%;
+  position: relative;
+  z-index: 5;
 }
 
 /************** RECORD FORM *********/
@@ -355,7 +383,6 @@ a:hover {
   min-width: 80px;
   margin: 0 auto;
 }
-
 
 .record-form label {
   font-size: 12px;
@@ -377,13 +404,15 @@ a:hover {
 
 .comments-list {
   width: 70%;
-  margin: 0 auto;
   box-sizing: border-box;
+  margin: 0 12%;
 }
 
 .comment {
-  background: lightgrey;
-  width: 90%;
+  /* background: lightgrey; */
+  border: 10px solid #ddd;
+  border-radius: 20px;
+  width: 50%;
   margin: 1vh auto;
   padding: 1%;
 }
@@ -418,9 +447,9 @@ a:hover {
 
 
 .comment-form button {
-  display: inline;
   max-width: 100px;
   margin-left: 1vw;
+  margin-top: 1vh;
 }
 
 
