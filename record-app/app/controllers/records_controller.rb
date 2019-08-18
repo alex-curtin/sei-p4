@@ -14,8 +14,8 @@ class RecordsController < ApplicationController
   end
 
   def recent
-    @records = Record.limit(12).order(created_at: :desc)
-    render json: @records, status: :ok
+    @records = Record.limit(12).order(created_at: :desc).includes(:user)
+    render json: @records, include: :user, status: :ok
   end
 
   def create

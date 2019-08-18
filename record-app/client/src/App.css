@@ -231,7 +231,6 @@ a:hover {
 .collection {
   display: flex;
   flex-direction: row;
-  /* flex-flow: row-wrap; */
   flex-wrap: wrap;
   justify-content: space-around;
   margin-bottom: 4vh;
@@ -273,7 +272,6 @@ a:hover {
   position: relative;
 }
 
-
 .list-artist {
   font-weight: bolder;
   margin: 0;
@@ -285,6 +283,7 @@ a:hover {
   font-weight: 400;
   opacity: 0.7;
 }
+
 
 /*********** RECORD DETAILS *************/
 

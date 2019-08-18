@@ -42,11 +42,13 @@ class RecordsList extends React.Component {
                       <img src={record.img_url} alt={record.title} />
                       <div className="record-disc"></div>
                     </div>
-                    <div className="record-artist-title">
-                      <p className="list-artist">{record.artist}</p>
-                      <p className="list-title">{record.title}</p>
-                    </div>
                   </Link>
+                  <div className="record-artist-title">
+                    <p className="list-artist">{record.artist}</p>
+                    <p className="list-title">{record.title}</p>
+                    {this.props.showRecent &&
+                      <p>added by <Link to={`/users/${record.user_id}/records`}>{record.user.username}</Link></p>}
+                  </div>
                   {(this.props.currentUser && this.props.currentUser.id === parseInt(this.props.match.params.id)) &&
                     <button onClick={() => (this.props.handleDelete(record.user_id, record.id))
                     }>delete</button>}
