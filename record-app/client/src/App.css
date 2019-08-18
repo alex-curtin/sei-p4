@@ -23,7 +23,7 @@ button:active {
   background: lightgrey;
 }
 
-a {
+a, .welcome {
   text-decoration: none;
   font-weight: bold;
   color: black;
