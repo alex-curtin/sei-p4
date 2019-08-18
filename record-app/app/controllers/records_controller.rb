@@ -1,5 +1,5 @@
 class RecordsController < ApplicationController
-  before_action :authorize_request, except: %i[index show]
+  before_action :authorize_request, except: %i[index show recent]
   
   def index
     @user = User.find(params[:user_id])
@@ -11,6 +11,11 @@ class RecordsController < ApplicationController
     @user = User.find(params[:user_id])
     @record = Record.find(params[:id])
     render json: @record, status: :ok
+  end
+
+  def recent
+    @records = Record.limit(10).order(created_at: :desc)
+    render json: @records, status: :ok
   end
 
   def create

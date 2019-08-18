@@ -568,12 +568,14 @@ a:hover {
 }
 
 .tt-arm-2 {
-  border: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
   background: #b0b0b0;
   width: 10%;
   height: 62%;
   box-shadow: 2px 2px 3px #555;
 }
+
 
 .tt-arm-3 {
   border: 2px solid silver;
@@ -581,7 +583,7 @@ a:hover {
   background: silver;
   width: 30%;
   height: 12%;
-  transform: skewX(-15deg);
+  transform: rotate(15deg);
   margin-right: 15%;
 }
 
