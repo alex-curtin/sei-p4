@@ -20,19 +20,29 @@ class RecordsList extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearRecords();
+  }
+
   render() {
     return (
       <div>
         {(this.props.records && this.props.user) &&
           <div className="collection-page">
             <div className="collection-top">
+
               {this.props.showRecent ?
                 <p className="collection-title">recently added records</p> :
-                <p className="collection-title">{this.props.user.username}'s collection</p>}
+                (this.props.currentUser &&
+                  this.props.currentUser.id === parseInt(this.props.match.params.id)) ?
+                  <p className="collection-title">your collection</p> :
+                  <p className="collection-title">{this.props.user.username}'s collection</p>}
+
               {(this.props.currentUser &&
                 this.props.currentUser.id === parseInt(this.props.match.params.id)) &&
                 <Link to={`/users/${this.props.currentUser.id}/new_record`}>
                   <button>add a record</button></Link>}
+
             </div>
             <div className="collection">
               {this.props.records.map(record => (

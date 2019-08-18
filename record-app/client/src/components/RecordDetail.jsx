@@ -73,13 +73,12 @@ class RecordDetail extends React.Component {
 
   handleCopyRecord = async (data) => {
     data.user_id = this.props.currentUser.id;
-    debugger;
     const record = await createRecord(data);
     this.setState({
       showCopyForm: false,
+      record: record,
     })
     this.props.history.push(`/users/${record.user_id}/records/${record.id}`);
-
   }
 
 

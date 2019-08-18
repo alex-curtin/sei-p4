@@ -46,8 +46,8 @@ class RecordForm extends React.Component {
   }
 
   //handleSubmit() is passed as a prop from either App
-  //or RecordDetail depending on whether this form is Creating
-  //or Updating a record
+  //or RecordDetail depending on whether this form is Creating (App),
+  // Updating or Copying (RecordDetail) a record
   submit = (e) => {
     e.preventDefault();
     this.props.handleSubmit(this.state.formData);

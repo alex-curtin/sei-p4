@@ -135,11 +135,16 @@ class App extends React.Component {
     })
   }
 
-
   loadRecentRecords = async (data) => {
     const records = await fetchRecentRecords();
     this.setState({
       records: records,
+    })
+  }
+
+  clearRecords = () => {
+    this.setState({
+      records: [],
     })
   }
 
@@ -212,6 +217,7 @@ class App extends React.Component {
               loadRecords={this.loadRecords}
               handleDelete={this.handleDeleteRecord}
               showRecent={false}
+              clearRecords={this.clearRecords}
             />
           )}
         />
@@ -227,6 +233,7 @@ class App extends React.Component {
               handleDelete={this.handleDeleteRecord}
               showRecent={true}
               user={this.state.currentUser}
+              clearRecords={this.clearRecords}
             />
           )}
         />
