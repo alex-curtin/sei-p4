@@ -7,7 +7,9 @@ class RecordsList extends React.Component {
   }
 
   async componentDidMount() {
-    this.props.loadRecords(this.props.match.params.id);
+    this.props.showRecent ?
+      this.props.loadRecords() :
+      this.props.loadRecords(this.props.match.params.id);
   }
 
   async componentDidUpdate(prevProps) {
@@ -21,10 +23,12 @@ class RecordsList extends React.Component {
   render() {
     return (
       <div>
-        {(this.props.user) &&
+        {(this.props.records) &&
           <div className="collection-page">
             <div className="collection-top">
-              <p className="collection-title">{this.props.user.username}'s collection</p>
+              {this.props.showRecent ?
+                <p className="collection-title">recently added records</p> :
+                <p className="collection-title">{this.props.user.username}'s collection</p>}
               {(this.props.currentUser &&
                 this.props.currentUser.id === parseInt(this.props.match.params.id)) &&
                 <Link to={`/users/${this.props.currentUser.id}/new_record`}>

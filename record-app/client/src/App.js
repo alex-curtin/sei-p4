@@ -17,6 +17,7 @@ import {
   loginUser, verifyToken,
   fetchRecords, createRecord,
   deleteRecord,
+  fetchRecentRecords,
 } from './services/api';
 
 
@@ -134,6 +135,13 @@ class App extends React.Component {
     })
   }
 
+  loadRecentRecords = async (data) => {
+    const records = await fetchRecentRecords();
+    this.setState({
+      records: records,
+    })
+  }
+
   //=============== CREATE RECORD ==================//
   handleCreateRecord = async (data) => {
     const record = await createRecord(data);
@@ -202,6 +210,21 @@ class App extends React.Component {
               records={this.state.records}
               loadRecords={this.loadRecords}
               handleDelete={this.handleDeleteRecord}
+              showRecent={false}
+            />
+          )}
+        />
+        <Route
+          exact path='/records/recent'
+          render={(props) => (
+            <RecordsList
+              {...props}
+              users={this.state.users}
+              currentUser={this.state.currentUser}
+              records={this.state.records}
+              loadRecords={this.loadRecentRecords}
+              handleDelete={this.handleDeleteRecord}
+              showRecent={true}
             />
           )}
         />
@@ -226,6 +249,7 @@ class App extends React.Component {
               currentUser={this.state.currentUser}
             />)}
         />
+
       </div>
     );
   }

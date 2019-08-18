@@ -81,6 +81,11 @@ export const fetchRecord = async (userId, id) => {
   return res.data;
 }
 
+export const fetchRecentRecords = async () => {
+  const res = await api.get('/records/recent');
+  return res.data;
+}
+
 export const createRecord = async (data) => {
   const userId = data.user_id;
   const res = await api.post(`/users/${userId}/records/`, data);
