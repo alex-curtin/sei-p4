@@ -3,7 +3,13 @@ import { Link, withRouter } from 'react-router-dom';
 import RecordForm from './RecordForm';
 import CommentsList from './CommentsList';
 import CommentForm from './CommentForm';
-import { fetchRecord, updateRecord, fetchComments, createComment, deleteComment, updateComment } from '../services/api';
+
+import {
+  fetchRecord, updateRecord,
+  fetchComments, createComment,
+  deleteComment, updateComment,
+  createRecord
+} from '../services/api';
 
 class RecordDetail extends React.Component {
   constructor(props) {
@@ -11,6 +17,7 @@ class RecordDetail extends React.Component {
     this.state = {
       record: '',
       showEditForm: false,
+      showCopyForm: false,
       comments: [],
       showComments: false,
       showAddCommentForm: false,
@@ -36,7 +43,7 @@ class RecordDetail extends React.Component {
 
   //=====================EDIT RECORD=========================//
 
-  toggleForm = () => {
+  toggleEditForm = () => {
     this.setState(prevState => ({
       showEditForm: !prevState.showEditForm,
     }))
@@ -55,6 +62,24 @@ class RecordDetail extends React.Component {
     this.setState({
       showEditForm: false,
     })
+  }
+
+  //==================COPY RECORD========================//
+  toggleCopyForm = () => {
+    this.setState({
+      showCopyForm: true,
+    })
+  }
+
+  handleCopyRecord = async (data) => {
+    data.user_id = this.props.currentUser.id;
+    debugger;
+    const record = await createRecord(data);
+    this.setState({
+      showCopyForm: false,
+    })
+    this.props.history.push(`/users/${record.user_id}/records/${record.id}`);
+
   }
 
 
@@ -181,15 +206,25 @@ class RecordDetail extends React.Component {
 
   render() {
     return (
-      this.state.showEditForm ?
-        <RecordForm
-          handleSubmit={this.handleEditRecord}
-          user={this.props.user}
-          record={this.state.record}
-          isEdit={true}
-          cancel={this.cancelEditRecord}
-        /> :
-
+      this.state.showEditForm || this.state.showCopyForm ?
+        this.state.showEditForm ?
+          <RecordForm
+            handleSubmit={this.handleEditRecord}
+            user={this.props.user}
+            record={this.state.record}
+            isEdit={true}
+            cancel={this.cancelEditRecord}
+            currentUser={this.props.currentUser}
+          /> :
+          <RecordForm
+            handleSubmit={this.handleCopyRecord}
+            user={this.props.user}
+            record={this.state.record}
+            isEdit={false}
+            cancel={this.cancelEditRecord}
+            currentUser={this.props.currentUser}
+          />
+        :
         <div>
           {this.props.user &&
             <div className="record-details">
@@ -212,8 +247,10 @@ class RecordDetail extends React.Component {
               </div>
               <p className="record-details-description"><em>{this.state.record.description}</em></p>
               <div className="record-form-buttons">
-                {(this.props.currentUser && this.props.currentUser.id === parseInt(this.state.record.user_id)) &&
-                  < button onClick={this.toggleForm}>edit record</button>}
+                {(this.props.currentUser && this.props.currentUser.id === parseInt(this.state.record.user_id)) ?
+                  < button onClick={this.toggleEditForm}>edit record</button> :
+                  <button onClick={this.toggleCopyForm}>add this to my collection</button>
+                }
                 {this.state.comments[0] &&
                   <button onClick={this.toggleComments}>{
                     this.state.showComments ?

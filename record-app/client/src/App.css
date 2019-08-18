@@ -298,7 +298,6 @@ a:hover {
   width: 40vw;
   height: 34vw;
   border-radius: 10px;
-  /* background: #ddd; */
   border: 10px solid #ddd;
   box-sizing: border-box;
   position: absolute;
@@ -323,6 +322,8 @@ a:hover {
   border: 10px solid #ddd;
   border-radius: 10px;
   width: 50%;
+  position: relative;
+  z-index: 10;
 }
 
 .record-info {

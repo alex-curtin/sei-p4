@@ -135,6 +135,7 @@ class App extends React.Component {
     })
   }
 
+
   loadRecentRecords = async (data) => {
     const records = await fetchRecentRecords();
     this.setState({
@@ -225,6 +226,7 @@ class App extends React.Component {
               loadRecords={this.loadRecentRecords}
               handleDelete={this.handleDeleteRecord}
               showRecent={true}
+              user={this.state.currentUser}
             />
           )}
         />

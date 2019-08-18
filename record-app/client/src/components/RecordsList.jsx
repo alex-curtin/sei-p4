@@ -23,7 +23,7 @@ class RecordsList extends React.Component {
   render() {
     return (
       <div>
-        {(this.props.records) &&
+        {(this.props.records && this.props.user) &&
           <div className="collection-page">
             <div className="collection-top">
               {this.props.showRecent ?
