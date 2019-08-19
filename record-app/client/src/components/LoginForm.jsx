@@ -23,10 +23,10 @@ const LoginForm = (props) => {
           placeholder="password"
         />
         <button>log in</button>
+        {props.loginError &&
+          <p className="login-error">incorrect username or password</p>
+        }
       </form>
-      {props.loginError &&
-        <p className="errors">incorrect username or password</p>
-      }
       <p>or <Link to='/users/register'>register</Link></p>
     </div>
   )

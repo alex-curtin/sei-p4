@@ -147,28 +147,39 @@ a:hover {
 
 .login-form {
   width: 40%;
-  height: 5vh;
+  height: 50vh;
+  border-radius: 15px;
   margin: 0 auto;
-  padding: 5vh 0;
+  padding: 10vh 5% 2vh;
+  box-sizing: border-box;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   background: darkgrey;
-  padding: 50px;
   box-shadow: 4px 4px 2px;
 }
 
 .login-form button {
-  height: 80%;
-  width: 10%;
+  height: 10%;
+  width: 20%;
   border: 1px solid darkgrey;
+  margin-bottom: 10%;
 }
 
 .login-form input {
-  height: 75%;
-  width: 50%;
-  margin-right: 1vw;
+  height: 10%;
+  width: 70%;
   border: 1px solid darkgrey;
+  margin-bottom: 10%;
+
 }
+
+.login-error {
+  color: red;
+  margin: 0;
+}
+
 
 /************ USERS LIST ***********/
 
@@ -667,7 +678,6 @@ a:hover {
     display: none;
   }
 
-
   /****BURGER*****/
   .burger-menu {
   display: none;
@@ -729,6 +739,41 @@ a:hover {
   padding-left: 0;
 }
 
+/************ LOGIN *****************/
+
+.login-page {
+  height: 70vh;
+  font-size: 24px;
+}
+
+.login-page h2 {
+  font-size: 28px;
+}
+
+.login-form {
+  width: 80%;
+  height: 40%;
+  padding: 5vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: darkgrey;
+  padding: 10px;
+  box-shadow: 4px 4px 2px;
+}
+
+.login-form button {
+  height: 15%;
+  width: 30%;
+}
+
+.login-form input {
+  height: 15%;
+  width: 65%;
+  margin-right: 0;
+}
+
 /************ USERS LIST 500px ***********/
 
 
@@ -756,31 +801,6 @@ a:hover {
   font-size: 20px;
 }
 
-.record-img-container {
-  width: 100%;
-  position: relative;
-  margin-bottom: 4%;
-}
-
-.record-disc {
-  width: 95%;
-  height: 95%;
-  background: black;
-  border-radius: 100%;
-  position: absolute;
-  top: 1%;
-}
-
-.record-img-container:hover > .record-disc {
-  left: 20%;
-}
-
-.collection img {
-  z-index: 5;
-  width: 100%;
-  box-shadow: 2px 2px 2px;
-  position: relative;
-}
 
 /************** RECORD FORM 500 *********/
 
