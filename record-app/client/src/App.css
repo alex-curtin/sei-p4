@@ -113,11 +113,12 @@ a:hover {
 
 .user-form {
   background: darkgrey;
-  width: 50vw;
-  max-width: 400px;
+  width: 70vw;
+  max-width: 450px;
   margin: 10px auto;
-  padding-bottom: 20px;
+  padding: 20px 0;
   box-shadow: 5px 5px 2px;
+  border-radius: 20px;
 }
 
 .user-form form {
@@ -130,8 +131,10 @@ a:hover {
 }
 
 .user-form input {
-  height: 15px;
-  margin-bottom: 10px;
+  height: 25px;
+  width: 50%;
+  min-width: 230px;
+  margin-bottom: 15px;
 }
 
 .errors {
@@ -746,6 +749,18 @@ a:hover {
   height: 55%;
   width: 35%;
 }
+
+/*************USER FORM 500 **************/
+
+.user-form {
+  width: 90vw;
+}
+
+.user-form button {
+  width: 25%;
+  height: 40px;
+}
+
 
 /************ USERS LIST 500px ***********/
 
