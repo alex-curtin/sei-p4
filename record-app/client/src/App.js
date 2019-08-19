@@ -11,6 +11,7 @@ import UsersList from './components/UsersList';
 import RecordsList from './components/RecordsList';
 import RecordDetail from './components/RecordDetail';
 import RecordForm from './components/RecordForm';
+import BurgerMenu from './components/BurgerMenu';
 
 import {
   registerUser, fetchUsers,
@@ -173,6 +174,7 @@ class App extends React.Component {
           handleLogOut={this.handleLogOut}
           currentUser={this.state.currentUser}
         />
+        {/* <BurgerMenu /> */}
         <Route
           exact path="/"
           render={() => <Home
