@@ -12,12 +12,14 @@ export default function Turntable(props) {
             <div className="tt-arm-2"></div>
             <div className="tt-arm-3"></div>
           </div>
-          <div className="tt-disc">
-            <div className="tt-ring">
+          <div className="tt-platter">
+            <div className="tt-disc">
               <div className="tt-ring">
                 <div className="tt-ring">
-                  <div className="tt-center">
-                    <div className="tt-spindle"></div>
+                  <div className="tt-ring">
+                    <div className="tt-center">
+                      <div className="tt-spindle"></div>
+                    </div>
                   </div>
                 </div>
               </div>

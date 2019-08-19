@@ -156,7 +156,7 @@ class App extends React.Component {
       records: [...prevState.records, record],
       showCreateForm: false,
     }))
-    this.props.history.push(`/users/${this.state.currentUser.id}/records`)
+    this.props.history.push(`/users/${this.state.currentUser.id}/records/${record.id}`)
   }
 
   //================= DELETE RECORD ===============//
