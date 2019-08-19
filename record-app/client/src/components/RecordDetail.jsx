@@ -246,10 +246,11 @@ class RecordDetail extends React.Component {
               </div>
               <p className="record-details-description"><em>{this.state.record.description}</em></p>
               <div className="record-form-buttons">
-                {(this.props.currentUser && this.props.currentUser.id === parseInt(this.state.record.user_id)) ?
-                  < button onClick={this.toggleEditForm}>edit record</button> :
-                  <button onClick={this.toggleCopyForm}>add this to my collection</button>
-                }
+                {(this.props.currentUser && this.props.currentUser.id === parseInt(this.state.record.user_id)) &&
+                  < button onClick={this.toggleEditForm}>edit record</button>}
+                {(this.props.currentUser && this.props.currentUser.id !== parseInt(this.state.record.user_id)) &&
+                  <button onClick={this.toggleCopyForm}>add this to my collection</button>}
+
                 {this.state.comments[0] &&
                   <button onClick={this.toggleComments}>{
                     this.state.showComments ?
