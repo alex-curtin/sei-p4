@@ -435,7 +435,7 @@ a:hover {
 /*************** COMMENT FORM ***********/
 
 .comment-form form {
-  background: lightgrey;
+  /* background: lightgrey; */
   width: 64.5%;
   height: 30vh;
   border-radius: 20px;
@@ -446,7 +446,6 @@ a:hover {
   box-sizing: border-box;
   padding: 2%;
 }
-
 
 .comment-form button {
   max-width: 100px;
@@ -524,8 +523,8 @@ a:hover {
   width: 80%;
   height: 80%;
   box-sizing: border-box;
-  border-top: 1px dotted white;
-  border-bottom: 1px dotted white;
+  border-top: 1px double #888;
+  border-bottom: 1px double #888;
   border-left: 1px hidden transparent;
   border-right: 1px hidden transparent;
   border-radius: 200px;

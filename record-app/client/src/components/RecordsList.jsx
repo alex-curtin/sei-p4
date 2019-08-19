@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route, withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class RecordsList extends React.Component {
   constructor(props) {
