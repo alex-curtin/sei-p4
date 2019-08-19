@@ -291,6 +291,7 @@ a:hover {
   margin: 5px 0 10px;
   font-weight: 400;
   opacity: 0.7;
+  font-size: 16px;
 }
 
 
@@ -737,6 +738,50 @@ a:hover {
   width: 70%;
 }
 
+/************ RECORDS LIST 500 ***********/
+
+.collection-page {
+  border: 5px solid darkgrey;
+  margin: 20px auto;
+  width: 85%;
+  border-radius: 30px;
+}
+
+.collection-top {
+  margin-bottom: 3vh;
+  height: 15vh;
+}
+
+.collection-title {
+  font-size: 20px;
+}
+
+.record-img-container {
+  width: 100%;
+  position: relative;
+  margin-bottom: 4%;
+}
+
+.record-disc {
+  width: 95%;
+  height: 95%;
+  background: black;
+  border-radius: 100%;
+  position: absolute;
+  top: 1%;
+}
+
+.record-img-container:hover > .record-disc {
+  left: 20%;
+}
+
+.collection img {
+  z-index: 5;
+  width: 100%;
+  box-shadow: 2px 2px 2px;
+  position: relative;
+}
+
 /************** RECORD FORM 500 *********/
 
 .record-form {
@@ -809,6 +854,5 @@ a:hover {
 .comment-form button {
   margin-top: 1vh;
 }
-
 
 }
