@@ -150,29 +150,26 @@ a:hover {
   height: 50vh;
   border-radius: 15px;
   margin: 0 auto;
-  padding: 10vh 5% 2vh;
+  padding: 5vh 3% 2vh;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   background: darkgrey;
   box-shadow: 4px 4px 2px;
 }
 
 .login-form button {
-  height: 10%;
+  height: 50%;
   width: 20%;
   border: 1px solid darkgrey;
-  margin-bottom: 10%;
+  margin: 0 auto 10%;
 }
 
 .login-form input {
-  height: 10%;
-  width: 70%;
+  height: 50%;
+  width: 90%;
   border: 1px solid darkgrey;
-  margin-bottom: 10%;
-
+  margin: 0 auto 10%;
 }
 
 .login-error {
@@ -739,39 +736,15 @@ a:hover {
   padding-left: 0;
 }
 
-/************ LOGIN *****************/
-
-.login-page {
-  height: 70vh;
-  font-size: 24px;
-}
-
-.login-page h2 {
-  font-size: 28px;
-}
+/************ LOGIN 500 *****************/
 
 .login-form {
-  width: 80%;
-  height: 40%;
-  padding: 5vh 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  background: darkgrey;
-  padding: 10px;
-  box-shadow: 4px 4px 2px;
+  width: 70%;
 }
 
 .login-form button {
-  height: 15%;
-  width: 30%;
-}
-
-.login-form input {
-  height: 15%;
-  width: 65%;
-  margin-right: 0;
+  height: 55%;
+  width: 35%;
 }
 
 /************ USERS LIST 500px ***********/
