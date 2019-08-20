@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import placeholder from '../assets/placeholder.png';
 
 class RecordsList extends React.Component {
   constructor(props) {
@@ -22,6 +23,10 @@ class RecordsList extends React.Component {
 
   componentWillUnmount() {
     this.props.clearRecords();
+  }
+
+  addDefaultImg = (e) => {
+    e.target.src = placeholder;
   }
 
   render() {
@@ -49,7 +54,7 @@ class RecordsList extends React.Component {
                 <div key={record.id} className="record">
                   <Link to={`/users/${record.user_id}/records/${record.id}`}>
                     <div className="record-img-container">
-                      <img src={record.img_url} alt={record.title} />
+                      <img onError={this.addDefaultImg} src={record.img_url} alt={record.title} />
                       <div className="record-disc"></div>
                     </div>
                   </Link>

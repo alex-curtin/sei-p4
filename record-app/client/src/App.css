@@ -120,7 +120,7 @@ a:hover {
 /*************USER FORM**************/
 
 .user-form {
-  background: darkgrey;
+  background: #bbb;
   width: 70vw;
   max-width: 450px;
   margin: 10px auto;
@@ -146,7 +146,7 @@ a:hover {
 }
 
 .errors {
-  color: red;
+  color: #f00;
 }
 
 /************ LOGIN *****************/
@@ -165,7 +165,7 @@ a:hover {
   box-sizing: border-box;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  background: darkgrey;
+  background: #aaa;
   box-shadow: 4px 4px 2px;
 }
 
@@ -184,7 +184,7 @@ a:hover {
 }
 
 .login-error {
-  color: red;
+  color: #f00;
   margin: 0;
 }
 

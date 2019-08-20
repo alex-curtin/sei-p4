@@ -204,6 +204,7 @@ class RecordDetail extends React.Component {
   }
 
   render() {
+    const record = this.props.records.find(record => record.id === parseInt(this.props.match.params.id))
     return (
       this.state.showEditForm || this.state.showCopyForm ?
         this.state.showEditForm ?
