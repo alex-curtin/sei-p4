@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authorize_request, except: [:create, :index, :show]
   
   def index
-    @users = User.all.includes
+    @users = User.all
     render json: @users.to_json(methods: [:records_count]), status: :ok
   end
 

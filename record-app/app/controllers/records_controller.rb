@@ -1,5 +1,5 @@
 class RecordsController < ApplicationController
-  before_action :authorize_request, except: %i[index show recent]
+  before_action :authorize_request, except: %i[index show recent search]
   
   def index
     @user = User.find(params[:user_id])
@@ -42,7 +42,7 @@ class RecordsController < ApplicationController
   private
 
   def record_params
-    params.require(:record).permit(:artist, :title, :year, :record_label, :cat_num, :country, :format, :speed, :disc_condition, :sleeve_condition, :description, :img_url, :user_id)
+    params.require(:record).permit(:artist, :title, :year, :record_label, :cat_num, :country, :format, :speed, :disc_condition, :sleeve_condition, :description, :img_url, :user_id, :search)
   end
 
 end
