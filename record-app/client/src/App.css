@@ -46,28 +46,32 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   background: lightgrey;
+  height: 15vh;
   max-height: 100px;
-  font-size: 2vw;
+  font-size: 18px;
 }
 
 .navbar-left {
-  width: 25%;
-  display: flex;
-  justify-content: space-around;
-  box-sizing: border-box;
-  align-items: center;
-  font-size: 2.5vw;
+  width: 20%;
+  font-size: 28px;
   font-weight: bolder;
   color: #000;
 }
 
+.navbar-left a {
+  display: grid;
+  grid-template-columns: 2fr 3fr 3fr;
+  grid-column-gap: 5px;
+  align-items: center;
+}
+
 .logo {
-  width: 6vw;
-  max-width: 70px;
+  width: 70px;
+  grid-column-start: 2;
 }
 
 .links {
-  width: 70%;
+  width: 60%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -242,7 +246,7 @@ a:hover {
   justify-content: space-around;
   align-items: flex-start;
   box-sizing: border-box;
-  padding: 0;
+  padding: 0 2vw;
   border-radius: 20px 20px 0 0; 
 }
 

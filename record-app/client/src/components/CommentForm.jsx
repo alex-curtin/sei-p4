@@ -2,7 +2,7 @@ import React from 'react';
 
 const CommentForm = (props) => {
   return (
-    <div className={"comment-form" + (props.showForm && ' edit-comment')}>
+    <div className={"comment-form" + (props.isEdit ? ' edit-comment' : ' add-comment')}>
       {props.showForm &&
         <form onSubmit={props.handleSubmit}>
           <label htmlFor="body" value="body" />

@@ -266,6 +266,7 @@ class RecordDetail extends React.Component {
             formData={this.state.commentFormData}
             showForm={this.state.showAddCommentForm}
             cancel={this.cancelAddComment}
+            isEdit={false}
           />
           <CommentsList
             showComments={this.state.showComments}

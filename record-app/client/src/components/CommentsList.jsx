@@ -14,6 +14,7 @@ const CommentsList = (props) => {
                 formData={props.formData}
                 showForm={true}
                 cancel={props.cancel}
+                isEdit={true}
               /> :
               <div>
                 <p className="comment-body">{comment.body}</p>

@@ -9,8 +9,9 @@ const NavBar = (props) => {
       <div className="navbar-left">
         <Link
           to='/'
-        ><img className="logo" src={turntable} alt="logo" /></Link>
-        <p>record zoo</p>
+        ><img className="logo" src={turntable} alt="logo" />
+          <p>record zoo</p>
+        </Link>
       </div>
       <div className="links">
         {props.currentUser &&
