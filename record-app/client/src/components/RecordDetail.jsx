@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import RecordForm from './RecordForm';
 import CommentsList from './CommentsList';
 import CommentForm from './CommentForm';
+import placeholder from '../assets/placeholder.png'
 
 import {
   fetchRecord, updateRecord,
@@ -203,8 +204,11 @@ class RecordDetail extends React.Component {
     })
   }
 
+  addDefaultImg = (e) => {
+    e.target.src = placeholder;
+  }
+
   render() {
-    const record = this.props.records.find(record => record.id === parseInt(this.props.match.params.id))
     return (
       this.state.showEditForm || this.state.showCopyForm ?
         this.state.showEditForm ?
@@ -230,7 +234,7 @@ class RecordDetail extends React.Component {
             <div className="record-details">
               <div className="box"></div>
               <div className="img-details-container">
-                <img className="record-details-img" src={this.state.record.img_url} alt={this.state.record.title} />
+                <img className="record-details-img" onError={this.addDefaultImg} src={this.state.record.img_url} alt={this.state.record.title} />
                 <div className="record-info">
                   <Link className="record-details-username"
                     to={`/users/${this.props.match.params.user_id}/records`}

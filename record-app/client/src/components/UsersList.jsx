@@ -14,7 +14,7 @@ const UsersList = (props) => {
           <div>
             <Link
               to={`/users/${user.id}/records`}>{user.username}</Link>
-            <p className="collection-size">{user.records.length} items in collection</p>
+            <p className="collection-size">{user.records_count} items in collection</p>
           </div>
         </div>
       ))}

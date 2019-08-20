@@ -8,4 +8,8 @@ class User < ApplicationRecord
 
   has_many :records, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  def records_count
+    self.records.count
+  end
 end
