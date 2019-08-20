@@ -5,6 +5,10 @@
   font-size: 1em;
 }
 
+.burger-menu {
+  display: none;
+}
+
 button {
   height: 4vh;
   min-height: 30px;
@@ -232,19 +236,19 @@ a:hover {
 .collection-top {
   background: darkgrey;
   margin-bottom: 4vh;
-  height: 20vh;
+  height: 15vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
   box-sizing: border-box;
-  padding: 2% 3.5% 0;
+  padding: 0;
   border-radius: 20px 20px 0 0; 
 }
 
 .collection-title {
   margin: 0;
-  font-size: 36px;
+  font-size: 28px;
   width: 100%;
 }
 
@@ -381,7 +385,7 @@ a:hover {
   display: flex;
   justify-content: space-around;
   box-sizing: border-box;
-  padding: 10px 30%;
+  padding: 10px 15%;
   margin-left: 20%;
   position: relative;
   z-index: 5;
@@ -433,7 +437,7 @@ a:hover {
 .comment {
   border: 10px solid #ddd;
   border-radius: 20px;
-  width: 50%;
+  width: 60%;
   margin: 1vh auto;
   padding: 1%;
 }
@@ -455,7 +459,7 @@ a:hover {
 /*************** COMMENT FORM ***********/
 
 .comment-form form {
-  /* background: lightgrey; */
+  background: lightgrey;
   width: 64.5%;
   height: 30vh;
   border-radius: 20px;
@@ -465,6 +469,15 @@ a:hover {
   justify-content: space-between;
   box-sizing: border-box;
   padding: 2%;
+}
+
+.edit-comment form {
+  width: 100%;
+  background: none;
+}
+
+.edit-comment textarea {
+  border: 1px solid #666;
 }
 
 .comment-form button {
@@ -683,14 +696,18 @@ a:hover {
 
   /****BURGER*****/
   .burger-menu {
-  display: none;
+    display: block;
   }
 
   .burger-button {
-    height: 30px;
-    width: 35px;
+    min-height: 30px;
+    min-width: 35px;
     z-index: 21;
     position: relative;
+    border: none;
+    box-shadow: none;
+    background: none;
+    padding: 0;
   }
 
   .burger-button div {
@@ -701,11 +718,28 @@ a:hover {
     border-radius: 4px;
   }
 
+  .open .burger-bar-1 {
+    transform: rotate(45deg);
+    transform-origin: left;
+    width: 65%;
+  }
+
+  .open .burger-bar-2 {
+    background: none;
+  }
+
+  .open .burger-bar-3 {
+    transform: rotate(-45deg);
+    transform-origin: left;
+    width: 65%;
+    margin: 0 auto;
+  }
+
   .burger-nav {
     width: 40vw;
     min-width: 180px;
     height: 100vh;
-    background: #ccc;
+    background: #fff;
     opacity: .9;
     position: fixed;
     top: 0;
@@ -722,6 +756,16 @@ a:hover {
     flex-direction: column;
     justify-content: space-around;
     font-size: 16px;
+  }
+
+  .burger-links button {
+    width: 100%;
+    background: none;
+    border: none;
+    box-shadow: none;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Lexend Deca', sans-serif;
   }
 
   /******************HOME 500px*********************/
@@ -789,7 +833,7 @@ a:hover {
 }
 
 .collection-title {
-  font-size: 20px;
+  font-size: 24px;
 }
 
 
@@ -849,10 +893,35 @@ a:hover {
   font-size: 2.2vw;
 }
 
+.record-form-buttons {
+  align-items: center;
+  padding: 0;
+  margin-left: 0;
+  height: 30px;
+}
+
+.record-form-buttons button {
+  height: 100%;
+}
+
 /*************** COMMENTS 500px **************/
 
 .comments-list {
-  width: 77%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.comment {
+  border: 10px solid #ddd;
+  border-radius: 20px;
+  width: 75%;
+  margin: 1vh auto;
+  padding: 1%;
+}
+
+.comment button {
+  height: 30px;
+  width: 60px;
 }
 
 /*************** COMMENT FORM ***********/
@@ -894,9 +963,7 @@ a:hover {
 }
 
 .tt-ring {
-  width: 80%;
-  height: 80%;
-  /* border-radius: 100px; */
+  border-radius: 100px;
 }
 
 .tt-center {

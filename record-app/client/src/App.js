@@ -37,6 +37,7 @@ class App extends React.Component {
       currentUser: null,
       users: [],
       records: [],
+      showBurger: true,
     }
   }
 
@@ -114,6 +115,7 @@ class App extends React.Component {
     localStorage.removeItem('jwt');
     this.setState({
       currentUser: null,
+      showBurger: false,
     })
   }
 
@@ -167,14 +169,22 @@ class App extends React.Component {
     }))
   }
 
+  //=============BURGER MENU====================//
+  toggleBurger = () => {
+    this.setState(prevState => ({
+      showBurger: !prevState.showBurger,
+    }))
+  }
+
   render() {
     return (
       <div className="App">
         <NavBar
           handleLogOut={this.handleLogOut}
           currentUser={this.state.currentUser}
+          showBurger={this.state.showBurger}
+          toggleBurger={this.toggleBurger}
         />
-        {/* <BurgerMenu /> */}
         <Route
           exact path="/"
           render={() => <Home

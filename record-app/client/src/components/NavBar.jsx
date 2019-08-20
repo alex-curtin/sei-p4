@@ -28,10 +28,12 @@ const NavBar = (props) => {
           </Link>
         }
       </div>
-      {/* <BurgerMenu
+      <BurgerMenu
         currentUser={props.currentUser}
         handleLogOut={props.handleLogOut}
-      /> */}
+        showBurger={props.showBurger}
+        toggleBurger={props.toggleBurger}
+      />
 
     </div>
   )

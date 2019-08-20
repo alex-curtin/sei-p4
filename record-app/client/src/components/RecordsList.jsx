@@ -36,7 +36,7 @@ class RecordsList extends React.Component {
                 (this.props.currentUser &&
                   this.props.currentUser.id === parseInt(this.props.match.params.id)) ?
                   <p className="collection-title">your collection</p> :
-                  <p className="collection-title">{this.props.user.username}'s collection</p>}
+                  <p className="collection-title">{this.props.user.username}</p>}
 
               {(this.props.currentUser &&
                 this.props.currentUser.id === parseInt(this.props.match.params.id)) &&

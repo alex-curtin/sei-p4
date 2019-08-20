@@ -2,7 +2,7 @@ import React from 'react';
 
 const CommentForm = (props) => {
   return (
-    <div className="comment-form">
+    <div className={"comment-form" + (props.showForm && ' edit-comment')}>
       {props.showForm &&
         <form onSubmit={props.handleSubmit}>
           <label htmlFor="body" value="body" />
