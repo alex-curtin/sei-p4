@@ -231,38 +231,40 @@ class RecordDetail extends React.Component {
         :
         <div>
           {this.props.user &&
-            <div className="record-details">
-              <div className="box"></div>
-              <div className="img-details-container">
-                <img className="record-details-img" onError={this.addDefaultImg} src={this.state.record.img_url} alt={this.state.record.title} />
-                <div className="record-info">
-                  <Link className="record-details-username"
-                    to={`/users/${this.props.match.params.user_id}/records`}
-                  ><p>from {this.props.user.username}'s collection</p></Link>
-                  <h3><b>{this.state.record.artist}</b></h3>
-                  <h4>{this.state.record.title}</h4>
-                  <p><span>Record label:</span> {this.state.record.record_label} - {this.state.record.cat_num}</p>
-                  <p><span>Year:</span> {this.state.record.year}</p>
-                  <p><span>Country:</span> {this.state.record.country}</p>
-                  <p><span>Format:</span> {this.state.record.format} | {this.state.record.speed}</p>
-                  <p><span>Disc condition:</span> {this.state.record.disc_condition}</p>
-                  <p><span>Sleeve condition:</span> {this.state.record.sleeve_condition}</p>
+            <div className="record-details-page">
+              <div className="record-details">
+                <div className="box"></div>
+                <div className="img-details-container">
+                  <img className="record-details-img" onError={this.addDefaultImg} src={this.state.record.img_url} alt={this.state.record.title} />
+                  <div className="record-info">
+                    <Link className="record-details-username"
+                      to={`/users/${this.props.match.params.user_id}/records`}
+                    ><p>from {this.props.user.username}'s collection</p></Link>
+                    <h3><b>{this.state.record.artist}</b></h3>
+                    <h4>{this.state.record.title}</h4>
+                    <p><span>Record label:</span> {this.state.record.record_label} - {this.state.record.cat_num}</p>
+                    <p><span>Year:</span> {this.state.record.year}</p>
+                    <p><span>Country:</span> {this.state.record.country}</p>
+                    <p><span>Format:</span> {this.state.record.format} | {this.state.record.speed}</p>
+                    <p><span>Disc condition:</span> {this.state.record.disc_condition}</p>
+                    <p><span>Sleeve condition:</span> {this.state.record.sleeve_condition}</p>
+                  </div>
                 </div>
-              </div>
-              <p className="record-details-description"><em>{this.state.record.description}</em></p>
-              <div className="record-form-buttons">
-                {(this.props.currentUser && this.props.currentUser.id === parseInt(this.state.record.user_id)) &&
-                  < button onClick={this.toggleEditForm}>edit record</button>}
-                {(this.props.currentUser && this.props.currentUser.id !== parseInt(this.state.record.user_id)) &&
-                  <button onClick={this.toggleCopyForm}>add this to my collection</button>}
+                <p className="record-details-description"><em>{this.state.record.description}</em></p>
+                <div className="record-form-buttons">
+                  {(this.props.currentUser && this.props.currentUser.id === parseInt(this.state.record.user_id)) &&
+                    < button onClick={this.toggleEditForm}>edit record</button>}
+                  {(this.props.currentUser && this.props.currentUser.id !== parseInt(this.state.record.user_id)) &&
+                    <button onClick={this.toggleCopyForm}>add this to my collection</button>}
 
-                {this.state.comments[0] &&
-                  <button onClick={this.toggleComments}>{
-                    this.state.showComments ?
-                      'hide comments' :
-                      'show comments'}</button>}
-                {this.props.currentUser &&
-                  <button onClick={this.toggleAddComment}>add comment</button>}
+                  {this.state.comments[0] &&
+                    <button onClick={this.toggleComments}>{
+                      this.state.showComments ?
+                        'hide comments' :
+                        'show comments'}</button>}
+                  {this.props.currentUser &&
+                    <button onClick={this.toggleAddComment}>add comment</button>}
+                </div>
               </div>
             </div>}
           <CommentForm
