@@ -336,6 +336,7 @@ a:hover {
 
 .record-details-username {
   color: #595959;
+  font-size: 16px;
 }
 
 .img-details-container {
@@ -534,6 +535,28 @@ a:hover {
   right: 21%;
 }
 
+.tt-cue {
+  width: 1.5vw;
+  height: 1.5vw;
+  background: darkgrey;
+  border: 2px solid black;
+  box-sizing: border-box;
+  border-radius: 100px;
+  position: absolute;
+  top: 33%;
+  right: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tt-cue-center {
+  width: 35%;
+  height: 100%;
+  border-left: 3px double black;
+  border-right: 3px double black;
+}
+
 .tt-platter {
   width: 69.75%;
   height: 93%;
@@ -593,7 +616,7 @@ a:hover {
   height: 85%;
   width: 15%;
   margin-left: 3%;
-  margin-bottom: 2%;
+  margin-bottom: 8%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -618,7 +641,7 @@ a:hover {
   border-right: 2px solid black;
   background: #b0b0b0;
   width: 10%;
-  height: 62%;
+  height: 66%;
   box-shadow: 2px 2px 3px #555;
 }
 
@@ -876,25 +899,36 @@ a:hover {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  transform: skew(4deg);
 }
 
 .record-details-img {
   width: 100%;
+  transform: skew(-4deg);
+}
+
+.record-details-username {
+  font-size: 16px;
 }
 
 .record-info {
   padding-top: 2vw;
   padding-left: 1vw;
-  width: 70%;
-  font-size: 2.5vw;
+  width: 90%;
+  font-size: 3.5vw;
+}
+
+.record-info p, .record-info h3, .record-info h4 {
+  margin: 7px;
+  transform: skew(-4deg);
 }
 
 .record-info span {
-  font-size: 2.2vw;
+  font-size: 2.5vw;
 }
 
 .record-details-description {
-  font-size: 2.2vw;
+  font-size: 2.5vw;
 }
 
 .record-form-buttons {
@@ -945,7 +979,6 @@ a:hover {
   width: 60vw;
   height: 60vw;
 }
-
 
 .knob-1, .knob-2 {
   width: 3vw;

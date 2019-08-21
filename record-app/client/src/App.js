@@ -37,7 +37,7 @@ class App extends React.Component {
       currentUser: null,
       users: [],
       records: [],
-      showBurger: true,
+      showBurger: false,
     }
   }
 
