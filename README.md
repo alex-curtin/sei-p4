@@ -1,5 +1,7 @@
 # SEI Project 4
 
+[live site](http://recordzoo.surge.sh)
+
 ## Project Description
 This is an app for collectors of vinyl records to keep track of their collection and view other users' collections. Users can create entries in their collection with album info (artist, title, etc.), pressing-specific info (catalog number, year), condition info, and an image url. Additionally, users can interact with eachother by posting comments on items in user collections.
 
