@@ -17,7 +17,7 @@ const Home = (props) => {
             <p>or see <Link to='/records/recent'>recently add records</Link></p>
           </div> :
           <div>
-            <p>welcome to <b>record zoo</b></p>
+            <p>welcome to <b>record shelf</b></p>
             <p><Link to={`/users`}>browse collections</Link></p>
             <p>see <Link to='/records/recent'>recently add records</Link></p>
             <p><Link to="/users/login">log in</Link> or <Link to="/users/register">register</Link> to add your own collection and post comments</p>

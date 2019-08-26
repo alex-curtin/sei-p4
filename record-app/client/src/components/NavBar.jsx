@@ -10,7 +10,7 @@ const NavBar = (props) => {
         <Link
           to='/'
         ><img className="logo" src={turntable} alt="logo" />
-          <p>record zoo</p>
+          <p>record shelf</p>
         </Link>
       </div>
       <div className="links">
